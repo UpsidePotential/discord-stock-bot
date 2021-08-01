@@ -16,7 +16,7 @@ export class TickerTracker {
   static async getTickers(count: number): Promise<TopTickers[]> {
     const tickers = await TickerModel.aggregate([
       {
-        $sortByCount: '$name'
+        $sortByCount: '$name',
       },
       {
         $limit: count,
@@ -29,10 +29,10 @@ export class TickerTracker {
   static async getTickersByUser(count: number, user: string): Promise<TopTickers[]> {
     const tickers = await TickerModel.aggregate([
       {
-        $match: { user }
+        $match: { user },
       },
       {
-        $sortByCount: '$name'
+        $sortByCount: '$name',
       },
       {
         $limit: count,

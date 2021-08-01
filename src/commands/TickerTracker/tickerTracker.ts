@@ -9,18 +9,15 @@ export const TickerTrackerCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('!top'),
   command: async (message: Message) => {
     const argument = message.content.replace('!top', '').trim();
-    let tickers = undefined;
+    let tickers;
 
-    if(argument.startsWith('<@!')) {
-      tickers = await TickerTracker.getTickersByUser(10, argument.slice(3, argument.length-1));
+    if (argument.startsWith('<@!')) {
+      tickers = await TickerTracker.getTickersByUser(10, argument.slice(3, argument.length - 1));
     } else {
       tickers = await TickerTracker.getTickers(10);
     }
 
-    const fields = tickers.map((ticker) => ({
-      name: ticker._id.toUpperCase(),
-      value: ticker.count,
-    }));
+    const fields = tickers.map((ticker) => (`${ticker._id.toUpperCase()}: ${ticker.count}`));
 
     message.channel.send({
       embed: {
@@ -30,7 +27,7 @@ export const TickerTrackerCommand: ICommand = {
         },
         color: 3447003,
         title: 'Top Tickers',
-        fields,
+        description: fields.join('\n'),
       },
     });
     return Promise.resolve();
