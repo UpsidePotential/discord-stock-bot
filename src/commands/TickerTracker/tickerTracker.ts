@@ -3,15 +3,22 @@ import { ICommand } from '../../icommand';
 import { TickerTracker } from '../../services/tickerTracker';
 
 export const TickerTrackerCommand: ICommand = {
-  name: 'Tickers',
-  helpDescription: '!tickers <n>',
+  name: '!top',
+  helpDescription: 'lists top tickers. optional include user to find top tickers buy user',
   showInHelp: true,
-  trigger: (msg: Message) => msg.content.startsWith('!tickers'),
+  trigger: (msg: Message) => msg.content.startsWith('!top'),
   command: async (message: Message) => {
-    const tickers = await TickerTracker.getTickers(10);
+    const argument = message.content.replace('!top', '').trim();
+    let tickers = undefined;
+
+    if(argument.startsWith('<@!')) {
+      tickers = await TickerTracker.getTickersByUser(10, argument.slice(3, argument.length-1));
+    } else {
+      tickers = await TickerTracker.getTickers(10);
+    }
 
     const fields = tickers.map((ticker) => ({
-      name: ticker._id,
+      name: ticker._id.toUpperCase(),
       value: ticker.count,
     }));
 
