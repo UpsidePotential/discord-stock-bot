@@ -1,7 +1,7 @@
 import { Message } from 'discord.js';
 
 import { ICommand } from '../../icommand';
-import { getCompanyFA } from './stockcharts-fa';
+import { getCompanyFA } from './finviz-fa';
 
 export const FACommand: ICommand = {
   name: 'Fundamental Analysis',
