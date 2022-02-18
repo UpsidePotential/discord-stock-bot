@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-    - master
+    - AddFACmd
   pull_request:
     branches:
-      - master
+      - AddFACmd
 
 env:
   NODE_VERSION: '14.x'
