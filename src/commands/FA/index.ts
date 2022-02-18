@@ -1,1 +1,1 @@
-export { FACommand } from "../commands/FA";
+export { FACommand } from "./fa";
