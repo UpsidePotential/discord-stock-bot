@@ -17,6 +17,6 @@
       "outDir": "./dist"
     },
     "include": ["./src/**/*", "./src/commands/FA/*"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+    //"exclude": ["node_modules", "**/*.spec.ts"]
   }
   
