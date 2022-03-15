@@ -12,6 +12,9 @@
 - `$.btc` -> Show 5 min BTC chart
 - `$usd/jpy w` -> Show USD/JPY Forex weekly chart
 
+## Information
+- `!vix` -> Display vixcentral.com VIX futures term structure chart
+
 ## Stocks, Indices, and Equities
 - Example:
 `$tsla rsi mfi`

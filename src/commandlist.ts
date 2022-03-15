@@ -13,6 +13,7 @@ import { EventsCommand } from './commands/Events';
 import { TickerTrackerCommand } from './commands/TickerTracker';
 import { InfoCommand } from './commands/Info';
 import { FACommand } from './commands/FA';
+import { VixCommand } from './commands/Vix';
 
 export const commandList: ICommand[] = [
   FuturesCommand,
@@ -31,4 +32,5 @@ export const commandList: ICommand[] = [
   InfoCommand,
   StockCharts,
   FACommand,
+  VixCommand
 ];
