@@ -15,6 +15,7 @@ import { InfoCommand } from './commands/Info';
 
 import { SQBestCommand, SQTickerCommand, SQWorstCommand } from './commands/sq';
 import { FACommand } from './commands/FA';
+import { VixCommand } from './commands/Vix';
 
 export const commandList: ICommand[] = [
   FuturesCommand,
@@ -36,4 +37,5 @@ export const commandList: ICommand[] = [
   SQTickerCommand,
   SQWorstCommand,
   FACommand,
+  VixCommand
 ];
