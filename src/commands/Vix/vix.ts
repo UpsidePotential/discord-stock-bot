@@ -15,13 +15,13 @@ export const VixCommand: ICommand = {
 
         await page.waitForSelector('div#container1');
         const element = await page.$('div#container1');
-        await element.screenshot({ path: 'vix.png' });
+        const img = await element.screenshot();
 
         await browser.close();
 
         msg.channel.send({
             files: [{
-                attachment: 'vix.png',
+                attachment: img,
                 name: 'vix.png',
                 description: 'vix futures structure'
             }]
