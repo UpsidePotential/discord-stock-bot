@@ -30,10 +30,12 @@ app.get('/screen/:which', (req, res) => {
   });
 });
 
-// start the server listening for requests
-app.listen(process.env.PORT || 3000,
-  () => console.log('Server is running...'));
+const PORT = process.env.PORT || 80;
+const server = app.listen(PORT, () => {
+    const address = server.address();
 
+    console.log("server is listening at", address);
+});
 const client = new Discord.Client();
 client.on('ready', () => {
   console.log('I am ready!');
