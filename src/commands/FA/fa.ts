@@ -33,7 +33,14 @@ export const FACommand: ICommand = {
 		  { name: 'Earnings date', value: fa_num.erdate },
         ],
       },
-    });
+    }).catch(error => {
+		// Error 50035 corresponds to empty field being sent to channel
+		if( error.code == 50035) {
+			message.channel.send("Bad news: !fa command is temporarily broken. It'll be fixed soon.");
+		    message.channel.send("Good news: Fundamentals don't matter, so you don't need to try to look it up.");
+			//Split into two send commands. It was adding an indent after newline char and couldn't figure out how to remove it.
+		}
+	});
     return Promise.resolve();
   },
 };
