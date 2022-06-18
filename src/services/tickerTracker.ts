@@ -21,7 +21,7 @@ export class TickerTracker {
 
   static getCallerMessage(userId: string): string {
     const message = TickerTracker.LastMessage.get(userId);
-    if (message != undefined) {
+    if (message !== undefined) {
       return message.callerMessageId;
     }
     return undefined;
@@ -29,7 +29,7 @@ export class TickerTracker {
 
   static getImageMessage(userId: string): string {
     const message = TickerTracker.LastMessage.get(userId);
-    if (message != undefined) {
+    if (message !== undefined) {
       return message.imageMessageId;
     }
     return undefined;
