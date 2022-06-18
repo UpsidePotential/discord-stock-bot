@@ -1,0 +1,1 @@
+export { FuckCommand } from './fuck';

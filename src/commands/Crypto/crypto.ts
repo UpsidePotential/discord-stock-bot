@@ -14,11 +14,15 @@ export const CryptoCommand: ICommand = {
     const options = [];
     for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
     TickerTracker.postTicker(ticker, message.author.id, 'crypto');
+
     const timePeriod = extractFromOptions('time_period_forex', options);
     console.log(`https://elite.finviz.com/fx_image.ashx?${ticker}usd_${timePeriod}_l.png`);
-    message.channel
+    const sentMessage = await message.channel
       .send('', {
         files: [`https://elite.finviz.com/fx_image.ashx?${ticker}usd_${timePeriod}_l.png`],
       });
+
+    TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+    return Promise.resolve();
   },
 };

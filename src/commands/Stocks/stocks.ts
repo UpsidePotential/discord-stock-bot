@@ -63,65 +63,15 @@ export const StocksCommand: ICommand = {
     if (rawOptions.find((v) => v === 'moon')) {
       await drawMoon(imgFile, message);
     } else {
-      message.channel
+      const sentMessage = await message.channel
         .send(
           {
             files: [imgFile],
           },
         );
+
+      TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
     }
-  },
-};
-
-export const StocksC2: ICommand = {
-  name: 'Stock day chart',
-  helpDescription: '!c2',
-  showInHelp: true,
-  trigger: (msg: Message) => msg.content.startsWith('!c2'),
-  command: async (message: Message) => {
-    let ticker = message.content.toLowerCase().split(' ')[1];
-    ticker = getTicker(ticker);
-
-    TickerTracker.postTicker(ticker, message.author.id, 'stock');
-
-    message.channel
-      .send(
-        {
-          files: [
-            `https://elite.finviz.com/chart.ashx?t=${
-              ticker
-            }&ty=c
-            }&p=i5&s=l`
-            + `x=${Math.random()}.png`,
-          ],
-        },
-      );
-  },
-};
-
-export const StocksC4: ICommand = {
-  name: 'Stock ta chart',
-  helpDescription: '!c4',
-  showInHelp: true,
-  trigger: (msg: Message) => msg.content.startsWith('!c4'),
-  command: async (message: Message) => {
-    let ticker = message.content.toLowerCase().split(' ')[1];
-    ticker = getTicker(ticker);
-
-    TickerTracker.postTicker(ticker, message.author.id, 'stock');
-
-    message.channel
-      .send(
-        {
-          files: [
-            `https://elite.finviz.com/chart.ashx?t=${
-              ticker
-            }&ty=c
-            &p=d&ta=st_c,sch_200p,rsi_b_14,sma_50,sma_200,sma_20`
-            + `x=${Math.random()}.png`,
-          ],
-        },
-      );
   },
 };
 
@@ -136,7 +86,7 @@ export const StockCharts: ICommand = {
 
     TickerTracker.postTicker(ticker, message.author.id, 'stock');
 
-    message.channel
+    const sentMessage = await message.channel
       .send(
         {
           files: [
@@ -144,5 +94,8 @@ export const StockCharts: ICommand = {
           ],
         },
       );
+
+    TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+    return Promise.resolve();
   },
 };

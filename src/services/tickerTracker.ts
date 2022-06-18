@@ -6,11 +6,33 @@ interface TopTickers {
 }
 
 export class TickerTracker {
+  private static LastMessage = new Map();
+
   static async postTicker(name: string, user: string, type: TickerType): Promise<void> {
     const doc = new TickerModel({
       name: name.trim(), date: Date.now(), user, type,
     });
     await doc.save();
+  }
+
+  static lastTicker(userId: string, callerMessageId: string, imageMessageId: string): void {
+    TickerTracker.LastMessage.set(userId, { callerMessageId, imageMessageId });
+  }
+
+  static getCallerMessage(userId: string): string {
+    const message = TickerTracker.LastMessage.get(userId);
+    if (message != undefined) {
+      return message.callerMessageId;
+    }
+    return undefined;
+  }
+
+  static getImageMessage(userId: string): string {
+    const message = TickerTracker.LastMessage.get(userId);
+    if (message != undefined) {
+      return message.imageMessageId;
+    }
+    return undefined;
   }
 
   static async getTickers(count: number): Promise<TopTickers[]> {

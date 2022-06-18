@@ -79,7 +79,7 @@ export const FuturesCommand: ICommand = {
       return updateText(file, message);
     }
 
-    message.channel
+    const sentMessage = await message.channel
       .send(
         {
           files: [
@@ -88,6 +88,7 @@ export const FuturesCommand: ICommand = {
         },
       );
 
+    TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
     return Promise.resolve();
   },
 };
