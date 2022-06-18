@@ -30,6 +30,7 @@ describe('stocks', () => {
     const spy = jasmine.createSpyObj<Message>('message', ['content', 'channel', 'author']);
     spy.content = '$aapl';
     const msgSpy = jasmine.createSpy();
+    msgSpy.and.returnValue({id: ""});
     spy.channel.send = msgSpy;
     await StocksCommand.command(spy);
     expect(spy.channel.send).toHaveBeenCalled();
