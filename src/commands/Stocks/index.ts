@@ -1,3 +1,3 @@
 export {
-  StocksCommand, StocksC4, StocksC2, StockCharts,
+  StocksCommand, StockCharts,
 } from './stocks';

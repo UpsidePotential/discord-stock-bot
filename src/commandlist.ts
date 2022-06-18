@@ -3,7 +3,7 @@ import { FuturesCommand } from './commands/Futures';
 import { CryptoCommand } from './commands/Crypto';
 // import { ForexCommand } from './commands/Forex';
 import {
-  StocksCommand, StocksC4, StocksC2, StockCharts,
+  StocksCommand, StockCharts,
 } from './commands/Stocks';
 import {
   ScreenerCommand, BreakoutCommand, WinnersCommand, LosersCommand,
@@ -16,6 +16,8 @@ import { InfoCommand } from './commands/Info';
 import { SQBestCommand, SQTickerCommand, SQWorstCommand } from './commands/sq';
 import { FACommand } from './commands/FA';
 
+import { FuckCommand } from './commands/Fuck';
+
 export const commandList: ICommand[] = [
   FuturesCommand,
   CryptoCommand,
@@ -24,8 +26,6 @@ export const commandList: ICommand[] = [
   ScreenerCommand,
   BreakoutCommand,
   HelpCommand,
-  StocksC4,
-  StocksC2,
   EventsCommand,
   TickerTrackerCommand,
   LosersCommand,
@@ -36,4 +36,5 @@ export const commandList: ICommand[] = [
   SQTickerCommand,
   SQWorstCommand,
   FACommand,
+  FuckCommand,
 ];

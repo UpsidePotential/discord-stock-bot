@@ -58,7 +58,6 @@ export const getWorst = async (cache: NodeCache): Promise<Ticker[]> => {
 
 export const getTicker = async (ticker: string, cache: NodeCache): Promise<Ticker> => {
   const latest = await getLatest(cache);
-  
 
   return latest.find((v) => v.TICKER === ticker.toUpperCase());
 };
