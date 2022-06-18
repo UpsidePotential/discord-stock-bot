@@ -67,28 +67,27 @@ export const SQTickerCommand: ICommand = {
   command: async (message: Message, services: any) => {
     const ticker = message.content.replace('!sq', '').trim();
     try {
-        const tickerInfo = await getTicker(ticker, services.cache);
+      const tickerInfo = await getTicker(ticker, services.cache);
 
-        const fields = [
-          {
-            name: tickerInfo.TICKER,
-            value: `1 Week Forcasted Price: ${tickerInfo.MEAN_SPOT} Forecasted Vol%: ${tickerInfo.VOL_PCT * 100}`,
-          },
-        ];
+      const fields = [
+        {
+          name: tickerInfo.TICKER,
+          value: `1 Week Forcasted Price: ${tickerInfo.MEAN_SPOT} Forecasted Vol%: ${tickerInfo.VOL_PCT * 100}`,
+        },
+      ];
 
-        message.channel.send({
-          embed: {
-            author: {
-              name: message.client.user.username,
-              icon_url: message.client.user.displayAvatarURL,
-            },
-            color: 3447003,
-            title: tickerInfo.TICKER,
-            fields,
+      message.channel.send({
+        embed: {
+          author: {
+            name: message.client.user.username,
+            icon_url: message.client.user.displayAvatarURL,
           },
-        });
-    }
-    catch (ex) {
+          color: 3447003,
+          title: tickerInfo.TICKER,
+          fields,
+        },
+      });
+    } catch (ex) {
       message.channel.send('You messed it up');
     }
     return Promise.resolve();
