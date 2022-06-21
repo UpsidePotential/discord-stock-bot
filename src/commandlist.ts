@@ -16,7 +16,7 @@ import { InfoCommand } from './commands/Info';
 import { SQBestCommand, SQTickerCommand, SQWorstCommand } from './commands/sq';
 import { FACommand } from './commands/FA';
 
-import { FuckCommand } from './commands/Fuck';
+import { FuckCommand, GapperCommand } from './commands/Fuck';
 
 export const commandList: ICommand[] = [
   FuturesCommand,
@@ -37,4 +37,5 @@ export const commandList: ICommand[] = [
   SQWorstCommand,
   FACommand,
   FuckCommand,
+  GapperCommand,
 ];

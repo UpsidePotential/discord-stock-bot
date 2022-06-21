@@ -23,3 +23,15 @@ export const FuckCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const GapperCommand: ICommand = {
+  name: 'Gappers',
+  helpDescription: 'Gappers',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!gappers'),
+  command: async (message: Message) => {
+    await message.reply("🤜🔴🤛")  
+    return Promise.resolve();
+  },
+};
+
