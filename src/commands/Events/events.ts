@@ -20,16 +20,16 @@ export const EventsCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Market Events',
         fields,
       },
-    });
+      ]});
     return Promise.resolve();
   },
 };

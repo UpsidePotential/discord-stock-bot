@@ -13,7 +13,7 @@ export const FACommand: ICommand = {
     const fa_num = await getCompanyFA(ticker);
 
     message.channel.send({
-      embed: {
+      embeds: [{
         color: 3447003,
         title: ticker.toUpperCase(),
         description: 'The following values are all taken from finviz.com',
@@ -33,7 +33,7 @@ export const FACommand: ICommand = {
 		  { name: 'Earnings date', value: fa_num.erdate },
         ],
       },
-    }).catch((error) => {
+      ]}).catch((error) => {
       // Error 50035 corresponds to empty field being sent to channel
       if (error.code == 50035) {
         message.channel.send("Bad news: !fa command is temporarily broken. It'll be fixed soon.");

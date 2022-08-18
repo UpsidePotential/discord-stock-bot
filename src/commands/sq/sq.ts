@@ -17,16 +17,16 @@ export const SQBestCommand: ICommand = {
       value: `1 Week Forcasted Price: ${value.MEAN_SPOT} Forecasted Vol%: ${value.VOL_PCT * 100}`,
     }));
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Best',
         fields,
       },
-    });
+      ]});
     return Promise.resolve();
   },
 };
@@ -45,16 +45,16 @@ export const SQWorstCommand: ICommand = {
       value: `1 Week Forcasted Price: ${value.MEAN_SPOT} Forecasted Vol%: ${value.VOL_PCT * 100}`,
     }));
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Worst',
         fields,
       },
-    });
+      ]});
     return Promise.resolve();
   },
 };
@@ -77,16 +77,16 @@ export const SQTickerCommand: ICommand = {
       ];
 
       message.channel.send({
-        embed: {
+        embeds: [{
           author: {
             name: message.client.user.username,
-            icon_url: message.client.user.displayAvatarURL,
+            icon_url: message.client.user.displayAvatarURL(),
           },
           color: 3447003,
           title: tickerInfo.TICKER,
           fields,
         },
-      });
+        ]});
     } catch (ex) {
       message.channel.send('You messed it up');
     }

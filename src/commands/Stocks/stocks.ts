@@ -1,4 +1,4 @@
-import { Message } from 'discord.js';
+import { Message, AttachmentBuilder } from 'discord.js';
 
 import { ICommand } from '../../icommand';
 import { extractFromOptions } from '../../common';
@@ -63,10 +63,11 @@ export const StocksCommand: ICommand = {
     if (rawOptions.find((v) => v === 'moon')) {
       await drawMoon(imgFile, message);
     } else {
+      const file = new AttachmentBuilder(imgFile);
       const sentMessage = await message.channel
         .send(
           {
-            files: [imgFile],
+            files: [file],
           },
         );
 

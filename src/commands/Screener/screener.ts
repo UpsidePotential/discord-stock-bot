@@ -19,17 +19,17 @@ export const ScreenerCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Custom Screener',
         url,
         fields,
       },
-    });
+      ]});
   },
 };
 
@@ -47,17 +47,17 @@ export const BreakoutCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Stock Breakout',
         url: breakingOut,
         fields,
       },
-    });
+      ]});
 
     return Promise.resolve();
   },
@@ -78,17 +78,17 @@ export const WinnersCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Winners',
         url,
         fields,
       },
-    });
+      ]});
 
     return Promise.resolve();
   },
@@ -109,17 +109,17 @@ export const LosersCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Losers',
         url,
         fields,
       },
-    });
+      ]});
 
     return Promise.resolve();
   },

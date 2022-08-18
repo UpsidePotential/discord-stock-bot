@@ -18,7 +18,7 @@ export const CryptoCommand: ICommand = {
     const timePeriod = extractFromOptions('time_period_forex', options);
     console.log(`https://elite.finviz.com/fx_image.ashx?${ticker}usd_${timePeriod}_l.png`);
     const sentMessage = await message.channel
-      .send('', {
+      .send({
         files: [`https://elite.finviz.com/fx_image.ashx?${ticker}usd_${timePeriod}_l.png`],
       });
 

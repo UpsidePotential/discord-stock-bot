@@ -26,10 +26,10 @@ export const drawMoon = (imgUrl: string, msg: Message): void => {
           {
             files: ['moonPhase.png'],
           },
-        ).then(() => fs.unlinkSync('originalFile.jpg'));
+        ).then(() => fs.unlinkSync('originalFile.png'));
     })
     .catch((err) => {
       console.error("Error processing files, let's clean it up", err);
-      fs.unlinkSync('originalFile.jpg');
+      fs.unlinkSync('originalFile.png');
     });
 };
