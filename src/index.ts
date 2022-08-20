@@ -1,49 +1,20 @@
-import Discord from 'discord.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 import { connect } from 'mongoose';
 import NodeCache from 'node-cache';
-import express from 'express';
-import got from 'got';
 import { commandList } from './commandlist';
 
 require('dotenv').config();
 
-const app = express();
-
-// use the express-static middleware
-app.use(express.static('public'));
-
-app.get('/latest', (req, res) => {
-  got(`${process.env.SQ_URI}/latest?key=${process.env.SQ_KEY}`).json().then((value) => {
-    res.json(value);
-  });
+const client = new Client({ intents: 
+  [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] 
 });
-
-app.get('/symbol/:ticker', (req, res) => {
-  got(`${process.env.SQ_URI}/symbol/${req.params.ticker}?key=${process.env.SQ_KEY}`).json().then((value) => {
-    res.json(value);
-  });
-});
-
-app.get('/screen/:which', (req, res) => {
-  got(`${process.env.SQ_URI}/symbol/${req.params.which}?key=${process.env.SQ_KEY}`).json().then((value) => {
-    res.json(value);
-  });
-});
-
-const PORT = process.env.PORT || 80;
-const server = app.listen(PORT, () => {
-  const address = server.address();
-  console.log('server is listening at', address);
-});
-
-const client = new Discord.Client();
 client.on('ready', () => {
   console.log('I am ready!');
 });
 
 const cache = new NodeCache();
 
-client.on('message', (msg) => {
+client.on('messageCreate', (msg) => {
   const commands = commandList.filter((command) => command.trigger(msg));
   Promise.all(commands.map(async (command) => {
     command.command(msg, { cache });

@@ -14,10 +14,10 @@ export const HelpCommand: ICommand = {
     }));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'StockBot BFC Edition',
@@ -25,6 +25,7 @@ export const HelpCommand: ICommand = {
         description: 'Click above to get a detailed help for what this bot can do',
         fields,
       },
+      ],
     });
     return Promise.resolve();
   },

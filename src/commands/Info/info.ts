@@ -15,7 +15,7 @@ export const InfoCommand: ICommand = {
     const companyNews = await getCompanyNews(ticker);
 
     message.channel.send({
-      embed: {
+      embeds: [{
         color: 3447003,
         title: ticker.toUpperCase(),
         fields: [
@@ -24,9 +24,10 @@ export const InfoCommand: ICommand = {
           { name: 'Summary', value: companyInfo.slice(0, 1024) },
         ],
       },
-    }).catch(error => {
+      ],
+    }).catch((error) => {
 		   // Error 50035 corresponds to empty field being sent to channel
-		   if( error.code == 50035) {
+		   if (error.code == 50035) {
 			    message.channel.send("Someone finally got off their ass and put in an error catch.\n\
 		      !info broke. Blank field returned. It'll get fixed soon.");
 		   }

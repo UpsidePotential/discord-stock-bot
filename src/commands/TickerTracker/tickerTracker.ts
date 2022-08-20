@@ -22,15 +22,16 @@ export const TickerTrackerCommand: ICommand = {
     const fields = tickers.map((ticker) => (`${ticker._id.toUpperCase()}: ${ticker.count}`));
 
     message.channel.send({
-      embed: {
+      embeds: [{
         author: {
           name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL,
+          icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
         title: 'Top Tickers',
         description: fields.join('\n'),
       },
+      ],
     });
     return Promise.resolve();
   },

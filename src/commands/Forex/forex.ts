@@ -14,7 +14,7 @@ export const ForexCommand: ICommand = {
     for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
     const timePeriod = extractFromOptions('time_period_forex', options);
     message.channel
-      .send('', {
+      .send({
         files: [
           `https://elite.finviz.com/fx_image.ashx?${
             ticker.split('/').join('')

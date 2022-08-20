@@ -1,4 +1,5 @@
 import { Message } from 'discord.js';
+import got from 'got';
 
 import { ICommand } from '../../icommand';
 import { extractFromOptions } from '../../common';
@@ -63,10 +64,11 @@ export const StocksCommand: ICommand = {
     if (rawOptions.find((v) => v === 'moon')) {
       await drawMoon(imgFile, message);
     } else {
+      const file = await got(imgFile);
       const sentMessage = await message.channel
         .send(
           {
-            files: [imgFile],
+            files: [file.rawBody],
           },
         );
 
@@ -85,12 +87,13 @@ export const StockCharts: ICommand = {
     ticker = getTicker(ticker);
 
     TickerTracker.postTicker(ticker, message.author.id, 'stock');
+    const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`);
 
     const sentMessage = await message.channel
       .send(
         {
           files: [
-            `https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`,
+            image.rawBody,
           ],
         },
       );

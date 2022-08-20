@@ -3,7 +3,7 @@ import { ICommand } from '../../icommand';
 import { TickerTracker } from '../../services/tickerTracker';
 
 const DeleteMessage = (message: Message, messageId: string): void => {
-  message.channel.fetchMessage(messageId).then((value) => {
+  message.channel.messages.fetch(messageId).then((value) => {
     value.delete().catch(() => {});
   }).catch(() => {});
 };
@@ -34,4 +34,5 @@ export const GapperCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
 
