@@ -30,8 +30,7 @@ export const GapperCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!gappers'),
   command: async (message: Message) => {
-    await message.reply("🤜🔴🤛")  
+    await message.reply('🤜🔴🤛');
     return Promise.resolve();
   },
 };
-

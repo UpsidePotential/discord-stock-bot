@@ -5,8 +5,9 @@ import { commandList } from './commandlist';
 
 require('dotenv').config();
 
-
-const client = new Client( { intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: 
+  [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] 
+});
 client.on('ready', () => {
   console.log('I am ready!');
 });

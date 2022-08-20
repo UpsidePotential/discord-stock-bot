@@ -26,7 +26,8 @@ export const SQBestCommand: ICommand = {
         title: 'Best',
         fields,
       },
-      ]});
+      ],
+    });
     return Promise.resolve();
   },
 };
@@ -54,7 +55,8 @@ export const SQWorstCommand: ICommand = {
         title: 'Worst',
         fields,
       },
-      ]});
+      ],
+    });
     return Promise.resolve();
   },
 };
@@ -86,7 +88,8 @@ export const SQTickerCommand: ICommand = {
           title: tickerInfo.TICKER,
           fields,
         },
-        ]});
+        ],
+      });
     } catch (ex) {
       message.channel.send('You messed it up');
     }

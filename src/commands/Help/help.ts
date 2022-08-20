@@ -25,7 +25,8 @@ export const HelpCommand: ICommand = {
         description: 'Click above to get a detailed help for what this bot can do',
         fields,
       },
-      ]});
+      ],
+    });
     return Promise.resolve();
   },
 };

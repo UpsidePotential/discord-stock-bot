@@ -30,7 +30,7 @@ describe('crypto', () => {
     const spy = jasmine.createSpyObj<Message>('message', ['content', 'channel', 'author']);
     spy.content = '$/es';
     const msgSpy = jasmine.createSpy();
-    msgSpy.and.returnValue({id: ""});
+    msgSpy.and.returnValue({ id: '' });
     spy.channel.send = msgSpy;
     await FuturesCommand.command(spy);
     expect(spy.channel.send).toHaveBeenCalled();

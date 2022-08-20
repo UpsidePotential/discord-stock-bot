@@ -29,7 +29,8 @@ export const EventsCommand: ICommand = {
         title: 'Market Events',
         fields,
       },
-      ]});
+      ],
+    });
     return Promise.resolve();
   },
 };

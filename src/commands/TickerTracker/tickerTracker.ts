@@ -31,7 +31,8 @@ export const TickerTrackerCommand: ICommand = {
         title: 'Top Tickers',
         description: fields.join('\n'),
       },
-      ]});
+      ],
+    });
     return Promise.resolve();
   },
 };

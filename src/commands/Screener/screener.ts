@@ -29,7 +29,8 @@ export const ScreenerCommand: ICommand = {
         url,
         fields,
       },
-      ]});
+      ],
+    });
   },
 };
 
@@ -57,7 +58,8 @@ export const BreakoutCommand: ICommand = {
         url: breakingOut,
         fields,
       },
-      ]});
+      ],
+    });
 
     return Promise.resolve();
   },
@@ -88,7 +90,8 @@ export const WinnersCommand: ICommand = {
         url,
         fields,
       },
-      ]});
+      ],
+    });
 
     return Promise.resolve();
   },
@@ -119,7 +122,8 @@ export const LosersCommand: ICommand = {
         url,
         fields,
       },
-      ]});
+      ],
+    });
 
     return Promise.resolve();
   },

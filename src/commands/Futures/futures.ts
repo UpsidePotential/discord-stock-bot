@@ -78,12 +78,12 @@ export const FuturesCommand: ICommand = {
     if (ogTicker === '/cum') {
       return updateText(file, message);
     }
-
+    const image = await got(file);
     const sentMessage = await message.channel
       .send(
         {
           files: [
-            file,
+            image.rawBody,
           ],
         },
       );
