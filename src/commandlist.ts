@@ -18,6 +18,7 @@ import { FACommand } from './commands/FA';
 
 import { FuckCommand, GapperCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand } from './commands/market_dashboard';
+import { ExtendHoursCommand } from './commands/ExtendHours';
 
 export const commandList: ICommand[] = [
   FuturesCommand,
@@ -39,5 +40,6 @@ export const commandList: ICommand[] = [
   FACommand,
   FuckCommand,
   GapperCommand,
-  CorrelationCommand, RealizedVolCommand
+  CorrelationCommand, RealizedVolCommand,
+  ExtendHoursCommand
 ];
