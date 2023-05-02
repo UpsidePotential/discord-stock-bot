@@ -79,7 +79,7 @@ export const RelRotGraphCommand: ICommand = {
   command: async (message: Message, services: any) => {
   try
   {
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/RelativeRotGraph`);
+    const image = await got('http://market-dashboard.waffletrade.lol/rrg');
 
     await message.channel
         .send(
