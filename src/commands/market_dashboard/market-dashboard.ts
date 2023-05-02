@@ -70,3 +70,31 @@ export const RealizedVolCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const RelRotGraphCommand: ICommand = {
+  name: 'Relative Rotation Graphs',
+  helpDescription: '!rrg',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!rrg'),
+  command: async (message: Message, services: any) => {
+  try
+  {
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/RelativeRotGraph`);
+
+    await message.channel
+        .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+  }
+  catch(e)
+  {
+    console.error(e);
+  }
+ 
+    return Promise.resolve();
+  },
+};

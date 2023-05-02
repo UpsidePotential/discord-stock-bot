@@ -1,1 +1,1 @@
-export { CorrelationCommand, RealizedVolCommand } from './market-dashboard';
+export { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand } from './market-dashboard';
