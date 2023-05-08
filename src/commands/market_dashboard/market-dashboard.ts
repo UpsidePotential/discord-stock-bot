@@ -79,7 +79,7 @@ export const RelRotGraphCommand: ICommand = {
   command: async (message: Message, services: any) => {
   try
   {
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/RelativeRotGraph`);
+    const image = await got('http://market-dashboard.waffletrade.lol/rrg');
 
     await message.channel
         .send(
@@ -93,6 +93,53 @@ export const RelRotGraphCommand: ICommand = {
   catch(e)
   {
     console.error(e);
+  }
+ 
+    return Promise.resolve();
+  },
+};
+
+export const DressingCommand: ICommand = {
+  name: 'Window Dressing',
+  helpDescription: '!dressing [ticker] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]'
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!dressing'),
+  command: async (message: Message, services: any) => {
+  let ticker = "SPY";
+  let start_date = "2010-01-01"
+  let end_date = "2023-01-01"
+  const args = message.content.toLowerCase().split(' ');
+  if(args.length == 2)
+  {
+    ticker = args[1];
+  }
+  else if(args.length == 3)
+  {
+    ticker = args[1];
+    start_date = args[2];
+  }
+  else if(args.length == 4)
+  {
+    ticker = args[1];
+    start_date = args[2];
+    end_date = args[3]
+  }
+
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/dressing/${ticker}/${start_date}/${end_date}`);
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
   }
  
     return Promise.resolve();
