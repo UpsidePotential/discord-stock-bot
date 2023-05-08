@@ -101,7 +101,7 @@ export const RelRotGraphCommand: ICommand = {
 
 export const DressingCommand: ICommand = {
   name: 'Window Dressing',
-  helpDescription: '!dressing [ticker] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]'
+  helpDescription: '!dressing [ticker] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]',
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!dressing'),
   command: async (message: Message, services: any) => {
