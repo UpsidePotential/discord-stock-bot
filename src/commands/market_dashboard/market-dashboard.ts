@@ -146,3 +146,50 @@ export const DressingCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const VolConeCommand: ICommand = {
+  name: 'Rvol Cone',
+  helpDescription: '!cone [ticker] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!cone'),
+  command: async (message: Message, services: any) => {
+  let ticker = "SPY";
+  let start_date = "2022-01-01"
+  let end_date = "2023-12-31"
+  const args = message.content.toLowerCase().split(' ');
+  if(args.length == 2)
+  {
+    ticker = args[1];
+  }
+  else if(args.length == 3)
+  {
+    ticker = args[1];
+    start_date = args[2];
+  }
+  else if(args.length == 4)
+  {
+    ticker = args[1];
+    start_date = args[2];
+    end_date = args[3]
+  }
+
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/IVCone/${ticker}/${start_date}/${end_date}`);
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+ 
+    return Promise.resolve();
+  },
+};
