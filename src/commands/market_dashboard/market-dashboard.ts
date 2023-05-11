@@ -79,6 +79,7 @@ export const RelRotGraphCommand: ICommand = {
   command: async (message: Message, services: any) => {
   try
   {
+
     const image = await got('${process.env.MARKET_DASHBOARD_URI}/rrg');
 
     await message.channel
