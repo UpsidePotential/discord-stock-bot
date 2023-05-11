@@ -80,7 +80,7 @@ export const RelRotGraphCommand: ICommand = {
   try
   {
 
-    const image = await got('${process.env.MARKET_DASHBOARD_URI}/rrg');
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/rrg`);
 
     await message.channel
         .send(
@@ -127,7 +127,7 @@ export const DressingCommand: ICommand = {
   }
 
   try{
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/dressing/${ticker}/${start_date}/${end_date}`);
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/dressingMain/${ticker}/${start_date}/${end_date}`);
     await message.channel
       .send(
         {
