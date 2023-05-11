@@ -17,7 +17,7 @@ import { SQBestCommand, SQTickerCommand, SQWorstCommand } from './commands/sq';
 import { FACommand } from './commands/FA';
 
 import { FuckCommand, GapperCommand } from './commands/Fuck';
-import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand } from './commands/market_dashboard';
+import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
 
 export const commandList: ICommand[] = [
@@ -41,5 +41,6 @@ export const commandList: ICommand[] = [
   FuckCommand,
   GapperCommand,
   CorrelationCommand, RealizedVolCommand,
-  ExtendHoursCommand
+  ExtendHoursCommand, RelRotGraphCommand,
+  DressingCommand
 ];
