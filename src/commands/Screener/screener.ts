@@ -67,11 +67,19 @@ export const BreakoutCommand: ICommand = {
 
 export const WinnersCommand: ICommand = {
   name: 'Winners',
-  helpDescription: '!winners top winners of the day',
+  helpDescription: '!winners (all | mid | large) top winners of the day',
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!winners'),
   command: async (message: Message) => {
-    const url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
+    const cap = message.content.split(' ')[1]
+	let url;
+	if (cap == 'large') {
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_largeover';
+    } else if (cap == 'mid') {
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_midover';
+	} else {
+	    url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
+    }
     const table = await getFinvizScreenWholeTable(url);
     const arrayLength = Math.min(table.length, 10);
     const fields = table.slice(0, arrayLength).map((value) => ({
@@ -86,7 +94,7 @@ export const WinnersCommand: ICommand = {
           icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
-        title: 'Winners',
+        title: 'Winners \n Use !winners (all | mid | large) to filter by market cap',
         url,
         fields,
       },
@@ -99,11 +107,21 @@ export const WinnersCommand: ICommand = {
 
 export const LosersCommand: ICommand = {
   name: 'Losers',
-  helpDescription: '!losers top Losers of the day',
+  helpDescription: '!losers (all | mid | large) top Losers of the day',
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!losers'),
   command: async (message: Message) => {
-    const url = 'https://finviz.com/screener.ashx?v=110&s=ta_toplosers';
+    const cap = message.content.split(' ')[1]
+
+	let url;
+	if (cap == 'large') {
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_largeover';
+    } else if (cap == 'mid') {
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_midover';
+	} else {
+	    url = 'https://finviz.com/screener.ashx?v=110&s=ta_toplosers';
+    }
+
     const table = await getFinvizScreenWholeTable(url);
     const arrayLength = Math.min(table.length, 10);
     const fields = table.slice(0, arrayLength).map((value) => ({
@@ -118,7 +136,7 @@ export const LosersCommand: ICommand = {
           icon_url: message.client.user.displayAvatarURL(),
         },
         color: 3447003,
-        title: 'Losers',
+        title: 'Losers \n Use !losers (all | mid | large) to filter by market cap',
         url,
         fields,
       },
