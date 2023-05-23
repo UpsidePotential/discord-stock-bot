@@ -77,10 +77,12 @@ export const RelRotGraphCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!rrg'),
   command: async (message: Message, services: any) => {
+  const rrg_set = message.content.split(' ')[1];
+
   try
   {
 
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/rrg`);
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/rrg/${rrg_set}`);
 
     await message.channel
         .send(
