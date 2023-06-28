@@ -85,21 +85,21 @@ export const getSymbolInfo = async (ticker: string): Promise<TickerInfo> => got(
 export const getCompanyInfo = async (ticker: string): Promise<string> => {
   const result = await got(`https://finviz.com/quote.ashx?t=${encodeURIComponent(ticker)}`);
   const $ = cheerio.load(result.body);
-  return $('body > div:nth-child(10) > div > table:nth-child(3) > tbody > tr.table-light3-row > td').text();
+  return $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(2) > tbody > tr:nth-child(9) > td > div').text();
 };
 
 export const getCompanyNews = async (ticker: string): Promise<string[]> => {
   const result = await got(`https://finviz.com/quote.ashx?t=${encodeURIComponent(ticker)}`);
   const $ = cheerio.load(result.body);
-
+  
   const news: string[] = [];
-
-  $('#news-table > tbody').each((index, element) => {
+  
+  $('#news-table#news-table > tbody').each((index, element) => {
     const tds = $(element).find('td');
     $(tds).each((i, tdElement) => {
       news.push(`${$(tdElement).text()}`);
     });
-
+	
     return true;
   });
   return news;
