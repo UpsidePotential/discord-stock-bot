@@ -29,7 +29,7 @@ export const getFinvizScreenWholeTable = async (
   const $ = cheerio.load(result.body);
   const scrapedData: FinVizTable[] = [];
   const tableHeaders: string[] = [];
-  $('#screener-content#screener-content > table > tbody > tr:nth-child(5) > td > table > tbody > tr').each((index, element) => {
+  $('#screener-views-table#screener-views-table > tbody > tr:nth-child(5) > td > table > tbody > tr').each((index, element) => {
     if (index === 0) {
       const ths = $(element).find('td');
       $(ths).each((_i, tdElement) => {
