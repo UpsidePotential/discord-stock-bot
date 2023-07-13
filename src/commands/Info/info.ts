@@ -19,7 +19,7 @@ export const InfoCommand: ICommand = {
         title: ticker.toUpperCase(),
         fields: [
           { name: 'Price', value: info.close },
-          //{ name: 'News', value: companyNews.slice(0, 10).join('\n') },
+          { name: 'News', value: companyNews.slice(0, 10).join('\n') },
           { name: 'Summary', value: companyInfo.slice(0, 1024) },
         ],
       },

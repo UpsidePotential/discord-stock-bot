@@ -91,16 +91,14 @@ export const getCompanyInfo = async (ticker: string): Promise<string> => {
 export const getCompanyNews = async (ticker: string): Promise<string[]> => {
   const result = await got(`https://finviz.com/quote.ashx?t=${encodeURIComponent(ticker)}`);
   const $ = cheerio.load(result.body);
-  
-  const news: string[] = [];
-  
-  $('#news-table#news-table > tbody').each((index, element) => {
-    const tds = $(element).find('td');
-    $(tds).each((i, tdElement) => {
-      news.push(`${$(tdElement).text()}`);
-    });
-	
-    return true;
-  });
-  return news;
+  return [($('#news-table#news-table > tbody > tr:nth-child(1) > td:nth-child(1)').text()+'  '+
+            $('#news-table#news-table > tbody > tr:nth-child(1) > td:nth-child(2) > div > div.news-link-left > a').text()),
+			($('#news-table#news-table > tbody > tr:nth-child(2) > td:nth-child(1)').text()+'  '+
+			$('#news-table#news-table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div.news-link-left > a').text()),
+            ($('#news-table#news-table > tbody > tr:nth-child(3) > td:nth-child(1)').text()+'  '+
+			$('#news-table#news-table > tbody > tr:nth-child(3) > td:nth-child(2) > div > div.news-link-left > a').text()),
+			($('#news-table#news-table > tbody > tr:nth-child(4) > td:nth-child(1)').text()+'  '+
+			$('#news-table#news-table > tbody > tr:nth-child(4) > td:nth-child(2) > div > div.news-link-left > a').text()),
+			($('#news-table#news-table > tbody > tr:nth-child(5) > td:nth-child(1)').text()+'  '+
+			$('#news-table#news-table > tbody > tr:nth-child(5) > td:nth-child(2) > div > div.news-link-left > a').text())];
 };
