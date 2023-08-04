@@ -60,8 +60,8 @@ export const FuturesCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('$/'),
   command: async (message: Message) => {
     const match = message.content.toLowerCase().match(/\$\/(\w+)/);
-
-    let ticker = message.content.toLowerCase().split(' ')[0].substring(2);
+	let ticker = 'es'
+    //let ticker = message.content.toLowerCase().split(' ')[0].substring(2);
     //const ogTicker = ticker;
     //const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
     //const options = [];
