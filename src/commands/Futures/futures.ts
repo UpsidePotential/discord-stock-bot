@@ -60,35 +60,29 @@ export const FuturesCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('$/'),
   command: async (message: Message) => {
     let ticker = message.content.toLowerCase().split(' ')[0].substring(2);
-    //const ogTicker = ticker;
-    //const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
-    //const options = [];
-    //for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
+    const ogTicker = ticker;
+    const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
+    const options = [];
+    for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
     //const timePeriod = extractFromOptions('time_period_futures', options);
-    //TickerTracker.postTicker(ticker, message.author.id, 'future');
+    TickerTracker.postTicker(ticker, message.author.id, 'future');
 
-    //ticker = getTicker(ticker);
+    ticker = getTicker(ticker);
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/futureschart/${ticker}`);
     //if (ogTicker === '/cum') {
     //  return updateText(file, message);
     //}
-    //const image = await got(file);
-	try {
-		const sentMessage = await message.channel
-		  .send(
-			{
-			  files: [
-				image.rawBody,
-			  ],
-			},
-		  );
-		} catch(e)
-    {
-      console.error(e);
-	  throw e;
-    }
 
-    //TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+	//const image = await got(file);
+    const sentMessage = await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+    TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
     return Promise.resolve();
   },
 };
