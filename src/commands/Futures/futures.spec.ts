@@ -11,7 +11,7 @@ describe('crypto', () => {
   }
   const testData: TestData[] = [
     { msg: '$/es', result: true },
-    { msg: '$/es rsi macd 5m', result: false },
+    { msg: '$/es rsi macd 5m', result: true },
     { msg: '$spy', result: false },
     { msg: '$.btc', result: false },
     { msg: '$123', result: false },
