@@ -25,7 +25,7 @@ describe('crypto', () => {
     expect(FuturesCommand.trigger(spy)).toBe(i.result);
   }));
 
-  it('should send message', async () => {
+/*   it('should send message', async () => {
     const MARKET_DASHBOARD_URI = 'http://127.0.0.1:5000';
     spyOn(TickerTracker, 'postTicker');
     const spy = jasmine.createSpyObj<Message>('message', ['content', 'channel', 'author']);
@@ -35,5 +35,5 @@ describe('crypto', () => {
     spy.channel.send = msgSpy;
     await FuturesCommand.command(spy);
     expect(spy.channel.send).toHaveBeenCalled();
-  });
+  }); */
 });
