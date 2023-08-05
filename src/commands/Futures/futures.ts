@@ -5,6 +5,8 @@ import fs from 'fs';
 import { ICommand } from '../../icommand';
 import { extractFromOptions } from '../../common';
 import { TickerTracker } from '../../services/tickerTracker';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const tickerAlias = new Map([
   ['/rusty', '/er2'],
