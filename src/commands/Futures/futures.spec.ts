@@ -26,6 +26,7 @@ describe('crypto', () => {
   }));
 
   it('should send message', async () => {
+    const MARKET_DASHBOARD_URI = 'http://127.0.0.1:5000';
     spyOn(TickerTracker, 'postTicker');
     const spy = jasmine.createSpyObj<Message>('message', ['content', 'channel', 'author']);
     spy.content = '$/es';
