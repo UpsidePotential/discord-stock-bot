@@ -61,14 +61,19 @@ export const FuturesCommand: ICommand = {
   command: async (message: Message) => {
     let ticker = message.content.toLowerCase().split(' ')[0].substring(2);
     const ogTicker = ticker;
+	let timePeriod = '5'
     const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
-    const options = [];
-    for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
-    const timePeriod = extractFromOptions('time_period_futures', options);
+	if (rawOptions[0] != "")
+	{
+		timePeriod = rawOptions[0]
+	}
+    //const options = [];
+    //for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
+    //const timePeriod = extractFromOptions('time_period_futures', options);
     //TickerTracker.postTicker(ticker, message.author.id, 'future');
 
     //ticker = getTicker(ticker);
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/futureschart/${ticker}`);
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/futureschart/${ticker}/${timePeriod}`);
 
     /* if (ogTicker === '/cum') {
       return updateText(file, message);
