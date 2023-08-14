@@ -30,7 +30,12 @@ export const EventsCommand: ICommand = {
         fields,
       },
       ],
-    });
+    }).catch((error) => {
+		   // Error 50035 corresponds to empty field being sent to channel
+		   if (error.code == 50035) {
+			    message.channel.send("BORING DAY TODAY! (Or FinViz changed their website layout...)");
+		   }
+	  });
     return Promise.resolve();
   },
 };

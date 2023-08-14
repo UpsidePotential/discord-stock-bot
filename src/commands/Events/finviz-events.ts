@@ -20,18 +20,19 @@ export const getFinvizEventsTable = async (
   const tableHeaders: string[] = [];
 
   $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(1) > table > tbody > tr').each((index, element) => {
-    if (index === 0) {
-      const ths = $(element).find('td');
-      $(ths).each((_i, tdElement) => {
-        tableHeaders.push(
-          $(tdElement)
-            .text()
-            .toLowerCase()
-            .replace(/\s/g, ''),
-        );
-      });
-      return true;
-    }
+	if (index === 0) {
+	  const ths = $(element).find('td');
+	  $(ths).each((_i, tdElement) => {
+		tableHeaders.push(
+		  $(tdElement)
+			.text()
+			.toLowerCase()
+			.replace(/\s/g, ''),
+		);
+	  });
+	  return true;
+	}
+	
 
     const tds = $(element).find('td');
     const tableRow: any = {};
