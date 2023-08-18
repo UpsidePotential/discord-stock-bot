@@ -263,3 +263,34 @@ export const PairsCommand: ICommand = {
   }
   },
 };
+
+export const VixBinsCommand: ICommand = {
+  name: 'Vix Bin Graphs',
+  helpDescription: '!vixbin',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vixbin'),
+  command: async (message: Message, services: any) => {
+  const rrg_set = message.content.split(' ')[1];
+
+  try
+  {
+
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixbins`);
+
+    await message.channel
+        .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+  }
+  catch(e)
+  {
+    console.error(e);
+  }
+ 
+    return Promise.resolve();
+  },
+};
