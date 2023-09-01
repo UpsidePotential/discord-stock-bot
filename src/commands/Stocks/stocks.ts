@@ -39,7 +39,8 @@ export const StocksCommand: ICommand = {
   },
   command: async (message: Message) => {
     let ticker = message.content.toLowerCase().split(' ')[0].substring(1);
-    const rawOptions = message.content.toLowerCase().split(ticker)[1].split(' ');
+    const rawOptions = message.content.toLowerCase().split(' ').slice(1);
+	rawOptions.unshift(' ')
     const options = [];
     for (let i = 1; i < rawOptions.length; i++) options.push(rawOptions[i]);
     let timePeriod = extractFromOptions('time_period', options);
