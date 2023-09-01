@@ -263,3 +263,70 @@ export const PairsCommand: ICommand = {
   }
   },
 };
+
+
+export const CoTCommand: ICommand = {
+  name: 'Commitment of Traders Charts',
+  helpDescription: '!cot [ticker]',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!cot'),
+  command: async (message: Message, services: any) => {
+  let ticker = "es";
+  const args = message.content.toLowerCase().split(' ');
+  if(args.length == 2)
+  {
+    ticker = args[1].replace(/\//g, "");
+  }
+
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/cotchart/${ticker}`);
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+
+  }
+ 
+    return Promise.resolve();
+  },
+};
+
+export const VixBinsCommand: ICommand = {
+  name: 'Vix Bin Graphs',
+  helpDescription: '!vixbin',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vixbin'),
+  command: async (message: Message, services: any) => {
+  const rrg_set = message.content.split(' ')[1];
+
+  try
+  {
+
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixbins`);
+
+    await message.channel
+        .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+  }
+  catch(e)
+  {
+    console.error(e);
+
+  }
+ 
+    return Promise.resolve();
+  },
+};
