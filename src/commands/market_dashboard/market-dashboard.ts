@@ -330,3 +330,56 @@ export const VixBinsCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const RelChartCommand: ICommand = {
+  name: 'Relative Percent Chart',
+  helpDescription: '!rel [ticker1] [ticker2] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!rel'),
+  command: async (message: Message, services: any) => {
+  let ticker_1 = "SPY";
+  let ticker_2 = "QQQ"
+  let start_date = "1111-11-11"
+  let end_date = "1111-11-11"
+  const args = message.content.toLowerCase().split(' ');
+  if(args.length == 2)
+  {
+    ticker_1 = args[1];
+  }
+  else if(args.length == 3)
+  {
+    ticker_1 = args[1];
+    ticker_2 = args[2];
+  }
+  else if(args.length == 4)
+  {
+    ticker_1 = args[1];
+	ticker_2 = args[2]
+    start_date = args[3];
+  }
+  else if(args.length == 5)
+  {
+    ticker_1 = args[1];
+	ticker_2 = args[2]
+    start_date = args[3];
+	end_date = args[4]
+  }
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/relChartMain/${ticker_1}/${ticker_2}/${start_date}/${end_date}`);
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+    return Promise.resolve();
+  },
+};
