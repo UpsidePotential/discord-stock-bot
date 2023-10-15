@@ -17,12 +17,11 @@ export const getFinvizEventsTable = async (
   const result = await got('https://www.finviz.com');
   const $ = cheerio.load(result.body);
   const scrapedData: FinVizTable[] = [];
-  const tableHeaders: string[] = [];
-
-  $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(1) > table > tbody > tr').each((index, element) => {
-	if (index === 0) {
-	  const ths = $(element).find('td');
+  const tableHeaders: string[] = ['date','time','impact','release','impact','for','actual','expected','prior'];
+  /* $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(1) > table > thead > tr').each((index, element) => {
+	  const ths = $(element);
 	  $(ths).each((_i, tdElement) => {
+	    console.log('hello')
 		tableHeaders.push(
 		  $(tdElement)
 			.text()
@@ -31,9 +30,8 @@ export const getFinvizEventsTable = async (
 		);
 	  });
 	  return true;
-	}
-	
-
+  }); */
+  $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(1) > table > tbody > tr').each((index, element) => {
     const tds = $(element).find('td');
     const tableRow: any = {};
     $(tds).each((i, tdElement) => {
