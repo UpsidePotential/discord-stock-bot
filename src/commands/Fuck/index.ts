@@ -1,1 +1,1 @@
-export { FuckCommand, GapperCommand } from './fuck';
+export { FuckCommand, GapperCommand, ManateeCommand } from './fuck';
