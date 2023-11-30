@@ -28,9 +28,9 @@ export const getFinvizScreenWholeTable = async (
   const result = await got(finvizScreenerUrl);
   const $ = cheerio.load(result.body);
   const scrapedData: FinVizTable[] = [];
-  const tableHeaders: string[] = [];
-  $('#screener-table#screener-table > td > table > tbody > tr > td > table > tbody > tr').each((index, element) => {
-    if (index === 0) {
+  const tableHeaders: string[] = ['No.','ticker','Company','Sector','Industry','Country','Market Cap','P/E','price','change','Volume'];
+  $('#screener-table > td > table > tbody > tr > td > table > tbody > tr').each((index, element) => {
+    /* if (index === 0) {
       const ths = $(element).find('td');
       $(ths).each((_i, tdElement) => {
         tableHeaders.push(
@@ -41,7 +41,7 @@ export const getFinvizScreenWholeTable = async (
         );
       });
       return true;
-    }
+    } */
 
     const tds = $(element).find('td');
     const tableRow: any = {};
