@@ -74,9 +74,9 @@ export const WinnersCommand: ICommand = {
     const cap = message.content.split(' ')[1]
 	let url;
 	if (cap == 'large') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_largeover';
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_large';
     } else if (cap == 'mid') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_midover';
+	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_mid';
 	} else {
 	    url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
     }
