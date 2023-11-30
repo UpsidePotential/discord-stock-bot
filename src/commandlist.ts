@@ -17,7 +17,7 @@ import { SQBestCommand, SQTickerCommand, SQWorstCommand } from './commands/sq';
 import { FACommand } from './commands/FA';
 import { StatsCommand } from './commands/Stats';
 
-import { FuckCommand, GapperCommand } from './commands/Fuck';
+import { FuckCommand, GapperCommand, ManateeCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
@@ -41,7 +41,7 @@ export const commandList: ICommand[] = [
   SQWorstCommand,
   FACommand,
   StatsCommand,
-  FuckCommand,
+  FuckCommand, ManateeCommand,
   GapperCommand,
   CorrelationCommand, RealizedVolCommand,
   ExtendHoursCommand, RelRotGraphCommand,
