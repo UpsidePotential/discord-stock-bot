@@ -146,11 +146,13 @@ export const NewLowCommand: ICommand = {
   name: 'newLow',
   helpDescription: 'newLow',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'new lows'),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('new lows')),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 50) {
+    if (i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
+	} else if (i_rand >= 21 && i_rand < 40) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newLows2.gif"] })
 	}
     return Promise.resolve();
   },
