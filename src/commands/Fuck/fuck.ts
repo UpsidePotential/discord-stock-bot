@@ -155,6 +155,7 @@ export const NewLowCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('new lows')),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
+
     if (i_rand < 17) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
 	} else if (i_rand >= 18 && i_rand < 35) {
