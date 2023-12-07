@@ -132,11 +132,17 @@ export const NewHighCommand: ICommand = {
   name: 'newHigh',
   helpDescription: 'newHigh',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === "new highs"),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith("new highs")),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 50) {
+    if (i_rand < 10) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newHighs.jpg"] })
+	} else if (i_rand >= 11 && i_rand < 20) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newHighs2.gif"] })
+	} else if (i_rand >= 21 && i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newHighs3.gif"] })
+	} else if (i_rand >= 31 && i_rand < 40) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newHighs4.gif"] })
 	}
     return Promise.resolve();
   },
@@ -146,12 +152,17 @@ export const NewLowCommand: ICommand = {
   name: 'newLow',
   helpDescription: 'newLow',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'new lows'),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('new lows')),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 50) {
+    if (i_rand < 17) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
+	} else if (i_rand >= 18 && i_rand < 35) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newLows2.gif"] })
+	} else if (i_rand >= 35 && i_rand < 51) {
+		await message.reply({ files : ["./src/commands/Fuck/images/newLows3.gif"] })
 	}
+	
     return Promise.resolve();
   },
 };
@@ -249,6 +260,24 @@ Remember to maintain a confident and relaxed expression for a genuine and appeal
 	} else {
 	    await message.reply("$tqqq d")
 	}
+    return Promise.resolve();
+  },
+};
+
+export const ModsCommand: ICommand = {
+  name: 'mods',
+  helpDescription: 'mods',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('mods')),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 10) {
+		await message.reply("MODS! MODS!!!! PLEASE MODS! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
+		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
+	} else if (i_rand >= 11 && i_rand < 20) {
+		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
+	}
+	
     return Promise.resolve();
   },
 };
