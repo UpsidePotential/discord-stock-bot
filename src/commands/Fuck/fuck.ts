@@ -113,7 +113,12 @@ export const SepistCommand: ICommand = {
 	} else if (i_rand >= 77 && i_rand < 88) {
 		await message.reply("$/bz d")
 	} else {
-	    await message.reply("$amzn d")
+	    await message.reply("I'm a humble landlord, carrying the weight,\n\Juggling repairs and an ever-growing slate.\n\
+Society will never understand my plight,\n\In this landlord life, it's a constant fight.\n\n\Repainting walls and rented halls,\n\
+Witness to tenants' rise and falls.\n\Leaving garbage with maggots in their wake,\n\A landlord's dilemma, decisions to make.\n\n\
+Every late-night call, every rent dispute,\n\A puzzle to solve, a neverending pursuit\n\Of keeping the peace in this rented space,\n\
+Being a landlord, it's no easy embrace.\n\n\So here's to the landlords, modern day knights!\n\Facing the challenges with all their might!\n\
+A thankless job, their stories untold,\n\Providing valuable services, while constantly trolled.")
 	}
     return Promise.resolve();
   },
