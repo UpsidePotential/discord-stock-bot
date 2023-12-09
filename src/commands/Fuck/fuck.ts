@@ -336,7 +336,7 @@ export const HurfCommand: ICommand = {
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
 			const keys = Object.keys(matrix);
-			return keys[Math.floor(Math.random() * 4)];
+			return keys[Math.floor(Math.random() * 5)];
 		}
 		function getRandomWordFromArray(wordArray: string[] | undefined): string | undefined {
 			if (!wordArray || wordArray.length === 0) {
