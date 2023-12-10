@@ -18,8 +18,9 @@ import { FACommand } from './commands/FA';
 import { StatsCommand } from './commands/Stats';
 
 import { FuckCommand, GapperCommand, ManateeCommand, PastramiCommand, SepistCommand } from './commands/Fuck';
-import { PixxalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephCommand } from './commands/Fuck';
-import { MilkCommand, JoshCommand, ModsCommand } from './commands/Fuck';
+import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephCommand } from './commands/Fuck';
+import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand } from './commands/Fuck';
+import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
@@ -44,8 +45,10 @@ export const commandList: ICommand[] = [
   FACommand,
   StatsCommand,
   FuckCommand, ManateeCommand, PastramiCommand, SepistCommand,
-  PixxalCommand, NewHighCommand, NewLowCommand, ShitlordCommand,
-  ZephCommand, MilkCommand, JoshCommand, ModsCommand,
+  PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand,
+  ZephCommand, MilkCommand, JoshCommand, ModsCommand, HurfCommand,
+  AdrenalCommand, WetGoodsCommand, TootersCommand, FlowinCommand, 
+  DanglingCommand, NetbusCommand,
   GapperCommand,
   CorrelationCommand, RealizedVolCommand,
   ExtendHoursCommand, RelRotGraphCommand,
