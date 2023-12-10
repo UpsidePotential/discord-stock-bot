@@ -20,22 +20,22 @@ export const getCompanyFA = async (ticker: string): Promise<fa_num> => {
   const $ = cheerio.load(result.body);
 
   const fa_num = {
-    pe: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(4) > b').text(),
-    epsttm: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(6) > b').text(),
+    pe: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(4) > b').text(),
+    epsttm: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(6) > b').text(),
 
-    fpe: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(4)').text(),
+    fpe: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(4)').text(),
 
-    epsnextq: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(6) > b').text(),
+    epsnextq: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(6) > b').text(),
 
-    ps: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(4) > b').text(),
+    ps: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(4) > b').text(),
 
-    divi: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(2) > b').text(),
-    pfcf: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(4) > b').text(),
+    divi: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(2) > b').text(),
+    pfcf: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(4) > b').text(),
 
-    diviperc: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(8) > td:nth-child(2) > b').text(),
-    salesqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(9) > td:nth-child(6) > b').text(),
-    epsqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(10) > td:nth-child(6) > b').text(),
-    erdate: $('body > div.content > div.ticker-wrapper.gradient-fade > div.fv-container > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.snapshot-table-wrapper > table > tbody > tr:nth-child(11) > td:nth-child(6) > b').text(),
+    diviperc: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(8) > td:nth-child(2) > b').text(),
+    salesqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(9) > td:nth-child(6) > b').text(),
+    epsqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(10) > td:nth-child(6) > b').text(),
+    erdate: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(11) > td:nth-child(6) > b').text(),
   };
   return fa_num;
 };
