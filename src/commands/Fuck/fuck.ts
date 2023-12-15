@@ -103,13 +103,13 @@ export const SepistCommand: ICommand = {
 	} else if (i_rand >= 22 && i_rand < 33) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sep3.png"] })
 	} else if (i_rand >= 33 && i_rand < 44) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sep4.png"] })
+		await message.reply({ files : ["./src/commands/Fuck/images/Sep4.jpg"] })
 	} else if (i_rand >= 44 && i_rand < 55) {
 		await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY')
 	} else if (i_rand >= 55 && i_rand < 66) {
 		await message.reply('https://www.dona.org/')
 	} else if (i_rand >= 66 && i_rand < 77) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] })
+		await message.reply({ files : ["./src/commands/Fuck/images/Sep5.jpg"] })
 	} else if (i_rand >= 77 && i_rand < 88) {
 		await message.reply("$/bz d")
 	} else {
@@ -288,13 +288,13 @@ Pay attention to the lighting to ***enhance*** the 'details' of your bulge.\n\
 Experiment with different angles and poses to find the most flattering composition for your *outline*. \
 Remember to maintain a confident and relaxed expression for a genuine and appealing photograph.")
 	} else if (i_rand >= 20 && i_rand < 35) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Josh3.png"] })
+		await message.reply({ files : ["./src/commands/Fuck/images/Josh2.png"] })
 	} else if (i_rand >= 35 && i_rand < 50) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Josh.png"] })
 	} else if (i_rand >= 50 && i_rand < 65) {
 		await message.reply('https://www.youtube.com/watch?v=o3YadwGH0ZA')
 	} else if (i_rand >= 65 && i_rand < 80) {
-		await message.reply('https://www.youtube.com/watch?v=hkQcqW_etcs&list=PLjRy_xUvY5o2SKilmiVmxXeBkhfx8P9DW')
+		await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
 	} else {
 	    await message.reply("$tqqq d")
 	}
@@ -310,7 +310,7 @@ export const ModsCommand: ICommand = {
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 10) {
-		await message.reply("MODS! MODS!!!! PLEASE MODS! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
+		await message.reply("PLEASE MODS! MODS!!!! PLEASE!!! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
 		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
 	} else if (i_rand >= 11 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
@@ -477,6 +477,101 @@ export const NetbusCommand: ICommand = {
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
 	}
+    return Promise.resolve();
+  },
+};
+
+export const ToalyCommand: ICommand = {
+  name: 'Toaly',
+  helpDescription: 'Toaly',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!toaly'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+	let quant = Math.floor(Math.random() * 10);
+	let cost = Math.floor(Math.random() * 1000);
+    if (i_rand < 15) {
+		await message.reply("\:cry:")
+		await message.reply("Please hit the buy button. Toaly needs this to pump or else they're going to be RUINED.")
+	} else if (i_rand >= 15 && i_rand < 30 ) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Toaly1.png"] })
+	} else if (i_rand < 30 && i_rand < 45) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Toaly2.png"] })
+	} else if (i_rand < 45 && i_rand < 60) {
+		await message.reply("Toaly has entered "+quant.toString()+" trades in the last 5 minutes.")
+	} else if (i_rand < 45 && i_rand < 60) {
+		await message.reply("Yes, Toaly is still long. Please check back later.")
+	} else if (i_rand < 60 && i_rand < 75) {
+		await message.reply("Yes, Toaly is still short, but not as short as Hurf.")
+	} else {
+		await message.reply("Toaly's been ruined "+cost.toString()+" times in the past 30 days. \:cry:")
+	}
+    return Promise.resolve();
+  },
+};
+
+export const PotyCommand: ICommand = {
+  name: 'Poty',
+  helpDescription: 'Poty',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!poty'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 5) {
+		await message.reply("Poster of the year");
+	} else if (i_rand < 10) {
+		await message.reply("Poty of the year");
+	} else if (i_rand < 15) {
+		await message.reply("Positivity of the year");
+	} else if (i_rand < 20) {
+		await message.reply("Protocol of the year");
+	} else if (i_rand < 25) {
+		await message.reply("Panic at the Disco of the year");
+	} else if (i_rand < 30) {
+		await message.reply("Paladin of the year");
+	} else if (i_rand < 35) {
+		await message.reply("Pulmonary of the year");
+	} else if (i_rand < 40) {
+		await message.reply("Platitude of the year");
+	} else if (i_rand < 45) {
+		await message.reply("Pistachio of the year");
+	} else if (i_rand < 50) {
+		await message.reply("Pan-European of the year");
+	} else if (i_rand < 55) {
+		await message.reply("Poop of the year");
+	} else if (i_rand < 60) {
+		await message.reply("Player of the year");
+	} else if (i_rand < 65) {
+		await message.reply("Polka dancer of the year");
+	} else if (i_rand < 70) {
+		await message.reply("Proton of the year");
+	} else if (i_rand < 75) {
+		await message.reply("Psyduck of the year");
+	} else if (i_rand < 80) {
+		await message.reply("Precipitation of the year");
+	} else if (i_rand < 85) {
+		await message.reply("Pollutant of the year");
+	} else if (i_rand < 90) {
+		await message.reply("Pyrocumulonimbus storm of the year");
+	} else {
+		await message.reply("Phriend of the year");
+	}
+    return Promise.resolve();
+  },
+};
+
+export const PotyPassive: ICommand = {
+  name: 'PotyPassive',
+  helpDescription: 'PotyPassive',
+  showInHelp: false,
+  trigger: (msg: Message) => (/\bpoty\b/i.test(msg.content)),
+  command: async (message: Message) => {
+    const emotes = ['💯','🤜','🔴','🤛','😄','🍎','🍊','🍇','👍','👎','💪','🌱','📣','👏','👊','💭',
+'✔','❌','♥','♦','♣','♠','✈'];
+	await message.react(emotes[Math.floor(Math.random() * emotes.length)])
+	await message.react(emotes[Math.floor(Math.random() * emotes.length)])
+	await message.react(emotes[Math.floor(Math.random() * emotes.length)])
+	
     return Promise.resolve();
   },
 };
