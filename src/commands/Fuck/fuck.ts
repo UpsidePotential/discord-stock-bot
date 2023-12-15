@@ -575,3 +575,18 @@ export const PotyPassive: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const FreelanceCommand: ICommand = {
+  name: 'Freelance',
+  helpDescription: 'Freelance',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!freelance'),
+  command: async (message: Message) => {
+	const fs = require('fs')
+	const fileContent = fs.readFileSync('./src/commands/Fuck/images/Horses.txt', 'utf-8');
+	const lines = fileContent.split('\n');
+	const line = lines[Math.floor(Math.random() * lines.length)]
+	await message.reply(line)
+    return Promise.resolve();
+  },
+};
