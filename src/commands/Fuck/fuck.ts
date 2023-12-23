@@ -46,17 +46,15 @@ export const ManateeCommand: ICommand = {
     let i_rand =  Math.floor(Math.random() * 100); 
 	let quant = Math.floor(Math.random() * 10);
 	let cost = Math.floor(Math.random() * (18000 - 15000) + 15000);
-    if (i_rand < 15) {
-		await message.reply("**MODS**, probably Manatee")
-	} else if (i_rand >= 15 && i_rand < 30) {
+    if (i_rand < 20) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Manatee1.png"] })
+	} else if (i_rand >= 20 && i_rand < 40) {
 		await message.reply("According to my logs, Manatee is the most persecuted poster on this Discord.")
-	} else if (i_rand >= 30 && i_rand < 45) {
+	} else if (i_rand >= 40 && i_rand < 60) {
 	    await message.reply("__***BANATEE***__")
-	} else if (i_rand >= 45 && i_rand < 55) {
-	    await message.reply("Manatee's currently long "+quant.toString()+" NQ contracts from "+cost.toString())
-	} else if (i_rand >= 55 && i_rand < 65) {
-	    await message.reply("Manatee's currently short "+quant.toString()+" NQ contracts from "+cost.toString())
-    } else if (i_rand >= 65 && i_rand < 80) {
+	} else if (i_rand >= 60 && i_rand < 80) {
+	    await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] })
+    } else if (i_rand >= 80 && i_rand < 90) {
 	    await message.reply("$spy")
 	} else {
 	    await message.reply("$qqq")
@@ -96,21 +94,21 @@ export const SepistCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!sepist'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 11) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] })
-	} else if (i_rand >= 11 && i_rand < 22) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] })
-	} else if (i_rand >= 22 && i_rand < 33) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sep3.png"] })
-	} else if (i_rand >= 33 && i_rand < 44) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Sep4.jpg"] })
-	} else if (i_rand >= 44 && i_rand < 55) {
-		await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY')
-	} else if (i_rand >= 55 && i_rand < 66) {
-		await message.reply('https://www.dona.org/')
-	} else if (i_rand >= 66 && i_rand < 77) {
+    if (i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sep5.jpg"] })
-	} else if (i_rand >= 77 && i_rand < 88) {
+	} else if (i_rand >= 15 && i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] })
+	} else if (i_rand >= 30 && i_rand < 45) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] })
+	} else if (i_rand >= 45 && i_rand < 60) {
+		await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY')
+	} else if (i_rand >= 60 && i_rand < 75) {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Sepist.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	} else if (i_rand >= 75 && i_rand < 90) {
 		await message.reply("$/bz d")
 	} else {
 	    await message.reply("I'm a humble landlord, carrying the weight,\n\Juggling repairs and an ever-growing slate.\n\
@@ -134,7 +132,7 @@ export const PixaalCommand: ICommand = {
     if (i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Pix1.png"] })
 	} else if (i_rand >= 15 && i_rand < 30) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Pix2.png"] })
+		await message.reply({ files : ["./src/commands/Fuck/images/pix2.png"] })
 	} else if (i_rand >= 30 && i_rand < 45) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Pix3.png"] })
 	} else if (i_rand >= 45 && i_rand < 60) {
@@ -155,13 +153,13 @@ export const NewHighCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith("new highs")),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 10) {
+    if (i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newHighs.jpg"] })
-	} else if (i_rand >= 11 && i_rand < 20) {
+	} else if (i_rand >= 20 && i_rand < 40) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newHighs2.gif"] })
-	} else if (i_rand >= 21 && i_rand < 30) {
+	} else if (i_rand >= 40 && i_rand < 60) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newHighs3.gif"] })
-	} else if (i_rand >= 31 && i_rand < 40) {
+	} else if (i_rand >= 60 && i_rand < 80) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newHighs4.gif"] })
 	}
     return Promise.resolve();
@@ -176,13 +174,13 @@ export const NewLowCommand: ICommand = {
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
 
-    if (i_rand < 15) {
+    if (i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
-	} else if (i_rand >= 15 && i_rand < 30) {
+	} else if (i_rand >= 20 && i_rand < 40) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows2.gif"] })
-	} else if (i_rand >= 30 && i_rand < 45) {
+	} else if (i_rand >= 40 && i_rand < 60) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows3.gif"] })
-	} else if (i_rand >= 45 && i_rand < 60) {
+	} else if (i_rand >= 60 && i_rand < 80) {
 		await message.reply({ files : ["./src/commands/Fuck/images/newLows4.gif"] })
 	}
 	
@@ -217,15 +215,15 @@ export const ZephCommand: ICommand = {
 		await message.reply({ files : ["./src/commands/Fuck/images/Zeph1.png"] })
 	} else if (i_rand >= 16 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Zeph2.png"] })
-	} else if (i_rand >= 30 && i_rand < 50) {
+	} else if (i_rand >= 30 && i_rand < 65) {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Cars.txt', 'utf-8');
 		const lines = fileContent.split('\n');
 		const line = lines[Math.floor(Math.random() * lines.length)]
 		await message.reply(line)
-	} else if (i_rand >= 50 && i_rand < 65) {
-		await message.reply("$kold")
 	} else if (i_rand >= 65 && i_rand < 80) {
+		await message.reply("$kold")
+	} else if (i_rand >= 80 && i_rand < 90) {
 		await message.reply("$sgov m")
 	} else {
 	    await message.reply("$svix d")
@@ -243,15 +241,15 @@ export const MilkCommand: ICommand = {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/ohio.gif"] })
-	} else if (i_rand >= 15 && i_rand < 35) {
+	} else if (i_rand >= 15 && i_rand < 30) {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Bridges.txt', 'utf-8');
 		const lines = fileContent.split('\n');
 		const line = lines[Math.floor(Math.random() * lines.length)]
 		await message.reply(line)
-	} else if (i_rand >= 35 && i_rand < 47) {
+	} else if (i_rand >= 30 && i_rand < 45) {
 		await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
-	} else if (i_rand >= 47 && i_rand < 60) {
+	} else if (i_rand >= 45 && i_rand < 60) {
 	    await message.reply("I see the current S&P 500 as a colossal suspension bridge pushed to its limits. \
 The market resembles a structure with cables drawn tightly, mirroring an elevated price-to-earnings ratio. The \
 economic landscape appears as turbulent winds, with inflation as the wind shear pushing the structure to its absolute limits. \
@@ -309,12 +307,12 @@ export const ModsCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('mods')),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 10) {
+    if (i_rand < 15) {
 		await message.reply("PLEASE MODS! MODS!!!! PLEASE!!! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
 		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
-	} else if (i_rand >= 11 && i_rand < 20) {
+	} else if (i_rand >= 15 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
-	} else if (i_rand >= 21 && i_rand < 30) {
+	} else if (i_rand >= 30 && i_rand < 45) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods2.gif"] })
 	}
 	
@@ -330,9 +328,17 @@ export const HurfCommand: ICommand = {
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf1.png"] })
-	} else if (i_rand >= 15 && i_rand < 25) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
+	} else if (i_rand >= 15 && i_rand < 20) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf1.png"]})
+	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
+	} else if (i_rand >= 25 && i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+	} else if (i_rand >= 30 && i_rand < 35) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
+	} else if (i_rand >= 35 && i_rand < 40) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf5.png"]})
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
 			const keys = Object.keys(matrix);
@@ -530,7 +536,7 @@ export const PotyCommand: ICommand = {
 	} else if (i_rand < 30) {
 		await message.reply("Paladin of the year");
 	} else if (i_rand < 35) {
-		await message.reply("Pulmonary of the year");
+		await message.reply("Party of the year");
 	} else if (i_rand < 40) {
 		await message.reply("Platitude of the year");
 	} else if (i_rand < 45) {
@@ -538,19 +544,19 @@ export const PotyCommand: ICommand = {
 	} else if (i_rand < 50) {
 		await message.reply("Pan-European of the year");
 	} else if (i_rand < 55) {
-		await message.reply("Poop of the year");
+		await message.reply("Purple Rain of the year");
 	} else if (i_rand < 60) {
 		await message.reply("Player of the year");
 	} else if (i_rand < 65) {
 		await message.reply("Polka dancer of the year");
 	} else if (i_rand < 70) {
-		await message.reply("Proton of the year");
+		await message.reply("Profit/Earnings ratio of the year");
 	} else if (i_rand < 75) {
 		await message.reply("Psyduck of the year");
 	} else if (i_rand < 80) {
 		await message.reply("Precipitation of the year");
 	} else if (i_rand < 85) {
-		await message.reply("Pollutant of the year");
+		await message.reply("Poetry of the year");
 	} else if (i_rand < 90) {
 		await message.reply("Pyrocumulonimbus storm of the year");
 	} else {
@@ -587,6 +593,39 @@ export const FreelanceCommand: ICommand = {
 	const lines = fileContent.split('\n');
 	const line = lines[Math.floor(Math.random() * lines.length)]
 	await message.reply(line)
+    return Promise.resolve();
+  },
+};
+
+export const HitManCommand: ICommand = {
+  name: 'Hitman',
+  helpDescription: 'Hitman',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hit_man'),
+  command: async (message: Message) => {
+	const fs = require('fs')
+	const fileContent = fs.readFileSync('./src/commands/Fuck/images/Lawns.txt', 'utf-8');
+	const lines = fileContent.split('\n');
+	const line = lines[Math.floor(Math.random() * lines.length)]
+	await message.reply(line)
+    return Promise.resolve();
+  },
+};
+
+export const AbeCommand: ICommand = {
+  name: 'Abe',
+  helpDescription: 'Abe',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!abe'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 33) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Abe1.jpg"] })
+	} else if (i_rand >= 33 && i_rand < 66 ) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Abe2.jpg"] })
+	} else {
+		await message.reply({ files : ["./src/commands/Fuck/images/Abe3.png"] })
+	}
     return Promise.resolve();
   },
 };
