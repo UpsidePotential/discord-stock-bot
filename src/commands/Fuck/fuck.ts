@@ -327,17 +327,17 @@ export const HurfCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hurf'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 15) {
+    if (i_rand < 10) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
-	} else if (i_rand >= 15 && i_rand < 20) {
+	} else if (i_rand >= 10 && i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf1.png"]})
-	} else if (i_rand >= 20 && i_rand < 25) {
+	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-	} else if (i_rand >= 25 && i_rand < 30) {
+	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
-	} else if (i_rand >= 30 && i_rand < 35) {
+	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-	} else if (i_rand >= 35 && i_rand < 40) {
+	} else if (i_rand >= 30 && i_rand < 35) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf5.png"]})
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
