@@ -31,7 +31,7 @@ export const beginMatrix: Record<string, string[]> = {
   "is it even": ["meat","a pickle","a nipple"],
   
   "ever": ["BE LOVED","smooch","get a SEXY babe"],
-  "solve": ["MY HUNGER","world hunger","the Middle East conflict","Josh's single life"],
+  "solve": ["MY HUNGER","the Middle East conflict","Josh's single life"],
   "to": ["wash", "obey"],
   "wash": ["my dingle", "my ANUS", "MY SHEETS"],
   "obey": ["international law", "the CONSTITUTION", "MY KIDDY"],
