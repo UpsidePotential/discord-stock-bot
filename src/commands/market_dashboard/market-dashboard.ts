@@ -278,6 +278,51 @@ export const CoTCommand: ICommand = {
     ticker = args[1].replace(/\//g, "");
   }
 
+  if(ticker == 'help')
+	{
+	    message.channel.send({
+        embeds: [{
+        color: 3447003,
+        title: 'Commitment of Traders Overview',
+		description: "The Commitment of Traders reports the positioning of large speculators, retail, and commercial enteties every week in a number of futures-based products \n \
+					  The general idea is that a trade gets crowded when large specs and retail (NC and NR) are really long or really short in a particular product. \n \
+					  If the trade is crowded long (short), then if the underlying starts to sell off (get bought), this will cause momentum in the other direction due to people taking profits or \
+					  getting their stops triggered. It's a momemtum strategy and more info can be found here: https://www.youtube.com/watch?v=xvnT9tTov-E https://www.youtube.com/watch?v=PbEAwOaeTs0 https://www.youtube.com/watch?v=b2DB_XoJxyI",
+        fields: [
+          { name: 'Products',value:'Use **!cot list** to see all CoT figures'},
+          { name: 'Non Commercial (NC)',value:'Larger speculators in the market (hedge funds, family offices, investment banks)' },
+		  { name: 'Non Reportable (NR)',value:'Other speculators that do not reach the amount of money needed to be included with the NC group (i.e. retail)' },
+		  { name: 'Commercial (C)',value:'Commercial which includes market-makers or actual producers of the physical products.' },
+          ],
+          },
+          ],
+        });
+	}
+	if(ticker == 'list')
+	{
+	    message.channel.send({
+        embeds: [{
+        color: 3447003,
+        title: 'List of CoT Products',
+		description: 'The following is the list of CoT products. Reach out to PoppingFresh to get more added. \n \
+					   The lists are ordered by what they are and how to call them using the !cot command. Listed in 5x5 for aesthetic reasons.',
+        fields: [
+          { name: 'Wheat, Corn, Oats, 20y+ bonds, 2y Bonds',value:'zw, zc, oats, zb, 2y'},
+          { name: '10y bonds, 5y bonds, Dow Jones, Lean Hogs, Cattle',value:'10y, 5y, ym, lh, cow'},
+          { name: 'Lumber, CADUSD, CHFUSD, MXNUSD, GPBUSD',value:'ll, 6c, 6s, 6m, 6b' },
+		  { name: 'JPYUSD, EURUSD, BRLUSD, NZDUSD, SARUSD',value:'6j, 6e, 6l, 6n, 6z' },
+		  { name: 'BTCUSD, S&P500, ETHUSD, NASDAQ100, AUSUSD',value:'btc, es, eth, nq, 6a' },
+		  { name: 'Russell 2k, VIX, Silver, Copper, Gold',value:'rty, vix, si, hg, gc' },
+		  { name: 'Cobalt, Cotton, Orange Juice, Cocoa, Sugar',value:'co, cotton, oj, cocoa, sugar' },
+		  { name: 'Coffee, Nat Gas, Propane, WTI Crude Oil, Palladium',value:'coffee, ng, propane, cl, pall' },
+		  { name: 'Platinum, Gasoline',value:'pt, gasoline' },
+          ],
+		footer: {text:'Usage is !cot <ticker> (ex. !cot es    generates the CoT figure for S&P500 futures)'
+				 },
+          },
+          ],
+        });
+	}
   try{
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/cotchart/${ticker}`);
     await message.channel
