@@ -100,9 +100,9 @@ export const SepistCommand: ICommand = {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] })
 	} else if (i_rand >= 30 && i_rand < 45) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] })
-	} else if (i_rand >= 45 && i_rand < 60) {
+	} else if (i_rand >= 45 && i_rand < 55) {
 		await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY')
-	} else if (i_rand >= 60 && i_rand < 75) {
+	} else if (i_rand >= 55 && i_rand < 75) {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Sepist.txt', 'utf-8');
 		const lines = fileContent.split('\n');
@@ -307,13 +307,15 @@ export const ModsCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('mods')),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 15) {
+    if (i_rand < 12) {
 		await message.reply("PLEASE MODS! MODS!!!! PLEASE!!! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
 		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
-	} else if (i_rand >= 15 && i_rand < 30) {
+	} else if (i_rand >= 12 && i_rand < 24) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
-	} else if (i_rand >= 30 && i_rand < 45) {
+	} else if (i_rand >= 24 && i_rand < 36) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods2.gif"] })
+	} else if (i_rand >= 36 && i_rand < 48) {
+		await message.reply({ files : ["./src/commands/Fuck/images/mods3.gif"] })
 	}
 	
     return Promise.resolve();
