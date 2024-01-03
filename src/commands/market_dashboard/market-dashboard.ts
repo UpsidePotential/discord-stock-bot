@@ -428,3 +428,29 @@ export const RelChartCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const VixCurveCommand: ICommand = {
+  name: 'Vix Curve',
+  helpDescription: 'Generates VIX futures curve',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vix'),
+  command: async (message: Message, services: any) => {
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`);
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+    return Promise.resolve();
+  },
+};
