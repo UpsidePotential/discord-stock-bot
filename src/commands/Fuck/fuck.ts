@@ -96,19 +96,19 @@ export const SepistCommand: ICommand = {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sep5.jpg"] })
-	} else if (i_rand >= 15 && i_rand < 30) {
+	} else if (i_rand >= 15 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] })
-	} else if (i_rand >= 30 && i_rand < 45) {
+	} else if (i_rand >= 25 && i_rand < 35) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] })
-	} else if (i_rand >= 45 && i_rand < 55) {
+	} else if (i_rand >= 35 && i_rand < 45) {
 		await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY')
-	} else if (i_rand >= 55 && i_rand < 75) {
+	} else if (i_rand >= 45 && i_rand < 70) {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Sepist.txt', 'utf-8');
 		const lines = fileContent.split('\n');
 		const line = lines[Math.floor(Math.random() * lines.length)]
 		await message.reply(line)
-	} else if (i_rand >= 75 && i_rand < 90) {
+	} else if (i_rand >= 70 && i_rand < 90) {
 		await message.reply("$/bz d")
 	} else {
 	    await message.reply("I'm a humble landlord, carrying the weight,\n\Juggling repairs and an ever-growing slate.\n\
@@ -278,20 +278,24 @@ export const JoshCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!josh'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 20) {
+    if (i_rand < 15) {
 		await message.reply("To take a photo while *subtly* including your shorts or pants in the frame, \
 consider positioning the camera at a slight angle to capture both yourself and the lower half of your body.\n\
 Use a timer or a remote shutter to allow yourself some distance from the camera, ensuring a natural and composed pose. \
 Pay attention to the lighting to ***enhance*** the 'details' of your bulge.\n\
 Experiment with different angles and poses to find the most flattering composition for your *outline*. \
 Remember to maintain a confident and relaxed expression for a genuine and appealing photograph.")
-	} else if (i_rand >= 20 && i_rand < 35) {
+	} else if (i_rand >= 15 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Josh2.png"] })
-	} else if (i_rand >= 35 && i_rand < 50) {
+	} else if (i_rand >= 30 && i_rand < 45) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Josh.png"] })
-	} else if (i_rand >= 50 && i_rand < 65) {
-		await message.reply('https://www.youtube.com/watch?v=o3YadwGH0ZA')
-	} else if (i_rand >= 65 && i_rand < 80) {
+	} else if (i_rand >= 45 && i_rand < 75) {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Josh.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	} else if (i_rand >= 75 && i_rand < 90) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
 	} else {
 	    await message.reply("$tqqq d")
