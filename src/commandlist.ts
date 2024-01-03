@@ -24,6 +24,7 @@ import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, Netbus
 import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
+import { VixCurveCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
 
 export const commandList: ICommand[] = [
@@ -56,6 +57,6 @@ export const commandList: ICommand[] = [
   ExtendHoursCommand, RelRotGraphCommand,
   DressingCommand, VolConeCommand,
   PairsCommand, CoTCommand, VixBinsCommand,
-  RelChartCommand,
   VolSheetCommand,
+  RelChartCommand, VixCurveCommand,
 ];

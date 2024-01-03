@@ -429,6 +429,7 @@ export const RelChartCommand: ICommand = {
   },
 };
 
+
 export const VolSheetCommand: ICommand = {
   name: 'Volatility Summary',
   helpDescription: 'Generates tearsheet of vol models',
@@ -437,6 +438,34 @@ export const VolSheetCommand: ICommand = {
   command: async (message: Message, services: any) => {
   try{
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/volSheetMain`);
+    
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+    return Promise.resolve();
+  },
+};
+
+export const VixCurveCommand: ICommand = {
+  name: 'Vix Curve',
+  helpDescription: 'Generates VIX futures curve',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vix'),
+  command: async (message: Message, services: any) => {
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`);
+
     await message.channel
       .send(
         {
