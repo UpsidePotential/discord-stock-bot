@@ -461,7 +461,7 @@ export const VixCurveCommand: ICommand = {
   name: 'Vix Curve',
   helpDescription: 'Generates VIX futures curve',
   showInHelp: true,
-  trigger: (msg: Message) => msg.content.startsWith('!vix'),
+  trigger: (msg: Message) => msg.content('!vix'),
   command: async (message: Message, services: any) => {
   try{
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`);
