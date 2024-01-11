@@ -212,18 +212,20 @@ export const ZephCommand: ICommand = {
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Zeph1.png"] })
+		await message.reply({ files : ["./src/commands/Fuck/images/Zeph1.jpg"] })
 	} else if (i_rand >= 16 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Zeph2.png"] })
-	} else if (i_rand >= 30 && i_rand < 65) {
+	} else if (i_rand >= 30 && i_rand < 60) {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Cars.txt', 'utf-8');
 		const lines = fileContent.split('\n');
 		const line = lines[Math.floor(Math.random() * lines.length)]
 		await message.reply(line)
-	} else if (i_rand >= 65 && i_rand < 80) {
+	} else if (i_rand >= 60 && i_rand < 80) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Zeph3.jpg"] })
+	} else if (i_rand >= 80 && i_rand < 87) {
 		await message.reply("$kold")
-	} else if (i_rand >= 80 && i_rand < 90) {
+	} else if (i_rand >= 87 && i_rand < 94) {
 		await message.reply("$sgov m")
 	} else {
 	    await message.reply("$svix d")
@@ -312,7 +314,6 @@ export const ModsCommand: ICommand = {
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 12) {
-		await message.reply("PLEASE MODS! MODS!!!! PLEASE!!! Please help me!!! MODS!!! WHERE ARE YOU!?!?")
 		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
 	} else if (i_rand >= 12 && i_rand < 24) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
@@ -460,11 +461,17 @@ export const DanglingCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!dangling'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 25) {
+    if (i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Dang1.png"] })
-	} else if (i_rand >= 25 && i_rand < 65 ) {
+	} else if (i_rand >= 20 && i_rand < 50 ) {
 		await message.reply({ files : ["./src/commands/Fuck/images/peeinpool.gif"] })
-	} else if (i_rand < 65 && i_rand < 80) {
+	} else if (i_rand >= 50 && i_rand < 80 ) {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Dangling.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	} else if (i_rand < 80 && i_rand < 90) {
 		await message.reply("$dkng d")
 	} else {
 		await message.reply("$penn d")
@@ -534,7 +541,7 @@ export const PotyCommand: ICommand = {
 	} else if (i_rand < 10) {
 		await message.reply("Poty of the year");
 	} else if (i_rand < 15) {
-		await message.reply("Positivity of the year");
+		await message.reply("President of the year");
 	} else if (i_rand < 20) {
 		await message.reply("Protocol of the year");
 	} else if (i_rand < 25) {
@@ -544,27 +551,27 @@ export const PotyCommand: ICommand = {
 	} else if (i_rand < 35) {
 		await message.reply("Party of the year");
 	} else if (i_rand < 40) {
-		await message.reply("Platitude of the year");
+		await message.reply("Princeps of the year");
 	} else if (i_rand < 45) {
 		await message.reply("Pistachio of the year");
 	} else if (i_rand < 50) {
 		await message.reply("Pan-European of the year");
 	} else if (i_rand < 55) {
-		await message.reply("Purple Rain of the year");
+		await message.reply("Proffesor of the year");
 	} else if (i_rand < 60) {
 		await message.reply("Player of the year");
 	} else if (i_rand < 65) {
 		await message.reply("Polka dancer of the year");
 	} else if (i_rand < 70) {
-		await message.reply("Profit/Earnings ratio of the year");
+		await message.reply("Pastrami of the year");
 	} else if (i_rand < 75) {
 		await message.reply("Psyduck of the year");
 	} else if (i_rand < 80) {
 		await message.reply("Precipitation of the year");
 	} else if (i_rand < 85) {
-		await message.reply("Poetry of the year");
+		await message.reply("Poet of the year");
 	} else if (i_rand < 90) {
-		await message.reply("Pyrocumulonimbus storm of the year");
+		await message.reply("Pharaoh of the year");
 	} else {
 		await message.reply("Phriend of the year");
 	}
