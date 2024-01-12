@@ -483,3 +483,43 @@ export const VixCurveCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const MomoDashCommand: ICommand = {
+  name: 'Momemtum Dashboard',
+  helpDescription: 'Generates momentum dashboard',
+  showInHelp: true,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!market'),
+  command: async (message: Message, services: any) => {
+  try{
+    let ftype = '1';
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
+
+    await message.channel
+      .send(
+        {
+          files: [
+            image.rawBody,
+          ],
+        },
+      );
+	  
+/* 	ftype = 2;
+	const image2 = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
+
+    await message.channel
+      .send(
+        {
+          files: [
+            image2.rawBody,
+          ],
+        },
+      ); */
+  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+    return Promise.resolve();
+  },
+};
