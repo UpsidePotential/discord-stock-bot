@@ -503,7 +503,7 @@ export const MomoDashCommand: ICommand = {
         },
       );
 	  
-/* 	ftype = 2;
+	ftype = '2';
 	const image2 = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
 
     await message.channel
@@ -513,7 +513,7 @@ export const MomoDashCommand: ICommand = {
             image2.rawBody,
           ],
         },
-      ); */
+      );
   
   } catch(e)
   {
