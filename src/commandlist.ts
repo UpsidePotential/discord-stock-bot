@@ -19,7 +19,7 @@ import { StatsCommand } from './commands/Stats';
 
 import { FuckCommand, GapperCommand, ManateeCommand, PastramiCommand, SepistCommand } from './commands/Fuck';
 import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephCommand } from './commands/Fuck';
-import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand } from './commands/Fuck';
+import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, PmchemCommand } from './commands/Fuck';
 import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand } from './commands/Fuck';
 import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
@@ -52,6 +52,7 @@ export const commandList: ICommand[] = [
   AdrenalCommand, WetGoodsCommand, TootersCommand, FlowinCommand, 
   DanglingCommand, NetbusCommand, PotyCommand, PotyPassive, 
   ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand,
+  PmchemCommand,
   GapperCommand,
   CorrelationCommand, RealizedVolCommand,
   ExtendHoursCommand, RelRotGraphCommand,
