@@ -144,7 +144,7 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 3:
-			await message.reply('https://www.ziprecruiter.com/jobs-search?search=babysitter&location=Long+Island%2C+NY');
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
 			break;
 		case 4:
 			const fs = require('fs')
@@ -751,6 +751,25 @@ export const AbeCommand: ICommand = {
 	} else {
 		await message.reply({ files : ["./src/commands/Fuck/images/Abe3.png"] })
 	}
+    return Promise.resolve();
+  },
+};
+
+export const PmchemCommand: ICommand = {
+  name: 'Pmchem',
+  helpDescription: 'Pmchem',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!pmchem'),
+  command: async (message: Message) => {	
+		let url_fa = 'https://finviz.com/screener.ashx?v=111&f=cap_smallover,fa_epsqoq_pos,fa_pfcf_low,fa_roe_pos,fa_roi_o20,fa_salesqoq_o10,ta_sma200_pa,ta_sma50_pa&ft=4';
+		const table1 = await getFinvizScreenWholeTable(url_fa);
+		const arrayLength1 = Math.min(table1.length, 5);
+		const fields1 = table1.slice(0, arrayLength1).map((value) => ({
+			name: value.ticker,
+			value: `Price: ${value.price} Change: ${value.change}`,
+		}));
+		await message.reply("!fa "+fields1[Math.floor(Math.random() * arrayLength1)-1].name)
+		await message.reply("Remember goons: ***Price is what you pay; value is what you get.***")
     return Promise.resolve();
   },
 };
