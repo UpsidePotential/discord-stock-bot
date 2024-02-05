@@ -3,4 +3,4 @@ export { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephComm
 export { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand } from './fuck';
 export { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand } from './fuck';
 export { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './fuck';
-export { PmchemCommand } from './fuck';
+export { PmchemCommand, PopCommand, LolCommand } from './fuck';
