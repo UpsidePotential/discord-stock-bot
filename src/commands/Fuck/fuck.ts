@@ -10,7 +10,7 @@ const ZephCases = [-1, -1, -1, -1, -1, -1];
 const DangCases = [-1, -1, -1, -1];
 const MilkCases = [-1, -1, -1];
 const JoshCases = [-1, -1, -1];
-
+const TootCases = [-1, -1];
 
 function weightedRandomCase(probabilities: number[]): number {
   const totalWeight = probabilities.reduce((total, weight) => total + weight, 0);
@@ -522,13 +522,24 @@ export const TootersCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!tooters'),
   command: async (message: Message) => {
-	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 33) {
-		await message.reply({ files : ["./src/commands/Fuck/images/WarTradesv2.gif"] })
-	} else if (i_rand >= 33 && i_rand < 67) {
-	    await message.reply({ files : ["./src/commands/Fuck/images/LisaTrades_V3.gif"] })
-	} else {
-		await message.reply({ files : ["./src/commands/Fuck/images/DontTrade_v5.gif"] })
+	const probabilities = [33,33,34];
+    let newCase;
+    do {
+      newCase = weightedRandomCase(probabilities);
+    } while (TootCases.includes(newCase));
+	TootCases.shift();
+	TootCases.push(newCase);
+    
+	switch (newCase) {
+		case 0:
+			await message.reply({ files : ["./src/commands/Fuck/images/WarTradesv2.gif"] })
+			break;
+		case 1:
+			await message.reply({ files : ["./src/commands/Fuck/images/LisaTrades_V3.gif"] })
+			break;
+		default:
+			await message.reply({ files : ["./src/commands/Fuck/images/DontTrade_v5.gif"] })
+			break;
 	}
     return Promise.resolve();
   },
@@ -770,6 +781,38 @@ export const PmchemCommand: ICommand = {
 		}));
 		await message.reply("!fa "+fields1[Math.floor(Math.random() * arrayLength1)-1].name)
 		await message.reply("Remember goons: ***Price is what you pay; value is what you get.***")
+    return Promise.resolve();
+  },
+};
+
+export const PopCommand: ICommand = {
+  name: 'Popping',
+  helpDescription: 'Popping',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!popping'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 33) {
+		await message.reply("**PoppingFresh** is the truest ***COWARD***. Look how long it took him to make a command for himself...")
+	} else if (i_rand >= 33 && i_rand < 66 ) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Pop1.png"] })
+	} else {
+		await message.reply({ files : ["./src/commands/Fuck/images/Pop2.png"] })
+	}
+    return Promise.resolve();
+  },
+};
+
+export const LolCommand: ICommand = {
+  name: 'Lol',
+  helpDescription: 'Lol',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand == 22) {
+		await message.reply("LOL")
+		}
     return Promise.resolve();
   },
 };
