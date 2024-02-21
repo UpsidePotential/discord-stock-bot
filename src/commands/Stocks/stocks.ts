@@ -49,7 +49,7 @@ export const StocksCommand: ICommand = {
     if (additionalIndicators.length !== 0) timePeriod = 'd';
 
     ticker = getTicker(ticker);
-
+	/* 
     const imgFile = `https://elite.finviz.com/chart.ashx?t=${
       ticker
     }&ty=${
@@ -59,7 +59,7 @@ export const StocksCommand: ICommand = {
       timePeriod
     }&s=l`
         + `x=${Math.random()}.png`;
-
+	console.log(imgFile)
     TickerTracker.postTicker(ticker, message.author.id, 'stock');
 
     if (rawOptions.find((v) => v === 'moon')) {
@@ -74,7 +74,14 @@ export const StocksCommand: ICommand = {
         );
 
       TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
-    }
+    } */
+	const image = await got(`${process.env.MARKET_DASHBOARD_URI}/tempstockschart/${ticker}/${timePeriod}`);
+      const sentMessage = await message.channel
+        .send(
+          {
+            files: [image.rawBody],
+          },
+        );
   },
 };
 
