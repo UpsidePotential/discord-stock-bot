@@ -11,6 +11,7 @@ const DangCases = [-1, -1, -1, -1];
 const MilkCases = [-1, -1, -1];
 const JoshCases = [-1, -1, -1];
 const TootCases = [-1, -1];
+const RootCases = [-1, -1, -1, -1];
 
 function weightedRandomCase(probabilities: number[]): number {
   const totalWeight = probabilities.reduce((total, weight) => total + weight, 0);
@@ -82,7 +83,7 @@ export const ManateeCommand: ICommand = {
 			await message.reply("__***BANATEE***__");
 			break;
 		case 3:
-			await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] });
+			await message.reply("**~MODS~!!!**... Manatee probably");
 			break;
 		case 4:
 			await message.reply("$spy");
@@ -421,6 +422,8 @@ export const ModsCommand: ICommand = {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods2.gif"] })
 	} else if (i_rand >= 36 && i_rand < 48) {
 		await message.reply({ files : ["./src/commands/Fuck/images/mods3.gif"] })
+	} else if (i_rand >= 48 && i_rand < 60) {
+		await message.reply("**Hahahahahahahaha How The Fuck Is Cyber Bullying Real Hahahaha Just Walk Away From The Screen Like Just Close Your Eyes Haha**")
 	}
 	
     return Promise.resolve();
@@ -445,7 +448,7 @@ export const HurfCommand: ICommand = {
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf5.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
 			const keys = Object.keys(matrix);
@@ -680,7 +683,7 @@ export const PotyCommand: ICommand = {
 	} else if (i_rand < 50) {
 		await message.reply("Pan-European of the year");
 	} else if (i_rand < 55) {
-		await message.reply("Proffesor of the year");
+		await message.reply("Professor of the year");
 	} else if (i_rand < 60) {
 		await message.reply("Player of the year");
 	} else if (i_rand < 65) {
@@ -813,6 +816,41 @@ export const LolCommand: ICommand = {
     if (i_rand == 22) {
 		await message.reply("LOL")
 		}
+    return Promise.resolve();
+  },
+};
+
+export const RootootCommand: ICommand = {
+  name: 'Rootoot',
+  helpDescription: 'Rootoot',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!rootoot'),
+  command: async (message: Message) => {
+    const probabilities = [20, 20, 20, 20, 20];
+    let newCase;
+    do {
+      newCase = weightedRandomCase(probabilities);
+    } while (RootCases.includes(newCase));
+	RootCases.shift();
+	RootCases.push(newCase);
+	
+    switch (newCase) {
+		case 0:
+			await message.reply({ files : ["./src/commands/Fuck/images/root.jpg"] });
+			break;
+		case 1:
+			await message.reply({ files : ["./src/commands/Fuck/images/root.png"] });
+			break;
+		case 2:
+			await message.reply({ files : ["./src/commands/Fuck/images/root2.png"] });
+			break;
+		case 3:
+			await message.reply({ files : ["./src/commands/Fuck/images/root3.png"] });
+			break;
+		default:
+			await message.reply({ files : ["./src/commands/Fuck/images/root4.png"] });
+			break;
+	}
     return Promise.resolve();
   },
 };
