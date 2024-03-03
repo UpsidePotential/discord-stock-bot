@@ -142,7 +142,7 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] });
 			break;
 		case 2:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.png"] });
 			break;
 		case 3:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
@@ -284,13 +284,13 @@ export const ZephCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Zeph3.jpg"] })
 			break;
 		case 4:
-			await message.reply("$kold")
+			await message.reply({ files : ["./src/commands/Fuck/images/ZephJedi.png"] })
 			break;
 		case 5:
 			await message.reply("$sgov m")
 			break;
 		default:
-			await message.reply("$svix d")
+			await message.reply({ files : ["./src/commands/Fuck/images/ZephJedi2.png"] })
 			break;
 	}
     return Promise.resolve();
@@ -326,12 +326,7 @@ export const MilkCommand: ICommand = {
 			await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
 			break;
 		case 3:
-			await message.reply("I see the current S&P 500 as a colossal suspension bridge pushed to its limits. \
-The market resembles a structure with cables drawn tightly, mirroring an elevated price-to-earnings ratio. The \
-economic landscape appears as turbulent winds, with inflation as the wind shear pushing the structure to its absolute limits. \
-I believe investors should navigate cautiously. These turbulent times are going to stress the metaphorical bridge and those slight vibrations of \
-uncertainty will most likely turn into a resonant vibration that will bring down the entire financial system. \ Consider a portfolio recalibration to ensure \
-you can stay afloat in the ever-changing financial landscape.")
+			await message.reply({ files : ["./src/commands/Fuck/images/Milk.png"] })
 			break;
 		case 4:
 			let url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
@@ -400,7 +395,7 @@ Remember to maintain a confident and relaxed expression for a genuine and appeal
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
 			break;
 		default:
-			await message.reply("$tqqq d")
+			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.jpg"] })
 			break;
 	}
     return Promise.resolve();
@@ -490,14 +485,20 @@ export const AdrenalCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!adrenal'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 25) {
+    if (i_rand < 12) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal.jpg"] })
-	} else if (i_rand >= 25 && i_rand < 50) {
+	} else if (i_rand >= 12 && i_rand < 24) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal1.png"] })
-	} else if (i_rand >= 50 && i_rand < 75) {
+	} else if (i_rand >= 24 && i_rand < 36) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal2.png"] })
-	} else {
+	} else if (i_rand >= 36 && i_rand < 48) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal3.png"] })
+	} else if (i_rand >= 48 && i_rand < 60) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal4.png"] })
+    } else if (i_rand >= 60 && i_rand < 80) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal5.png"] })		
+	} else {
+		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal6.png"] })
 	}
     return Promise.resolve();
   },
