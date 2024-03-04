@@ -1,21 +1,11 @@
-Danyang–Kunshan Grand Bridge :: Danyang and Kunshan, China :: 102.4 miles :: Year of construction: 2010
-Changhua-Kaohsiung Viaduct :: Taiwan :: 157 miles :: Year of construction: 2004
-Cangde Grand Bridge :: Beijing, China :: 102.4 miles :: Year of construction: 2010
-Tianjin Grand Bridge :: Tianjin, China :: 70.6 miles :: Year of construction: 2010
-Weinan Weihe Grand Bridge :: Weinan, China :: 49.5 miles :: Year of construction: 2008
-Bang Na Expressway :: Thailand :: 34 miles :: Year of construction: 2000
-Beijing Grand Bridge :: Beijing, China :: 29.9 miles :: Year of construction: 2010
-Lake Pontchartrain Causeway :: United States :: 23.87 miles :: Year of construction: 1956
-Manchac Swamp Bridge :: United States :: 22.8 miles :: Year of construction: 1979
-Line 1 :: Wuhan Metro Bridge :: China :: 21 miles :: Year of construction: 2004
-Hangzhou Bay Bridge :: China :: 22.4 miles :: Year of construction: 2008
-Runyang Bridge :: China :: 21.4 miles :: Year of construction: 2005
-Jintang Bridge :: China :: 20.2 miles :: Year of construction: 2020
-Yavuz Sultan Selim Bridge :: Turkey :: 16.7 miles :: Year of construction: 2016
-Vasco da Gama Bridge :: Portugal :: 10.7 miles :: Year of construction: 1998
-Nanjing Yangtze River Bridge :: China,10.1 miles :: Year of construction: 1968
-Chongqing Yangtze River Bridge :: China :: 9.6 miles :: Year of construction: 1980
-Zhaozhou Bridge,China :: 8.6 miles :: Year of construction: 605
-Siduhe Bridge :: China :: 7.7 miles :: Year of construction: 2009
-Jiaxing-Shaoxing Sea Bridge :: China :: 7.6 miles :: Year of construction: 2013
-Xihoumen Bridge :: China :: 7.5 miles :: Year of construction: 2012
+Euler-Bernoulli Beam Equation: Describes the behavior of a beam under bending. It states that the curvature of a beam is proportional to the bending moment acting on it.
+Hooke's Law: Defines the relationship between stress and strain in elastic materials. It states that the strain is directly proportional to the stress within the proportional limit.
+Pascal's Principle: States that pressure applied to a confined fluid is transmitted undiminished throughout the fluid in all directions. It's essential in hydraulic engineering and fluid mechanics.
+Archimedes' Principle: Describes the buoyant force experienced by a body immersed in a fluid. It states that the buoyant force is equal to the weight of the fluid displaced by the body.
+Coulomb's Law of Friction: Governs the frictional force between two surfaces in contact. It states that the frictional force is proportional to the normal force and is independent of the contact area.
+Newmark's Method: A numerical technique used in structural engineering to solve differential equations of motion for structures subjected to dynamic loads, such as earthquakes.
+Terzaghi's Principle: Concerns the effective stress in soil mechanics. It states that the total stress in a soil mass is the sum of the effective stress and the pore water pressure.
+Rankine's Theory of Earth Pressure: Describes the lateral pressure exerted by soil on retaining walls. It provides equations to calculate active and passive earth pressures.
+Truss Analysis Equations: Various methods such as the method of joints and method of sections are used to analyze truss structures, determining member forces and reactions.
+Moment Distribution Method: A structural analysis technique used to solve indeterminate structures by distributing moments throughout the structure.
+Cantilever Retaining Wall Equations: Used in geotechnical engineering to design retaining walls that support soil or other materials on one side.
