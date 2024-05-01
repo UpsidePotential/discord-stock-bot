@@ -323,7 +323,36 @@ export const MilkCommand: ICommand = {
 			await message.reply(line)
 			break;
 		case 2:
-			await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
+			const time_now = new Date();
+			var hours = time_now.getHours() % 12 || 12;
+			const chours = hours.toString().padStart(2,'0');
+			const cminutes = time_now.getMinutes().toString().padStart(2,'0');
+			const rand_mins = Math.floor(Math.random() * 45);
+			const new_time = new Date(time_now.getTime() + rand_mins *60000);
+			var hours = new_time.getHours() % 12 || 12;
+			const nhours = hours.toString().padStart(2,'0');
+			const nminutes = new_time.getMinutes().toString().padStart(2,'0');
+			const subCase = Math.floor(Math.random() * 5)
+			switch (subCase) {
+				case 0:
+					await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
+					break;
+				case 1:
+					await message.reply("Short at "+nhours+":"+nminutes+" looking good. But I'm not going to take it")
+					break;
+				case 2:
+					await message.reply("Long at "+chours+":"+cminutes+". Easiest trade ever, not sure why I don't do it every day.")
+					break;
+				case 3:
+					await message.reply("Terrible long at "+nhours+":"+nminutes+" setup. It'll probably still pump. Stupid market.")
+					break;
+				case 4:
+					await message.reply("Short at "+chours+":"+cminutes+" STAYS WINNING. Like and subscribe you dummies.")
+					break;
+				default:
+					await message.reply("Damn it was a short at "+chours+":"+cminutes+" day just to make me look like a fool")
+					break;
+					}
 			break;
 		case 3:
 			await message.reply({ files : ["./src/commands/Fuck/images/Milk.png"] })
