@@ -841,10 +841,14 @@ export const LolCommand: ICommand = {
   helpDescription: 'Lol',
   showInHelp: false,
   trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
+  //trigger: (msg: Message) => (msg.author.id === '928586530901197'),
   command: async (message: Message) => {
-	let i_rand =  Math.floor(Math.random() * 100); 
+	let i_rand =  Math.floor(Math.random() * 150); 
     if (i_rand == 22) {
 		await message.reply("LOL")
+		}
+	if (i_rand == 44) {
+		await message.reply("🥱")
 		}
     return Promise.resolve();
   },

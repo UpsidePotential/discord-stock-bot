@@ -66,14 +66,22 @@ export const StocksCommand: ICommand = {
       await drawMoon(imgFile, message);
     } else {
       const file = await got(imgFile);
-      const sentMessage = await message.channel
-        .send(
-          {
-            files: [file.rawBody],
-          },
-        );
-
-      TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+	  const fSize = Buffer.byteLength(file.body);
+	  console.log(fSize)
+	  if (fSize > 12000) {
+	    const sentMessage = await message.channel.send(
+			  {
+				files: [file.rawBody],
+			  },
+			);
+		  TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+		} else {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+		}
     }
   },
 };
