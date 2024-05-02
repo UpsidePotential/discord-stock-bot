@@ -67,28 +67,25 @@ export const FuturesCommand: ICommand = {
 	{
 		timePeriod = rawOptions[0]
 	}
-    //const options = [];
-    //for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
-    //const timePeriod = extractFromOptions('time_period_futures', options);
-    //TickerTracker.postTicker(ticker, message.author.id, 'future');
-
-    //ticker = getTicker(ticker);
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/futureschart/${ticker}/${timePeriod}`);
-
-    /* if (ogTicker === '/cum') {
-      return updateText(file, message);
-    }
-    const image = await got(file); */
-    const sentMessage = await message.channel
-      .send(
-        {
-          files: [
-            image.rawBody,
-          ],
-        },
-      );
-
-    //TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+	const fSize = Buffer.byteLength(image.body);
+	  console.log(fSize)
+	  if (fSize > 12000) {
+	    const sentMessage = await message.channel
+          .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+	  } else {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	  }
     return Promise.resolve();
   },
 };
