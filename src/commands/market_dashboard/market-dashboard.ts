@@ -523,3 +523,38 @@ export const MomoDashCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const MaxLossCommand: ICommand = {
+  name: 'StdDev price based on 1-yr history',
+  helpDescription: '!maxloss [ticker]',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!maxloss'),
+  command: async (message: Message, services: any) => {
+  let ticker = "AAPL";
+  const args = message.content.toLowerCase().split(' ');
+  if(args.length == 2)
+  {
+    ticker = args[1];
+  }
+  try{
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/maxloss/${ticker}`);
+	if(image.body === 'null') {
+		await message.reply("Invalid ticker you jerk.")
+	} else {
+		await message.channel
+		  .send(
+			{
+			  files: [
+				image.rawBody,
+			  ],
+			},
+		  );
+	}  
+  } catch(e)
+  {
+    console.error(e);
+    return Promise.resolve();
+  }
+    return Promise.resolve();
+  },
+};
