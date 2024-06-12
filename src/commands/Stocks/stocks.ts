@@ -67,8 +67,7 @@ export const StocksCommand: ICommand = {
     } else {
       const file = await got(imgFile);
 	  const fSize = Buffer.byteLength(file.body);
-	  console.log(fSize)
-	  if (fSize > 12000) {
+	  if (fSize > 12000 && ticker.length < 6) {
 	    const sentMessage = await message.channel.send(
 			  {
 				files: [file.rawBody],
@@ -97,17 +96,25 @@ export const StockCharts: ICommand = {
 
     TickerTracker.postTicker(ticker, message.author.id, 'stock');
     const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`);
-
-    const sentMessage = await message.channel
-      .send(
-        {
-          files: [
-            image.rawBody,
-          ],
-        },
-      );
-
-    TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+	const fSize = Buffer.byteLength(image.body);
+	if (fSize > 12000) {
+      const sentMessage = await message.channel
+        .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+		TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+    } else {
+	  const fs = require('fs')
+	  const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
+	  const lines = fileContent.split('\n');
+	  const line = lines[Math.floor(Math.random() * lines.length)]
+	  await message.reply(line)
+	}
+    
     return Promise.resolve();
   },
 };
