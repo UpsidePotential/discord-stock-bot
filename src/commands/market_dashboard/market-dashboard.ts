@@ -436,6 +436,10 @@ export const VolSheetCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!vixmodels'),
   command: async (message: Message, services: any) => {
+  let i_rand =  Math.floor(Math.random() * 100);
+  if (i_rand < 20) {
+	await message.reply({ files : ["./src/commands/Fuck/images/vixmemories.png"] })
+	}
   try{
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/volSheetMain`);
     
