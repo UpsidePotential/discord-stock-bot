@@ -142,10 +142,10 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] });
 			break;
 		case 2:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
 			break;
 		case 3:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 4:
 			const fs = require('fs')
@@ -158,12 +158,7 @@ export const SepistCommand: ICommand = {
 			await message.reply("$/bz d")
 			break;
 		default:
-			await message.reply("I'm a humble landlord, carrying the weight,\n\Juggling repairs and an ever-growing slate.\n\
-Society will never understand my plight,\n\In this landlord life, it's a constant fight.\n\n\Repainting walls and rented halls,\n\
-Witness to tenants' rise and falls.\n\Leaving garbage with maggots in their wake,\n\A landlord's dilemma, decisions to make.\n\n\
-Every late-night call, every rent dispute,\n\A puzzle to solve, a neverending pursuit\n\Of keeping the peace in this rented space,\n\
-Being a landlord, it's no easy embrace.\n\n\So here's to the landlords, modern day knights!\n\Facing the challenges with all their might!\n\
-A thankless job, their stories untold,\n\Providing valuable services, while constantly trolled.")
+			await message.reply("https://www.udio.com/songs/wYFqDEQV49vDpMPxR2KdLH")
 			break;
 	}
     return Promise.resolve();
@@ -414,11 +409,7 @@ Remember to maintain a confident and relaxed expression for a genuine and appeal
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh.png"] })
 			break;
 		case 3:
-			const fs = require('fs')
-			const fileContent = fs.readFileSync('./src/commands/Fuck/images/Josh.txt', 'utf-8');
-			const lines = fileContent.split('\n');
-			const line = lines[Math.floor(Math.random() * lines.length)]
-			await message.reply(line)
+			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.jpg"] })
 			break;
 		case 4:
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
@@ -437,20 +428,27 @@ export const ModsCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('mods')),
   command: async (message: Message) => {
-	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 12) {
-		await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
-	} else if (i_rand >= 12 && i_rand < 24) {
-		await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
-	} else if (i_rand >= 24 && i_rand < 36) {
-		await message.reply({ files : ["./src/commands/Fuck/images/mods2.gif"] })
-	} else if (i_rand >= 36 && i_rand < 48) {
-		await message.reply({ files : ["./src/commands/Fuck/images/mods3.gif"] })
-	} else if (i_rand >= 48 && i_rand < 60) {
-		await message.reply("**Hahahahahahahaha How The Fuck Is Cyber Bullying Real Hahahaha Just Walk Away From The Screen Like Just Close Your Eyes Haha**")
+	if (message.author.id === '725363876270702672' || message.author.id === '137044883721420800') {
+		let i_rand =  Math.floor(Math.random() * 100);
+		if (i_rand < 75) {
+			await message.reply({ files : ["./src/commands/Fuck/images/selfmods.jpg"] })
+		}
+		return Promise.resolve();
+	} else {  
+		let i_rand =  Math.floor(Math.random() * 100); 
+		if (i_rand < 12) {
+			await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
+		} else if (i_rand >= 12 && i_rand < 24) {
+			await message.reply({ files : ["./src/commands/Fuck/images/mods1.gif"] })
+		} else if (i_rand >= 24 && i_rand < 36) {
+			await message.reply({ files : ["./src/commands/Fuck/images/mods2.gif"] })
+		} else if (i_rand >= 36 && i_rand < 48) {
+			await message.reply({ files : ["./src/commands/Fuck/images/mods3.gif"] })
+		} else if (i_rand >= 48 && i_rand < 60) {
+			await message.reply("**Hahahahahahahaha How The Fuck Is Cyber Bullying Real Hahahaha Just Walk Away From The Screen Like Just Close Your Eyes Haha**")
+		}
 	}
-	
-    return Promise.resolve();
+	return Promise.resolve();
   },
 };
 
@@ -841,15 +839,21 @@ export const LolCommand: ICommand = {
   helpDescription: 'Lol',
   showInHelp: false,
   trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
-  //trigger: (msg: Message) => (msg.author.id === '928586530901197'),
   command: async (message: Message) => {
-	let i_rand =  Math.floor(Math.random() * 150); 
-    if (i_rand == 22) {
-		await message.reply("LOL")
+	if (message.content.includes('LOL')) {
+		let i_rand =  Math.floor(Math.random() * 100);
+		if (i_rand < 80) {
+			await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
 		}
-	if (i_rand == 44) {
-		await message.reply("🥱")
-		}
+	} else {
+		let i_rand =  Math.floor(Math.random() * 150); 
+		if (i_rand == 22) {
+			await message.reply("LOL")
+			}
+		if (i_rand == 44) {
+			await message.reply("🥱")
+			}
+	}
     return Promise.resolve();
   },
 };
