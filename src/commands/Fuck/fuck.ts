@@ -140,6 +140,7 @@ export const SepistCommand: ICommand = {
 			break;
 		case 1:
 			await message.reply("$/bz d");
+			await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
 			break;
 		case 2:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
@@ -371,7 +372,7 @@ export const MilkCommand: ICommand = {
 			break;
 		case 4:
 			try{
-				let url = 'https://inviz.com/screener.ashx?v=110&s=ta_topgainers';
+				let url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
 				const table = await getFinvizScreenWholeTable(url);
 				const arrayLength = Math.min(table.length, 5);
 				const fields = table.slice(0, arrayLength).map((value) => ({
@@ -386,7 +387,7 @@ export const MilkCommand: ICommand = {
 			break;
 		default:
 			try {
-				let url_fa = 'https://inviz.com/screener.ashx?v=111&f=cap_largeover,exch_nyse,fa_fpe_high,fa_pe_high';
+				let url_fa = 'https://finviz.com/screener.ashx?v=111&f=cap_largeover,exch_nyse,fa_fpe_high,fa_pe_high';
 				const table1 = await getFinvizScreenWholeTable(url_fa);
 				const arrayLength1 = Math.min(table1.length, 5);
 				const fields1 = table1.slice(0, arrayLength1).map((value) => ({
