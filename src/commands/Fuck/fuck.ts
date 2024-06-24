@@ -139,7 +139,8 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep5.jpg"] });
 			break;
 		case 1:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sepist3.png"] });
+			await message.reply("$/bz d");
+			await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
 			break;
 		case 2:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
@@ -155,10 +156,23 @@ export const SepistCommand: ICommand = {
 			await message.reply(line)
 			break;
 		case 5:
-			await message.reply("$/bz d")
+			await message.reply("Upon my window, there it boldly stood,\n\
+A wasp's nest, brimming with a buzzing might,\n\
+A threat to peaceful days in neighborhood,\n\
+It challenged me, demanding a brutal fight.\n\
+\n\n\
+With courage strong, I planned my bold attack,\n\
+Prepared with poison spray of shoddy make,\n\
+At day's last light, after the skies turned black,\n\
+I faced the swarm, for my family's safety's sake.\n\
+\n\n\
+But in my rush, a fact I overlooked,\n\
+The difference 'tween wasp and bee unclear.\n\
+My fervor might have harmed a bee mistook,\n\
+Disturbing nature's balance, oh so dear.");
 			break;
 		default:
-			await message.reply("https://www.udio.com/songs/wYFqDEQV49vDpMPxR2KdLH")
+			await message.reply("https://www.udio.com/songs/wYFqDEQV49vDpMPxR2KdLH");
 			break;
 	}
     return Promise.resolve();
@@ -298,7 +312,7 @@ export const MilkCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!milk'),
   command: async (message: Message) => {
-	const probabilities = [10, 10, 15, 15, 25, 25];
+	const probabilities = [10, 10, 5, 25, 25, 25];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -350,30 +364,46 @@ export const MilkCommand: ICommand = {
 					}
 			break;
 		case 3:
-			await message.reply({ files : ["./src/commands/Fuck/images/Milk.png"] })
+			const fs1 = require('fs')
+			const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/Engineer.txt', 'utf-8');
+			const lines1 = fileContent1.split('\n');
+			const line1 = lines1[Math.floor(Math.random() * lines1.length)]
+			await message.reply(line1)
 			break;
 		case 4:
-			let url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
-			const table = await getFinvizScreenWholeTable(url);
-			const arrayLength = Math.min(table.length, 5);
-			const fields = table.slice(0, arrayLength).map((value) => ({
-				name: value.ticker,
-				value: `Price: ${value.price} Change: ${value.change}`,
-			}));
-			await message.reply("$"+fields[Math.floor(Math.random() * arrayLength)-1].name)
-			await message.reply("did you listen???")
+			try{
+				let url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
+				const table = await getFinvizScreenWholeTable(url);
+				const arrayLength = Math.min(table.length, 5);
+				const fields = table.slice(0, arrayLength).map((value) => ({
+					name: value.ticker,
+					value: `Price: ${value.price} Change: ${value.change}`,
+				}));
+				await message.reply("$"+fields[Math.floor(Math.random() * arrayLength)-1].name)
+				await message.reply("did you listen???")
+			} catch(err) {
+				await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
+			}
 			break;
 		default:
-			let url_fa = 'https://finviz.com/screener.ashx?v=111&f=cap_largeover,exch_nyse,fa_fpe_high,fa_pe_high';
-			const table1 = await getFinvizScreenWholeTable(url_fa);
-			const arrayLength1 = Math.min(table1.length, 5);
-			const fields1 = table1.slice(0, arrayLength1).map((value) => ({
-				name: value.ticker,
-				value: `Price: ${value.price} Change: ${value.change}`,
-			}));
-			await message.reply("!fa "+fields1[Math.floor(Math.random() * arrayLength1)-1].name)
-			await message.reply("Now here's a stock with a sane P/E to invest in...")
-			break;
+			try {
+				let url_fa = 'https://finviz.com/screener.ashx?v=111&f=cap_largeover,exch_nyse,fa_fpe_high,fa_pe_high';
+				const table1 = await getFinvizScreenWholeTable(url_fa);
+				const arrayLength1 = Math.min(table1.length, 5);
+				const fields1 = table1.slice(0, arrayLength1).map((value) => ({
+					name: value.ticker,
+					value: `Price: ${value.price} Change: ${value.change}`,
+				}));
+				await message.reply("!fa "+fields1[Math.floor(Math.random() * arrayLength1)-1].name)
+				await message.reply("Now here's a stock with a sane P/E to invest in...")
+				break;
+			} catch(err) {
+				await message.reply("Investing is like building a bridge. Your portfolio, much like a rickety suspension bridge, \
+sways precariously with every market gust. Diversification? HAH! It's like using multiple weak support cables instead of a few \
+strong ones - they'll all snap under enough pressure. Your high-risk investments are cheap materials that will crumble at any moment. \
+The slow corrosion of inflation eats away at your returns like rust on steel beams. In the end, an unexpected economic earthquake will still bring the whole \
+system crashing down. But hey, at least bridges are insured.")
+			}
 		}
     return Promise.resolve();
   },
@@ -466,7 +496,7 @@ export const HurfCommand: ICommand = {
 	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf00.png"]})
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
