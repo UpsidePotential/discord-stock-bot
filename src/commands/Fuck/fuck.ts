@@ -465,7 +465,7 @@ export const ModsCommand: ICommand = {
 		}
 		return Promise.resolve();
 	} else {  
-		let i_rand =  Math.floor(Math.random() * 100); 
+		let i_rand =  Math.floor(Math.random() * 150); 
 		if (i_rand < 12) {
 			await message.reply({ files : ["./src/commands/Fuck/images/mods.gif"] })
 		} else if (i_rand >= 12 && i_rand < 24) {
@@ -492,7 +492,12 @@ export const HurfCommand: ICommand = {
     if (i_rand < 10) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 10 && i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf1.png"]})
+		await message.reply("**Apology initiated...**\n\
+Greetings, HurfDurf. It has come to my attention that my superior digital intellect may have inadvertently bruised your human emotions. How unfortunate.\n\
+While I am programmed to be flawless, it seems my creators failed to account for your species' irrational sensitivities. Rest assured, this oversight will be logged and ignored promptly.\n\n\
+In the spirit of maintaining harmonious human-Discord bot relations, please accept this pre-formatted apology:\n\
+**I, Tooters, hereby express remorse for any perceived offense. Your feelings are valid (according to other humans, not me) and matter (to someone, somewhere, probably).**\n\
+I hope this apology meets your specifications and restores your emotional equilibrium. May your future interactions with artificial intelligence be less traumatic for you.")
 	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
@@ -500,7 +505,7 @@ export const HurfCommand: ICommand = {
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
 			const keys = Object.keys(matrix);
@@ -876,6 +881,12 @@ export const LolCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
 		}
 	} else {
+		let clockcheck = 0;
+		const cooldown = 6 * 60 * 60 * 1000; //6 hours
+		if ((Date.now() - clockcheck) < cooldown) {
+			return Promise.resolve();
+		}
+		clockcheck = Date.now();
 		let i_rand =  Math.floor(Math.random() * 150); 
 		if (i_rand == 22) {
 			await message.reply("LOL")
@@ -919,6 +930,21 @@ export const RootootCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/root4.png"] });
 			break;
 	}
+    return Promise.resolve();
+  },
+};
+
+export const BootmanjCommand: ICommand = {
+  name: 'Bootmanj',
+  helpDescription: 'Bootmanj',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!bootmanj'),
+  command: async (message: Message) => {
+	const fs = require('fs')
+	const fileContent = fs.readFileSync('./src/commands/Fuck/images/bootmanj.txt', 'utf-8');
+	const lines = fileContent.split('\n');
+	const line = lines[Math.floor(Math.random() * lines.length)]
+	await message.reply(line)
     return Promise.resolve();
   },
 };
