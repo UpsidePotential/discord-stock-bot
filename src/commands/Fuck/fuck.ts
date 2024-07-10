@@ -149,11 +149,7 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 4:
-			const fs = require('fs')
-			const fileContent = fs.readFileSync('./src/commands/Fuck/images/Sepist.txt', 'utf-8');
-			const lines = fileContent.split('\n');
-			const line = lines[Math.floor(Math.random() * lines.length)]
-			await message.reply(line)
+			await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
 			break;
 		case 5:
 			await message.reply("Upon my window, there it boldly stood,\n\
