@@ -17,7 +17,7 @@ describe('Common', () => {
     { key: 'chart_type', options: [], result: 'c' },
     { key: 'time_period', options: ['m'], result: 'm' },
     { key: 'time_period', options: [], result: 'i5' },
-    { key: 'time_period_futures', options: ['d'], result: 'd1' },
+    { key: 'time_period_futures', options: ['d'], result: 'd' },
     { key: 'time_period_forex', options: ['w'], result: 'w1' },
   ];
 

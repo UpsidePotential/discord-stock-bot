@@ -125,21 +125,24 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
     }
     return tempTimePeriod;
   } if (key === 'time_period_futures') {
-    let tempTimePeriod = 'm5';
+    let tempTimePeriod = 'i5';
     for (let i = 0; i < options.length; i++) {
       const item = options[i];
       switch (item) {
+		case '15':
+          tempTimePeriod = 'i15';
+          break;
         case 'h':
-          tempTimePeriod = 'h1';
+          tempTimePeriod = 'h';
           break;
         case 'd':
-          tempTimePeriod = 'd1';
+          tempTimePeriod = 'd';
           break;
         case 'w':
-          tempTimePeriod = 'w1';
+          tempTimePeriod = 'w';
           break;
         case 'm':
-          tempTimePeriod = 'm1';
+          tempTimePeriod = 'm';
           break;
         default:
       }
