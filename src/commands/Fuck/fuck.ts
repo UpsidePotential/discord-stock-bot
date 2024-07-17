@@ -497,7 +497,7 @@ I hope this apology meets your specifications and restores your emotional equili
 	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf00.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/Hurf00.png"]})
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
