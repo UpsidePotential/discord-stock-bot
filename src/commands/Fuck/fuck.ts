@@ -89,7 +89,7 @@ export const ManateeCommand: ICommand = {
 			await message.reply("$spy");
 			break;
 		default:
-			await message.reply("$qqq")
+			await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] });
 			break;
 	}
     return Promise.resolve();
@@ -152,20 +152,7 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
 			break;
 		case 5:
-			await message.reply("Upon my window, there it boldly stood,\n\
-A wasp's nest, brimming with a buzzing might,\n\
-A threat to peaceful days in neighborhood,\n\
-It challenged me, demanding a brutal fight.\n\
-\n\n\
-With courage strong, I planned my bold attack,\n\
-Prepared with poison spray of shoddy make,\n\
-At day's last light, after the skies turned black,\n\
-I faced the swarm, for my family's safety's sake.\n\
-\n\n\
-But in my rush, a fact I overlooked,\n\
-The difference 'tween wasp and bee unclear.\n\
-My fervor might have harmed a bee mistook,\n\
-Disturbing nature's balance, oh so dear.");
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
 			break;
 		default:
 			await message.reply("https://www.udio.com/songs/wYFqDEQV49vDpMPxR2KdLH");
@@ -328,36 +315,7 @@ export const MilkCommand: ICommand = {
 			await message.reply(line)
 			break;
 		case 2:
-			const time_now = new Date();
-			var hours = time_now.getHours() % 12 || 12;
-			const chours = hours.toString().padStart(2,'0');
-			const cminutes = time_now.getMinutes().toString().padStart(2,'0');
-			const rand_mins = Math.floor(Math.random() * 45);
-			const new_time = new Date(time_now.getTime() + rand_mins *60000);
-			var hours = new_time.getHours() % 12 || 12;
-			const nhours = hours.toString().padStart(2,'0');
-			const nminutes = new_time.getMinutes().toString().padStart(2,'0');
-			const subCase = Math.floor(Math.random() * 5)
-			switch (subCase) {
-				case 0:
-					await message.reply("Just lmao that the market is pumping. Of course it is. Gotta love that rational and efficient market!")
-					break;
-				case 1:
-					await message.reply("Short at "+nhours+":"+nminutes+" looking good. But I'm not going to take it")
-					break;
-				case 2:
-					await message.reply("Long at "+chours+":"+cminutes+". Easiest trade ever, not sure why I don't do it every day.")
-					break;
-				case 3:
-					await message.reply("Terrible long at "+nhours+":"+nminutes+" setup. It'll probably still pump. Stupid market.")
-					break;
-				case 4:
-					await message.reply("Short at "+chours+":"+cminutes+" STAYS WINNING. Like and subscribe you dummies.")
-					break;
-				default:
-					await message.reply("Damn it was a short at "+chours+":"+cminutes+" day just to make me look like a fool")
-					break;
-					}
+			await message.reply({ files : ["./src/commands/Fuck/images/Milk.png"] })
 			break;
 		case 3:
 			const fs1 = require('fs')
@@ -488,16 +446,11 @@ export const HurfCommand: ICommand = {
     if (i_rand < 10) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 10 && i_rand < 15) {
-		await message.reply("**Apology initiated...**\n\
-Greetings, HurfDurf. It has come to my attention that my superior digital intellect may have inadvertently bruised your human emotions. How unfortunate.\n\
-While I am programmed to be flawless, it seems my creators failed to account for your species' irrational sensitivities. Rest assured, this oversight will be logged and ignored promptly.\n\n\
-In the spirit of maintaining harmonious human-Discord bot relations, please accept this pre-formatted apology:\n\
-**I, Tooters, hereby express remorse for any perceived offense. Your feelings are valid (according to other humans, not me) and matter (to someone, somewhere, probably).**\n\
-I hope this apology meets your specifications and restores your emotional equilibrium. May your future interactions with artificial intelligence be less traumatic for you.")
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
 	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf00.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/Hurf00.png"]})
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
