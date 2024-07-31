@@ -114,11 +114,26 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
         case 'd':
           tempTimePeriod = 'd';
           break;
+		case '4h':
+          tempTimePeriod = 'h4';
+          break;
+		case 'h':
+          tempTimePeriod = 'h';
+          break;
+		case '60':
+          tempTimePeriod = 'h';
+          break;
+		case '30':
+          tempTimePeriod = 'i30';
+          break;
         case '15':
           tempTimePeriod = 'i15';
           break;
         case '3':
           tempTimePeriod = 'i3';
+          break;
+		case '1':
+          tempTimePeriod = 'i1';
           break;
         default:
       }
@@ -129,11 +144,26 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
     for (let i = 0; i < options.length; i++) {
       const item = options[i];
       switch (item) {
-		case '15':
+	    case '1':
+          tempTimePeriod = 'i1';
+          break;
+	    case '3':
+          tempTimePeriod = 'i3';
+          break;
+	    case '15':
           tempTimePeriod = 'i15';
+          break;
+	    case '30':
+          tempTimePeriod = 'i30';
+          break;
+		case '60':
+          tempTimePeriod = 'h';
           break;
         case 'h':
           tempTimePeriod = 'h';
+          break;
+		case '4h':
+          tempTimePeriod = 'h4';
           break;
         case 'd':
           tempTimePeriod = 'd';
