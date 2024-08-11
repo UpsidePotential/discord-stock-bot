@@ -519,7 +519,7 @@ export const WetGoodsCommand: ICommand = {
   name: 'WetGoods',
   helpDescription: 'WetGoods',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!wet_goods'),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!wet_goods' || msg.content.toLocaleLowerCase() === '!wetgoods'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
     if (i_rand < 75) {
@@ -752,13 +752,18 @@ export const HitManCommand: ICommand = {
   name: 'Hitman',
   helpDescription: 'Hitman',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hit_man'),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hit_man' || msg.content.toLocaleLowerCase() === '!hitman'),
   command: async (message: Message) => {
-	const fs = require('fs')
-	const fileContent = fs.readFileSync('./src/commands/Fuck/images/Lawns.txt', 'utf-8');
-	const lines = fileContent.split('\n');
-	const line = lines[Math.floor(Math.random() * lines.length)]
-	await message.reply(line)
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 66) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hitman.png"] })
+	} else {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/Lawns.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	}
     return Promise.resolve();
   },
 };
@@ -891,6 +896,21 @@ export const BootmanjCommand: ICommand = {
   command: async (message: Message) => {
 	const fs = require('fs')
 	const fileContent = fs.readFileSync('./src/commands/Fuck/images/bootmanj.txt', 'utf-8');
+	const lines = fileContent.split('\n');
+	const line = lines[Math.floor(Math.random() * lines.length)]
+	await message.reply(line)
+    return Promise.resolve();
+  },
+};
+
+export const KaygeeCommand: ICommand = {
+  name: 'Kaygee',
+  helpDescription: 'Kaygee',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!kaygee'),
+  command: async (message: Message) => {
+	const fs = require('fs')
+	const fileContent = fs.readFileSync('./src/commands/Fuck/images/kg.txt', 'utf-8');
 	const lines = fileContent.split('\n');
 	const line = lines[Math.floor(Math.random() * lines.length)]
 	await message.reply(line)

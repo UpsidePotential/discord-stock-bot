@@ -21,7 +21,7 @@ import { FuckCommand, GapperCommand, ManateeCommand, PastramiCommand, SepistComm
 import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephCommand, BootmanjCommand } from './commands/Fuck';
 import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, PmchemCommand, LolCommand } from './commands/Fuck';
 import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand,PopCommand } from './commands/Fuck';
-import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './commands/Fuck';
+import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, KaygeeCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
 import { VixCurveCommand, MomoDashCommand, MaxLossCommand } from './commands/market_dashboard';
@@ -50,7 +50,7 @@ export const commandList: ICommand[] = [
   PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand,
   ZephCommand, MilkCommand, JoshCommand, ModsCommand, HurfCommand,
   AdrenalCommand, WetGoodsCommand, TootersCommand, FlowinCommand, 
-  DanglingCommand, NetbusCommand, PotyCommand, PotyPassive, 
+  DanglingCommand, NetbusCommand, PotyCommand, PotyPassive, KaygeeCommand,
   ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand,
   PmchemCommand, PopCommand, LolCommand, RootootCommand, BootmanjCommand,
   GapperCommand,
