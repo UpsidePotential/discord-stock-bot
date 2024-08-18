@@ -155,7 +155,11 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
 			break;
 		default:
-			await message.reply("https://www.udio.com/songs/wYFqDEQV49vDpMPxR2KdLH");
+			const fs = require('fs')
+			const fileContent = fs.readFileSync('./src/commands/Fuck/images/dogwalk.txt', 'utf-8');
+			const lines = fileContent.split('\n');
+			const line = lines[Math.floor(Math.random() * lines.length)]
+			await message.reply(line)
 			break;
 	}
     return Promise.resolve();
