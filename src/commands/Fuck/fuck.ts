@@ -925,10 +925,8 @@ export const DunkmanCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!dunkman'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 20) {
+    if (i_rand < 33) {
 		await message.reply({ files : ["./src/commands/Fuck/images/dunk.png"] })
-	} else if (i_rand >= 20 && i_rand < 40 ) {
-		await message.reply({ files : ["./src/commands/Fuck/images/dunk2.png"] })
 	} else {
 		const fs = require('fs')
 		const fileContent = fs.readFileSync('./src/commands/Fuck/images/dunk.txt', 'utf-8');
