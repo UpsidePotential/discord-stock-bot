@@ -86,7 +86,7 @@ export const ManateeCommand: ICommand = {
 			await message.reply("**~MODS~!!!**... Manatee probably");
 			break;
 		case 4:
-			await message.reply("$spy");
+			await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"] });
 			break;
 		default:
 			await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] });
@@ -136,7 +136,7 @@ export const SepistCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep5.jpg"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] });
 			break;
 		case 1:
 			await message.reply("$/bz d");
@@ -446,15 +446,15 @@ export const HurfCommand: ICommand = {
     if (i_rand < 10) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 10 && i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Hurf00.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 30 && i_rand < 35) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"]})
 	} else {
 	    function getRandomKey(matrix: Record<string, string[]>): string {
 			const keys = Object.keys(matrix);
@@ -914,6 +914,28 @@ export const KaygeeCommand: ICommand = {
 	const lines = fileContent.split('\n');
 	const line = lines[Math.floor(Math.random() * lines.length)]
 	await message.reply(line)
+    return Promise.resolve();
+  },
+};
+
+export const DunkmanCommand: ICommand = {
+  name: 'Dunkman',
+  helpDescription: 'Dunkman',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!dunkman'),
+  command: async (message: Message) => {
+	let i_rand =  Math.floor(Math.random() * 100); 
+    if (i_rand < 20) {
+		await message.reply({ files : ["./src/commands/Fuck/images/dunk.png"] })
+	} else if (i_rand >= 20 && i_rand < 40 ) {
+		await message.reply({ files : ["./src/commands/Fuck/images/dunk2.png"] })
+	} else {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/dunk.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	}
     return Promise.resolve();
   },
 };
