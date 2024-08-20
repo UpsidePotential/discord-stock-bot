@@ -20,11 +20,11 @@ import { StatsCommand } from './commands/Stats';
 import { FuckCommand, GapperCommand, ManateeCommand, PastramiCommand, SepistCommand, RootootCommand } from './commands/Fuck';
 import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephCommand, BootmanjCommand } from './commands/Fuck';
 import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, PmchemCommand, LolCommand } from './commands/Fuck';
-import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand,PopCommand } from './commands/Fuck';
-import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './commands/Fuck';
+import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand,PopCommand,DunkmanCommand } from './commands/Fuck';
+import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, KaygeeCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
-import { VixCurveCommand, MomoDashCommand, MaxLossCommand } from './commands/market_dashboard';
+import { VixCurveCommand, MomoDashCommand, MaxLossCommand, VRPCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
 
 export const commandList: ICommand[] = [
@@ -50,8 +50,8 @@ export const commandList: ICommand[] = [
   PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand,
   ZephCommand, MilkCommand, JoshCommand, ModsCommand, HurfCommand,
   AdrenalCommand, WetGoodsCommand, TootersCommand, FlowinCommand, 
-  DanglingCommand, NetbusCommand, PotyCommand, PotyPassive, 
-  ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand,
+  DanglingCommand, NetbusCommand, PotyCommand, PotyPassive, KaygeeCommand,
+  ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, DunkmanCommand,
   PmchemCommand, PopCommand, LolCommand, RootootCommand, BootmanjCommand,
   GapperCommand,
   CorrelationCommand, RealizedVolCommand,
@@ -59,5 +59,5 @@ export const commandList: ICommand[] = [
   DressingCommand, VolConeCommand,
   PairsCommand, CoTCommand, VixBinsCommand,
   VolSheetCommand, MomoDashCommand, MaxLossCommand,
-  RelChartCommand, VixCurveCommand,
+  RelChartCommand, VixCurveCommand, VRPCommand,
 ];

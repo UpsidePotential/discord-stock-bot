@@ -465,7 +465,7 @@ export const VixCurveCommand: ICommand = {
   name: 'Vix Curve',
   helpDescription: 'Generates VIX futures curve',
   showInHelp: true,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!vix'),
+  trigger: (msg: Message) => (msg.content.startsWith('!vix')),
   command: async (message: Message, services: any) => {
   try{
     const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`);
@@ -492,7 +492,7 @@ export const MomoDashCommand: ICommand = {
   name: 'Momemtum Dashboard',
   helpDescription: 'Generates momentum dashboard',
   showInHelp: true,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!market'),
+  trigger: (msg: Message) => (msg.content.startsWith('!market')),
   command: async (message: Message, services: any) => {
   try{
     let ftype = '1';
@@ -560,5 +560,19 @@ export const MaxLossCommand: ICommand = {
     return Promise.resolve();
   }
     return Promise.resolve();
+  },
+};
+
+export const VRPCommand: ICommand = {
+  name: 'Vol Risk estimates',
+  helpDescription: '!vrp',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vrp'),
+  command: async (message: Message, services: any) => {
+	const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/6_1_IV_contango.png?raw=true`);
+	await message.channel.send({files: [image.rawBody]});
+	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/VRPremia.png?raw=true`);
+	await message.channel.send({files: [image2.rawBody]});
+	return Promise.resolve();
   },
 };
