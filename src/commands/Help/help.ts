@@ -26,7 +26,11 @@ export const HelpCommand: ICommand = {
         fields,
       },
       ],
-    });
+    }).catch((error) => {
+  		//Temp fix for !help
+      message.channel.send("1-800-GAMBLER is the phone number for the National Problem Gambling Helpline. \n\
+        It serves as a resource for individuals who lack alpha and the spirit of a true investor.");
+	  });
     return Promise.resolve();
   },
 };
