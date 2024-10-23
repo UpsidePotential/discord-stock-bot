@@ -569,7 +569,7 @@ export const VRPCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!vrp'),
   command: async (message: Message, services: any) => {
-	const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/6_1_IV_contango.png?raw=true`);
+	const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/3_1_IV_contango.png?raw=true`);
 	await message.channel.send({files: [image.rawBody]});
 	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/VRPremia.png?raw=true`);
 	await message.channel.send({files: [image2.rawBody]});
