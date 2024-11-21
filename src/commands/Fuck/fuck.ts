@@ -447,47 +447,24 @@ export const HurfCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hurf'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 10) {
+    if (i_rand < 5) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
+	} else if (i_rand >= 5 && i_rand < 10) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 10 && i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-	} else if (i_rand >= 20 && i_rand < 25) {
+	} else if (i_rand >= 15 && i_rand < 20) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-	} else if (i_rand >= 25 && i_rand < 30) {
+	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-	} else if (i_rand >= 30 && i_rand < 35) {
+	} else if (i_rand >= 25 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"]})
 	} else {
-	    function getRandomKey(matrix: Record<string, string[]>): string {
-			const keys = Object.keys(matrix);
-			return keys[Math.floor(Math.random() * 5)];
-		}
-		function getRandomWordFromArray(wordArray: string[] | undefined): string | undefined {
-			if (!wordArray || wordArray.length === 0) {
-				return undefined;
-			}
-			const randomIndex = Math.floor(Math.random() * wordArray.length);
-			return wordArray[randomIndex];
-		}
-		function generateSentence(): string {
-			let sentence = "";
-			let currentKey: string | null = getRandomKey(beginMatrix);
-            sentence += `${currentKey} `;
-			while (currentKey) {
-				const nextWord = getRandomWordFromArray(beginMatrix[currentKey]);
-				if (nextWord) {
-					sentence += `${nextWord} `;
-					currentKey = nextWord;
-				} else {
-					currentKey = null;
-				}
-			}
-			return sentence.trim();
-		}
-		const generatedSentence = generateSentence();
-		await message.reply(generatedSentence)
+	    const fs1 = require('fs')
+		const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
+		const lines1 = fileContent1.split('\n');
+		const line1 = lines1[Math.floor(Math.random() * lines1.length)]
+		await message.reply(line1)
 	}
     return Promise.resolve();
   },
