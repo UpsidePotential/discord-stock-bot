@@ -3,98 +3,60 @@ export type OptionsKey = 'indicators' | 'chart_type' | 'time_period' | 'time_per
 export const extractFromOptions = (key: OptionsKey, options: string[]): string => {
   if (key === 'indicators') {
     let tempIndicator = '';
+    let indicators = [];
 
     for (let i = 0; i < options.length; i++) {
       const item = options[i];
       switch (item) {
-        case 'rsi':
-          tempIndicator += ',rsi_b_14';
-          break;
-        case 'macd':
-          tempIndicator += ',macd_b_12_26_9';
-          break;
-        case 'adx':
-          tempIndicator += ',adx_b_14';
-          break;
-        case 'atr':
-          tempIndicator += ',atr_b_14';
-          break;
-        case 'cci':
-          tempIndicator += ',cci_b_20';
-          break;
-        case 'fi':
-          tempIndicator += ',fi_b_14';
-          break;
-        case 'mfi':
-          tempIndicator += ',mfi_b_14';
-          break;
-        case 'ppi':
-          tempIndicator += ',perf_b_SPY_QQQ';
-          break;
-        case 'rwi':
-          tempIndicator += ',rwi_b_9';
-          break;
-        case 'roc':
-          tempIndicator += ',roc_b_12';
-          break;
-        case 'rmi':
-          tempIndicator += ',rmi_b_20';
-          break;
-        case 'stofu':
-          tempIndicator += ',stofu_b_14_3_3';
-          break;
-        case 'stosl':
-          tempIndicator += ',stosl_b_14_3';
-          break;
-        case 'stofa':
-          tempIndicator += ',stofa_b_14_3';
-          break;
-        case 'trix':
-          tempIndicator += ',trix_b_9';
-          break;
-        case 'ult':
-          tempIndicator += ',ult_b_7_14_28';
-          break;
-        case 'wr':
-          tempIndicator += ',wr_b_14';
-          break;
         case 'bb20':
-          tempIndicator += ',bb_20_2';
+          indicators.push(['bb', 20, '2980b9']);
           break;
         case 'bb50':
-          tempIndicator += ',bb_50_2';
+          indicators.push(['bb', 50, '3498db']);
           break;
         case 'borc':
-          tempIndicator += ',bb_20_2,bb_50_2';
+          indicators.push(['bb', 20, '2980b9']);
+          indicators.push(['bb', 50, '3498db']);
           break;
         case 'hilo':
-          tempIndicator += ',hilo_20';
+          indicators.push(['hilo', 20, 'a9dfbf']);
           break;
         case 'ema':
-          tempIndicator += ',ema_9,ema_21';
+          indicators.push(['ema', 9, 'c0392b']);
+          indicators.push(['ema', 21, 'eb984e']);
+          break;
+        case 'vwap':
+          indicators.push(['vwap', 0, '7d3c98']);
+          break;
+        case 'sma':
+          indicators.push(['sma', 20, 'FF8F33C6']);
+          indicators.push(['sma', 50, 'DCB3326D']);
+          indicators.push(['sma', 200, 'DC32B363']);
           break;
         default:
       }
     }
-    if (options.includes('d') || tempIndicator !== '') {
-      if (
-        !options.includes('bb20')
-                  && !options.includes('bb50')
-                  && !options.includes('borc')
-                  && !options.includes('ema')
-      ) {
-        tempIndicator += ',sma_50,sma_200,sma_20';
-      }
+    if (indicators.length) {
+        // add trendlines
+        indicators.push(['patterns', 0, '000']);
+        for (let i = 0; i < indicators.length; i++) {
+          tempIndicator += '&o['+i+'][ot]='+indicators[i][0];
+          tempIndicator += '&o['+i+'][op]='+indicators[i][1];
+          tempIndicator += '&o['+i+'][oc]='+indicators[i][2];
+        }
+    } else {
+      // base case - smas & trendlines
+      tempIndicator = '&o[0][ot]=sma&o[0][op]=20&o[0][oc]=FF8F33C6&o[1][ot]=sma&o[1][op]=50&o[1][oc]=DCB3326D&o[2][ot]=sma&o[2][op]=200&o[2][oc]=DC32B363&o[3][ot]=patterns&o[3][op]=&o[3][oc]=000';
     }
-
     return tempIndicator;
+
   } if (key === 'chart_type') {
-    let tempChartType = 'c';
+    let tempChartType = 'candle_stick';
     for (let i = 0; i < options.length; i++) {
       const item = options[i];
       switch (item) {
         case 'line':
-          tempChartType = 'l';
+          tempChartType = 'line';
           break;
         default:
       }

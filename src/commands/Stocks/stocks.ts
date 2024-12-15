@@ -12,6 +12,7 @@ const tickerAlias = new Map([
   ['mouse', 'dis'],
   ['jeff', 'amzn'],
   ['nut', 'msft'],
+  ['felon', 'djt']
 ]);
 
 const goonTickers = ['ndra', 'aht'];
@@ -45,42 +46,41 @@ export const StocksCommand: ICommand = {
     for (let i = 1; i < rawOptions.length; i++) options.push(rawOptions[i]);
     let timePeriod = extractFromOptions('time_period', options);
     const chartType = extractFromOptions('chart_type', options);
-    const additionalIndicators = extractFromOptions('indicators', options);
-    if (additionalIndicators.length !== 0) timePeriod = 'd';
+    const indicators = extractFromOptions('indicators', options);
+    //if (indicators.length !== 0) timePeriod = 'd';
 
     ticker = getTicker(ticker);
 
-    const imgFile = `https://elite.finviz.com/chart.ashx?t=${
+    const imgFile = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${
       ticker
-    }&ty=${
+    }&ct=${
       chartType
-    }${timePeriod === 'd' ? `&ta=st_c,sch_200p${additionalIndicators}` : ''
-    }&p=${
+    }&tf=${
       timePeriod
-    }&s=l`
-        + `x=${Math.random()}.png`;
-
+    }${
+      indicators
+    }&s=linear`;
     TickerTracker.postTicker(ticker, message.author.id, 'stock');
 
     if (rawOptions.find((v) => v === 'moon')) {
       await drawMoon(imgFile, message);
     } else {
       const file = await got(imgFile);
-	  const fSize = Buffer.byteLength(file.body);
-	  if (fSize > 12000 && ticker.length < 6) {
-	    const sentMessage = await message.channel.send(
+	    const fSize = Buffer.byteLength(file.body);
+	    if (fSize > 12000 && ticker.length < 6) {
+	      const sentMessage = await message.channel.send(
 			  {
-				files: [file.rawBody],
+				  files: [file.rawBody],
 			  },
 			);
 		  TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
-		} else {
-		const fs = require('fs')
-		const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
-		const lines = fileContent.split('\n');
-		const line = lines[Math.floor(Math.random() * lines.length)]
-		await message.reply(line)
-		}
+		  } else {
+		    const fs = require('fs')
+		    const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
+		    const lines = fileContent.split('\n');
+		    const line = lines[Math.floor(Math.random() * lines.length)]
+		    await message.reply(line)
+		  }
     }
   },
 };
