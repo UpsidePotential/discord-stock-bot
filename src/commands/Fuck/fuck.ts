@@ -450,14 +450,14 @@ export const HurfCommand: ICommand = {
     if (i_rand < 5) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 5 && i_rand < 10) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
 	} else if (i_rand >= 10 && i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-	} else if (i_rand >= 15 && i_rand < 20) {
+	} else if (i_rand >= 15 && i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-	} else if (i_rand >= 25 && i_rand < 30) {
+	} else if (i_rand >= 25 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"]})
 	} else {
 	    const fs1 = require('fs')
@@ -551,8 +551,8 @@ export const FlowinCommand: ICommand = {
     if (i_rand < 35) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin_v2.gif"] })
 	} else if (i_rand >= 35 && i_rand < 50 ) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Flowin.png"] })
-	} else if (i_rand < 50 && i_rand < 75) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Flowin.gif"] })
+	} else if (i_rand >= 50 && i_rand < 75) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin1.jpg"] })
 	} else {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin2.png"] })
