@@ -606,12 +606,14 @@ export const NetbusCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!netbus'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 30) {
+    if (i_rand < 10) {
 		await message.reply("!rrg 1")
-	} else if (i_rand >= 30 && i_rand < 60 ) {
+	} else if (i_rand >= 10 && i_rand < 20 ) {
 		await message.reply("!rrg 2")
-	} else if (i_rand < 60 && i_rand < 85) {
+	} else if (i_rand < 20 && i_rand < 30) {
 		await message.reply("!rrg 3")
+	} else if (i_rand < 30 && i_rand < 70) {
+	    await message.reply("\:regional_indicator_g: \:regional_indicator_f: \:regional_indicator_y: \:regional_indicator_s:")
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
 	}
