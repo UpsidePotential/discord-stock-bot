@@ -457,8 +457,8 @@ export const HurfCommand: ICommand = {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-	} else if (i_rand >= 25 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"]})
+	} else if (i_rand >= 25 && i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
 	} else {
 	    const fs1 = require('fs')
 		const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
