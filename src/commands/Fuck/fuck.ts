@@ -450,15 +450,15 @@ export const HurfCommand: ICommand = {
     if (i_rand < 5) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 5 && i_rand < 10) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
 	} else if (i_rand >= 10 && i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-	} else if (i_rand >= 15 && i_rand < 20) {
+	} else if (i_rand >= 15 && i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
 	} else if (i_rand >= 20 && i_rand < 25) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
 	} else if (i_rand >= 25 && i_rand < 30) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Manatee3.png"]})
+		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
 	} else {
 	    const fs1 = require('fs')
 		const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
@@ -551,8 +551,8 @@ export const FlowinCommand: ICommand = {
     if (i_rand < 35) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin_v2.gif"] })
 	} else if (i_rand >= 35 && i_rand < 50 ) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Flowin.png"] })
-	} else if (i_rand < 50 && i_rand < 75) {
+		await message.reply({ files : ["./src/commands/Fuck/images/Flowin.gif"] })
+	} else if (i_rand >= 50 && i_rand < 75) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin1.jpg"] })
 	} else {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin2.png"] })
@@ -606,12 +606,14 @@ export const NetbusCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!netbus'),
   command: async (message: Message) => {
 	let i_rand =  Math.floor(Math.random() * 100); 
-    if (i_rand < 30) {
+    if (i_rand < 10) {
 		await message.reply("!rrg 1")
-	} else if (i_rand >= 30 && i_rand < 60 ) {
+	} else if (i_rand >= 10 && i_rand < 20 ) {
 		await message.reply("!rrg 2")
-	} else if (i_rand < 60 && i_rand < 85) {
+	} else if (i_rand < 20 && i_rand < 30) {
 		await message.reply("!rrg 3")
+	} else if (i_rand < 30 && i_rand < 70) {
+	    await message.reply("\:regional_indicator_g: \:regional_indicator_f: \:regional_indicator_y: \:regional_indicator_s:")
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
 	}
