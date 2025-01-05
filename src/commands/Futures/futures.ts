@@ -10,6 +10,7 @@ const tickerAlias = new Map([
   ['/rusty', '/er2'],
   ['/rty', '/er2'],
   ['/cum', '/cl'],
+  ['/bz', '/zm'],
 ]);
 
 const getTicker = (name: string): string => {
@@ -22,17 +23,18 @@ const getTicker = (name: string): string => {
   return name;
 };
 
-export const updateText = (imgUrl: string, msg: Message): void => {
+export const updateText = (imgUrl: string, msg: Message, ogTicker: string): void => {
   const sharpStream = sharp({
     failOnError: false,
   });
 
   const promises = [];
+  const newTitle = ogTicker === '/cum' ? 'yup.png' : 'ziti.png';
 
   promises.push(
     sharpStream
       .clone()
-      .composite([{ input: 'yup.png', gravity: 'northwest' }])
+      .composite([{ input: newTitle, gravity: 'northwest' }])
       .toFile('temp.png'),
   );
 
@@ -60,7 +62,7 @@ export const FuturesCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('$/'),
   command: async (message: Message) => {
     let ticker = message.content.toLowerCase().split(' ')[0].substring(1)
-	if (ticker != '/bz') {
+	if (ticker != '/') {
 		const ogTicker = ticker;
 		const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
 		const options = [];
@@ -68,7 +70,14 @@ export const FuturesCommand: ICommand = {
 		const timePeriod = extractFromOptions('time_period_futures', options);
 		ticker = `@` + getTicker(ticker).slice(1);
 		const file = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${ticker}&tf=${timePeriod}&s=linear&ct=candle_stick&o[0][ot]=sma&o[0][op]=20&o[0][oc]=FF8F33C6&o[1][ot]=sma&o[1][op]=50&o[1][oc]=DCB3326D&o[2][ot]=sma&o[2][op]=200&o[2][oc]=DC32B363&o[3][ot]=patterns&o[3][op]=&o[3][oc]=000`
-		const image = await got(file);
+
+        if (ogTicker === '/cum') {
+            return updateText(file, message, ogTicker);
+        }
+        if (ogTicker === '/bz') {
+            return updateText(file, message, ogTicker);
+        }
+        const image = await got(file);
 		const sentMessage = await message.channel.send(
 			{
 			  files: [
