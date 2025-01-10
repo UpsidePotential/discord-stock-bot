@@ -1,3 +1,3 @@
 export {
-  StocksCommand, StockCharts,
+  StocksCommand, StockCharts, HeatMap,
 } from './stocks';

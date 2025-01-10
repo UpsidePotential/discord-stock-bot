@@ -118,3 +118,39 @@ export const StockCharts: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const HeatMap: ICommand = {
+  name: 'Heat Map ',
+  helpDescription: '!hm',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!hm'),
+  command: async (message: Message) => {
+
+    // npm install puppeteer-extra puppeteer-extra-plugin-stealth
+    const puppeteer = require('puppeteer-extra');
+    const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+
+    // add the stealth plugin
+    puppeteer.use(StealthPlugin());
+
+    // set up browser environment
+    const browser = await puppeteer.launch({ headless: 'new' });
+    const page = await browser.newPage();
+
+    // navigate to a URL
+    await page.goto('https://www.tradingview.com/heatmap/stock/', {
+        waitUntil: 'networkidle0',
+    });
+
+    // find the heatMap element
+    const fileElement = await page.$('[class^=canvasContainer]');
+
+    // take heatmap screenshot
+    await fileElement.screenshot({path: './src/commands/Stocks/images/heatMap.png',});
+    const sentMessage2 = await message.channel.send({ files : ["./src/commands/Stocks/images/heatMap.png"] });
+
+    // close the browser instance
+    await browser.close();
+
+  },
+};

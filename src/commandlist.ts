@@ -3,7 +3,7 @@ import { FuturesCommand } from './commands/Futures';
 import { CryptoCommand } from './commands/Crypto';
 // import { ForexCommand } from './commands/Forex';
 import {
-  StocksCommand, StockCharts,
+  StocksCommand, StockCharts, HeatMap
 } from './commands/Stocks';
 import {
   ScreenerCommand, BreakoutCommand, WinnersCommand, LosersCommand,
@@ -60,4 +60,5 @@ export const commandList: ICommand[] = [
   PairsCommand, CoTCommand, VixBinsCommand,
   VolSheetCommand, MomoDashCommand, MaxLossCommand,
   RelChartCommand, VixCurveCommand, VRPCommand,
+  HeatMap,
 ];
