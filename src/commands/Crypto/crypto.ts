@@ -17,8 +17,9 @@ export const CryptoCommand: ICommand = {
     for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
     TickerTracker.postTicker(ticker, message.author.id, 'crypto');
 
-    const timePeriod = extractFromOptions('time_period_forex', options);
-    const file = await got(`https://elite.finviz.com/fx_image.ashx?${ticker}usd_${timePeriod}_l.png`);
+    const timePeriod = extractFromOptions('time_period', options);
+    const indicators = extractFromOptions('indicators', options);
+    const file = await got(`https://charts-node.finviz.com/chart.ashx?cs=l&t=@${ticker}usd&tf=${timePeriod}&s=linear&ct=candle_stick&${indicators}`);
 
     const sentMessage = await message.channel
       .send({

@@ -23,7 +23,7 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
           break;
         case 'ema':
           indicators.push(['ema', 9, 'c0392b']);
-          indicators.push(['ema', 21, 'eb984e']);
+          indicators.push(['ema', 21, '0317fc']);
           break;
         case 'vwap':
           indicators.push(['vwap', 0, '7d3c98']);
