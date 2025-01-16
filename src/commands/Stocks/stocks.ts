@@ -118,3 +118,14 @@ export const StockCharts: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const HeatMap: ICommand = {
+  name: 'Heat Map ',
+  helpDescription: '!hm',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!hm'),
+  command: async (message: Message) => {
+    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`);
+    await message.channel.send({files: [image.rawBody]});
+  },
+};
