@@ -8,7 +8,7 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
     for (let i = 0; i < options.length; i++) {
 
       //allow for period selection i.e. $spy sma20 ema12 etc.
-      const [item, period] = options[i].match(/\D+|\d+/g);
+      const [item, period] = options[i].split(/(?<=\D)(?=\d)/);
 
       if (item && period) {
 
