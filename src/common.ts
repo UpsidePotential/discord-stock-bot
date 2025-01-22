@@ -6,34 +6,38 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
     let indicators = [];
 
     for (let i = 0; i < options.length; i++) {
-      const item = options[i];
-      switch (item) {
-        case 'bb20':
-          indicators.push(['bb', 20, '2980b9']);
-          break;
-        case 'bb50':
-          indicators.push(['bb', 50, '3498db']);
-          break;
-        case 'borc':
-          indicators.push(['bb', 20, '2980b9']);
-          indicators.push(['bb', 50, '3498db']);
-          break;
-        case 'hilo':
-          indicators.push(['hilo', 20, 'a9dfbf']);
-          break;
-        case 'ema':
-          indicators.push(['ema', 9, 'c0392b']);
-          indicators.push(['ema', 21, '0317fc']);
-          break;
-        case 'vwap':
-          indicators.push(['vwap', 0, '7d3c98']);
-          break;
-        case 'sma':
-          indicators.push(['sma', 20, 'FF8F33C6']);
-          indicators.push(['sma', 50, 'DCB3326D']);
-          indicators.push(['sma', 200, 'DC32B363']);
-          break;
-        default:
+
+      //allow for period selection i.e. $spy sma20 ema12 etc.
+      const [item, period] = options[i].split(/(?<=\D)(?=\d)/);
+
+      if (item && period) {
+
+        // indicator + period + random hex color
+        indicators.push([item, period, Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0")]);
+      
+      } else {
+        switch (item) {
+          case 'borc':
+            indicators.push(['bb', 20, '2980b9']);
+            indicators.push(['bb', 50, '3498db']);
+            break;
+          case 'hilo':
+            indicators.push(['hilo', 20, 'a9dfbf']);
+            break;
+          case 'ema':
+            indicators.push(['ema', 9, 'c0392b']);
+            indicators.push(['ema', 21, '0317fc']);
+            break;
+          case 'vwap':
+            indicators.push(['vwap', 0, '7d3c98']);
+            break;
+          case 'sma':
+            indicators.push(['sma', 20, 'FF8F33C6']);
+            indicators.push(['sma', 50, 'DCB3326D']);
+            indicators.push(['sma', 200, 'DC32B363']);
+            break;
+          default:
+        }
       }
     }
     if (indicators.length) {
@@ -76,16 +80,16 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
         case 'd':
           tempTimePeriod = 'd';
           break;
-		case '4h':
+    case '4h':
           tempTimePeriod = 'h4';
           break;
-		case 'h':
+    case 'h':
           tempTimePeriod = 'h';
           break;
-		case '60':
+    case '60':
           tempTimePeriod = 'h';
           break;
-		case '30':
+    case '30':
           tempTimePeriod = 'i30';
           break;
         case '15':
@@ -94,7 +98,7 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
         case '3':
           tempTimePeriod = 'i3';
           break;
-		case '1':
+    case '1':
           tempTimePeriod = 'i1';
           break;
         default:
@@ -106,25 +110,25 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
     for (let i = 0; i < options.length; i++) {
       const item = options[i];
       switch (item) {
-	    case '1':
+      case '1':
           tempTimePeriod = 'i1';
           break;
-	    case '3':
+      case '3':
           tempTimePeriod = 'i3';
           break;
-	    case '15':
+      case '15':
           tempTimePeriod = 'i15';
           break;
-	    case '30':
+      case '30':
           tempTimePeriod = 'i30';
           break;
-		case '60':
+    case '60':
           tempTimePeriod = 'h';
           break;
         case 'h':
           tempTimePeriod = 'h';
           break;
-		case '4h':
+    case '4h':
           tempTimePeriod = 'h4';
           break;
         case 'd':
