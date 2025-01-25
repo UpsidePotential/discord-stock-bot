@@ -11,9 +11,11 @@ export const extractFromOptions = (key: OptionsKey, options: string[]): string =
       const [item, period] = options[i].split(/(?<=\D)(?=\d)/);
 
       if (item && period) {
-
-        // indicator + period + random hex color
-        indicators.push([item, period, Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0")]);
+        const possible_vals = ['borc', 'hilo', 'ema', 'vwap', 'sma'];
+        if(possible_vals.includes(item)) {
+            // valid indicator + period + random hex color
+            indicators.push([item, period, Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0")]);
+        }
       
       } else {
         switch (item) {

@@ -254,7 +254,7 @@ export const ZephCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!zeph'),
   command: async (message: Message) => {
-	const probabilities = [20, 20, 20, 10, 10, 10, 10];
+	const probabilities = [20, 20, 20, 20, 20];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -279,14 +279,11 @@ export const ZephCommand: ICommand = {
 		case 3:
 			await message.reply({ files : ["./src/commands/Fuck/images/Zeph3.jpg"] })
 			break;
-		case 4:
-			await message.reply({ files : ["./src/commands/Fuck/images/ZephJedi.png"] })
-			break;
-		case 5:
-			await message.reply("$sgov m")
+        case 4:
+			await message.reply({ files : ["./src/commands/Fuck/images/Zeph1.png"] })
 			break;
 		default:
-			await message.reply({ files : ["./src/commands/Fuck/images/ZephJedi2.png"] })
+			await message.reply("$sgov m")
 			break;
 	}
     return Promise.resolve();
