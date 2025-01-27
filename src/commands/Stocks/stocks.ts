@@ -12,7 +12,8 @@ const tickerAlias = new Map([
   ['mouse', 'dis'],
   ['jeff', 'amzn'],
   ['nut', 'msft'],
-  ['felon', 'djt']
+  ['felon', 'djt'],
+  ['nazi', 'tsla']
 ]);
 
 const goonTickers = ['ndra', 'aht'];
