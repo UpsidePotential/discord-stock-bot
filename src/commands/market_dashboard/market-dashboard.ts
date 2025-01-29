@@ -518,12 +518,22 @@ export const MomoDashCommand: ICommand = {
           ],
         },
       );
-  
+    ftype = '3';
+	const image3 = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
+
+    await message.channel
+      .send(
+        {
+          files: [
+            image3.rawBody,
+          ],
+        },
+      );
   } catch(e)
-  {
-    console.error(e);
-    return Promise.resolve();
-  }
+      {
+        console.error(e);
+        return Promise.resolve();
+      }
     return Promise.resolve();
   },
 };
