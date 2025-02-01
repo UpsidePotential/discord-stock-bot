@@ -22,6 +22,7 @@ import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephComm
 import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, PmchemCommand, LolCommand } from './commands/Fuck';
 import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand,PopCommand,DunkmanCommand } from './commands/Fuck';
 import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, KaygeeCommand } from './commands/Fuck';
+import { DumpItCommand, PumpItCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
 import { VixCurveCommand, MomoDashCommand, MaxLossCommand, VRPCommand } from './commands/market_dashboard';
@@ -60,5 +61,5 @@ export const commandList: ICommand[] = [
   PairsCommand, CoTCommand, VixBinsCommand,
   VolSheetCommand, MomoDashCommand, MaxLossCommand,
   RelChartCommand, VixCurveCommand, VRPCommand,
-  HeatMap,
+  HeatMap, DumpItCommand, PumpItCommand
 ];

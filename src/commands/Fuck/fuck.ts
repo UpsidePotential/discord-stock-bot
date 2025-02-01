@@ -917,3 +917,41 @@ export const DunkmanCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const DumpItCommand: ICommand = {
+  name: 'dumpIt',
+  helpDescription: 'dumpIt',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('dump it')),
+  command: async (message: Message) => {
+  	let images = [
+  		"./src/commands/Fuck/images/dumpit1.gif",
+  		"./src/commands/Fuck/images/dumpit2.gif",
+  		"./src/commands/Fuck/images/dumpit3.gif",
+  		"./src/commands/Fuck/images/dumpit4.gif",
+  	];
+
+	  await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  
+	  return Promise.resolve();
+	},
+};
+
+export const PumpItCommand: ICommand = {
+  name: 'pumpIt',
+  helpDescription: 'pumpIt',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('pump it')),
+  command: async (message: Message) => {
+  	let images = [
+  		"./src/commands/Fuck/images/pumpit1.gif",
+  		"./src/commands/Fuck/images/pumpit2.gif",
+  		"./src/commands/Fuck/images/pumpit3.gif",
+  		"./src/commands/Fuck/images/pumpit4.gif",
+  	];
+
+	  await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  
+	  return Promise.resolve();
+	},
+};
