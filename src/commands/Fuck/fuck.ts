@@ -12,6 +12,9 @@ const MilkCases = [-1, -1, -1];
 const JoshCases = [-1, -1, -1];
 const TootCases = [-1, -1];
 const RootCases = [-1, -1, -1, -1];
+let lolclockcheck = 0;
+let pumpclockcheck = 0;
+let dumpclockcheck = 0;
 
 function weightedRandomCase(probabilities: number[]): number {
   const totalWeight = probabilities.reduce((total, weight) => total + weight, 0);
@@ -815,12 +818,11 @@ export const LolCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
 		}
 	} else {
-		let clockcheck = 0;
 		const cooldown = 6 * 60 * 60 * 1000; //6 hours
-		if ((Date.now() - clockcheck) < cooldown) {
+		if ((Date.now() - lolclockcheck) < cooldown) {
 			return Promise.resolve();
 		}
-		clockcheck = Date.now();
+		lolclockcheck = Date.now();
 		let i_rand =  Math.floor(Math.random() * 150); 
 		if (i_rand == 22) {
 			await message.reply("LOL")
@@ -922,16 +924,28 @@ export const DumpItCommand: ICommand = {
   name: 'dumpIt',
   helpDescription: 'dumpIt',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('dump it')),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'dump it'),
   command: async (message: Message) => {
-  	let images = [
+  	console.log((Date.now() - dumpclockcheck) > 30000);
+		if ((Date.now() - dumpclockcheck) > 30000) { //30sec cooldown
+			let images = [
   		"./src/commands/Fuck/images/dumpit1.gif",
   		"./src/commands/Fuck/images/dumpit2.gif",
   		"./src/commands/Fuck/images/dumpit3.gif",
   		"./src/commands/Fuck/images/dumpit4.gif",
-  	];
+  		"./src/commands/Fuck/images/dumpit5.gif",
+  		"./src/commands/Fuck/images/dumpit6.gif",
+  		"./src/commands/Fuck/images/dumpit7.gif",
+  		"./src/commands/Fuck/images/dumpit8.gif",
+  		"./src/commands/Fuck/images/dumpit9.gif",
+  		"./src/commands/Fuck/images/dumpit10.gif",
+  		"./src/commands/Fuck/images/dumpit11.gif",
+  		"./src/commands/Fuck/images/dumpit12.gif",
+  		];
 
-	  await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  	dumpclockcheck = Date.now();
+		}
 	  
 	  return Promise.resolve();
 	},
@@ -941,16 +955,27 @@ export const PumpItCommand: ICommand = {
   name: 'pumpIt',
   helpDescription: 'pumpIt',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('pump it')),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'pump it'),
   command: async (message: Message) => {
-  	let images = [
+  	console.log((Date.now() - pumpclockcheck) > 30000);
+		if ((Date.now() - pumpclockcheck) > 30000) { //30sec cooldown
+			let images = [
   		"./src/commands/Fuck/images/pumpit1.gif",
   		"./src/commands/Fuck/images/pumpit2.gif",
   		"./src/commands/Fuck/images/pumpit3.gif",
   		"./src/commands/Fuck/images/pumpit4.gif",
-  	];
+  		"./src/commands/Fuck/images/pumpit5.gif",
+  		"./src/commands/Fuck/images/pumpit6.gif",
+  		"./src/commands/Fuck/images/pumpit7.gif",
+  		"./src/commands/Fuck/images/pumpit8.gif",
+  		"./src/commands/Fuck/images/pumpit9.gif",
+  		"./src/commands/Fuck/images/pumpit10.gif",
+  		"./src/commands/Fuck/images/pumpit11.gif",
+  		];
 
-	  await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	  	pumpclockcheck = Date.now();
+		}
 	  
 	  return Promise.resolve();
 	},
