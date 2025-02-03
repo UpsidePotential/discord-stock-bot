@@ -129,7 +129,7 @@ export const SepistCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!sepist'),
   command: async (message: Message) => {
-	const probabilities = [15, 10, 10, 10, 25, 20, 10];
+	const probabilities = [5, 5, 10, 10, 20, 20, 30];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -152,17 +152,13 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 4:
-			await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
+			await message.reply("https://www.youtube.com/watch?v=tjBs4pKwzhU");
 			break;
 		case 5:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye.gif"] });
 			break;
 		default:
-			const fs = require('fs')
-			const fileContent = fs.readFileSync('./src/commands/Fuck/images/dogwalk.txt', 'utf-8');
-			const lines = fileContent.split('\n');
-			const line = lines[Math.floor(Math.random() * lines.length)]
-			await message.reply(line)
+			await message.reply("https://www.youtube.com/watch?v=nSz16ngdsG0")
 			break;
 	}
     return Promise.resolve();
