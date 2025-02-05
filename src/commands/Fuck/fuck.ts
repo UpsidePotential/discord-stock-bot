@@ -903,7 +903,7 @@ export const DumpItCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'dump it'),
   command: async (message: Message) => {
   	console.log((Date.now() - dumpclockcheck) > 300000);
-		if (((Date.now() - dumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% change to trigger
+		if (((Date.now() - dumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% chance to trigger
 			let images = [
   		"./src/commands/Fuck/images/dumpit1.gif",
   		"./src/commands/Fuck/images/dumpit2.gif",
@@ -933,7 +933,7 @@ export const PumpItCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'pump it'),
   command: async (message: Message) => {
   	console.log((Date.now() - pumpclockcheck) > 300000);
-		if (((Date.now() - pumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% change to trigger
+		if (((Date.now() - pumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% chance to trigger
 			let images = [
   		"./src/commands/Fuck/images/pumpit2.gif",
   		"./src/commands/Fuck/images/pumpit3.gif",
