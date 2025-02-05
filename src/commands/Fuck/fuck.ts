@@ -15,7 +15,8 @@ const RootCases = [-1, -1, -1, -1];
 let lolclockcheck = 0;
 let pumpclockcheck = 0;
 let dumpclockcheck = 0;
-let i_rand =  Math.floor(Math.random() * 100);
+let highsclockcheck = 0;
+let lowsclockcheck = 0;
 
 function weightedRandomCase(probabilities: number[]): number {
   const totalWeight = probabilities.reduce((total, weight) => total + weight, 0);
@@ -106,6 +107,7 @@ export const PastramiCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!pastrami'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 40) {
 		await message.reply({ files : ["./src/commands/Fuck/images/pastra1.jpg"] })
 	} else if (i_rand >= 40 && i_rand < 52) {
@@ -171,6 +173,7 @@ export const PixaalCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!pixaal'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 15) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Pix1.png"] })
 	} else if (i_rand >= 15 && i_rand < 30) {
@@ -194,15 +197,19 @@ export const NewHighCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith("new highs")),
   command: async (message: Message) => {
-    if (i_rand < 20) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newHighs.jpg"] })
-	} else if (i_rand >= 20 && i_rand < 40) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newHighs2.gif"] })
-	} else if (i_rand >= 40 && i_rand < 60) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newHighs3.gif"] })
-	} else if (i_rand >= 60 && i_rand < 80) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newHighs4.gif"] })
-	}
+    let i_rand =  Math.floor(Math.random() * 100);
+    if ((Date.now() - highsclockcheck) > 300000) {
+        if (i_rand < 20) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newHighs.jpg"] })
+        } else if (i_rand >= 20 && i_rand < 40) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newHighs2.gif"] })
+        } else if (i_rand >= 40 && i_rand < 60) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newHighs3.gif"] })
+        } else if (i_rand >= 60 && i_rand < 80) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newHighs4.gif"] })
+        }
+        highsclockcheck = Date.now();
+    }
     return Promise.resolve();
   },
 };
@@ -213,16 +220,19 @@ export const NewLowCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('new lows')),
   command: async (message: Message) => {
-    if (i_rand < 20) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
-	} else if (i_rand >= 20 && i_rand < 40) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newLows2.gif"] })
-	} else if (i_rand >= 40 && i_rand < 60) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newLows3.gif"] })
-	} else if (i_rand >= 60 && i_rand < 80) {
-		await message.reply({ files : ["./src/commands/Fuck/images/newLows4.gif"] })
-	}
-	
+    let i_rand =  Math.floor(Math.random() * 100);
+    if ((Date.now() - lowsclockcheck) > 300000) {
+        if (i_rand < 20) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newLows.png"] })
+        } else if (i_rand >= 20 && i_rand < 40) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newLows2.gif"] })
+        } else if (i_rand >= 40 && i_rand < 60) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newLows3.gif"] })
+        } else if (i_rand >= 60 && i_rand < 80) {
+            await message.reply({ files : ["./src/commands/Fuck/images/newLows4.gif"] })
+        }
+        lowsclockcheck = Date.now();
+    }
     return Promise.resolve();
   },
 };
@@ -233,6 +243,7 @@ export const ShitlordCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!shitlord'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 50) {
 		await message.reply({ files : ["./src/commands/Fuck/images/shit1.png"] })
 	} else {
@@ -407,6 +418,7 @@ export const ModsCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('mods')),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
 	if (message.author.id === '725363876270702672' || message.author.id === '137044883721420800') {
 		if (i_rand < 75) {
 			await message.reply({ files : ["./src/commands/Fuck/images/selfmods.jpg"] })
@@ -435,6 +447,7 @@ export const HurfCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hurf'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 5) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
 	} else if (i_rand >= 5 && i_rand < 10) {
@@ -464,6 +477,7 @@ export const AdrenalCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!adrenal'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 12) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Adrenal.jpg"] })
 	} else if (i_rand >= 12 && i_rand < 24) {
@@ -489,6 +503,7 @@ export const WetGoodsCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!wet_goods' || msg.content.toLocaleLowerCase() === '!wetgoods'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 60) {
 		await message.reply("**Dry BADS**")
 	} else {
@@ -533,6 +548,7 @@ export const FlowinCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!flowin'),
   command: async (message: Message) => { 
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 35) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Flowin_v2.gif"] })
 	} else if (i_rand >= 35 && i_rand < 50 ) {
@@ -590,6 +606,7 @@ export const NetbusCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!netbus'),
   command: async (message: Message) => { 
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 10) {
 		await message.reply("!rrg 1")
 	} else if (i_rand >= 10 && i_rand < 20 ) {
@@ -613,6 +630,7 @@ export const ToalyCommand: ICommand = {
   command: async (message: Message) => {
 	let quant = Math.floor(Math.random() * 10);
 	let cost = Math.floor(Math.random() * 1000);
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 15) {
 		await message.reply("\:cry:")
 		await message.reply("Please hit the buy button. Toaly needs this to pump or else they're going to be RUINED.")
@@ -639,6 +657,7 @@ export const PotyCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!poty'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 5) {
 		await message.reply("Poster of the year");
 	} else if (i_rand < 10) {
@@ -719,6 +738,7 @@ export const HitManCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hit_man' || msg.content.toLocaleLowerCase() === '!hitman'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 66) {
 		await message.reply({ files : ["./src/commands/Fuck/images/hitman.png"] })
 	} else {
@@ -738,6 +758,7 @@ export const AbeCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!abe'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 33) {
 		await message.reply({ files : ["./src/commands/Fuck/images/Abe1.jpg"] })
 	} else if (i_rand >= 33 && i_rand < 66 ) {
@@ -774,6 +795,7 @@ export const PopCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!popping'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 33) {
 		await message.reply("**PoppingFresh** is the truest ***COWARD***. Look how long it took him to make a command for himself...")
 	} else if (i_rand >= 33 && i_rand < 66 ) {
@@ -791,6 +813,7 @@ export const LolCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
 	if (message.content.includes('LOL')) {
 		if (i_rand < 80) {
 			await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
@@ -883,6 +906,7 @@ export const DunkmanCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!dunkman'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 33) {
 		await message.reply({ files : ["./src/commands/Fuck/images/dunk.png"] })
 	} else {
@@ -902,6 +926,7 @@ export const DumpItCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'dump it'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
   	console.log((Date.now() - dumpclockcheck) > 300000);
 		if (((Date.now() - dumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% chance to trigger
 			let images = [
@@ -932,6 +957,7 @@ export const PumpItCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === 'pump it'),
   command: async (message: Message) => {
+    let i_rand =  Math.floor(Math.random() * 100);
   	console.log((Date.now() - pumpclockcheck) > 300000);
 		if (((Date.now() - pumpclockcheck) > 300000) && i_rand > 20) { //300sec cooldown (5min) and 80% chance to trigger
 			let images = [
