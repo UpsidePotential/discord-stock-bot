@@ -17,13 +17,16 @@ const tickerAlias = new Map([
 ]);
 
 const goonTickers = ['ndra', 'aht'];
+const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
 
 const getTicker = (name: string): string => {
   const normalizedName = name.toLowerCase();
   if (normalizedName === 'goon') {
     return goonTickers[Math.floor(Math.random() * goonTickers.length)];
   }
-
+  if (brkbTickers.includes(normalizedName)) {
+    return 'brk-b'
+  }
   const ticker = tickerAlias.get(normalizedName);
   if (ticker) {
     return ticker;
