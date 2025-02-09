@@ -131,7 +131,7 @@ export const SepistCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!sepist'),
   command: async (message: Message) => {
-	const probabilities = [5, 5, 10, 10, 20, 20, 30];
+	const probabilities = [15, 5, 10, 10, 20, 20, 20];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -141,7 +141,7 @@ export const SepistCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/Manatee2.jpg"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
 			break;
 		case 1:
 			await message.reply("$/bz d");
