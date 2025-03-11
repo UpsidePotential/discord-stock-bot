@@ -154,13 +154,13 @@ export const SepistCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 4:
-			await message.reply("https://www.youtube.com/watch?v=tjBs4pKwzhU");
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
 			break;
 		case 5:
-			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye.gif"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
 			break;
 		default:
-			await message.reply("https://www.youtube.com/watch?v=nSz16ngdsG0")
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.gif"] });
 			break;
 	}
     return Promise.resolve();
@@ -405,7 +405,7 @@ Remember to maintain a confident and relaxed expression for a genuine and appeal
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
 			break;
 		default:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.jpg"] })
+			await message.reply({ files : ["./src/commands/Fuck/images/Josh11.png"] })
 			break;
 	}
     return Promise.resolve();
@@ -934,6 +934,7 @@ export const DumpItCommand: ICommand = {
   		"./src/commands/Fuck/images/dumpit1.gif",
   		"./src/commands/Fuck/images/dumpit2.gif",
   		"./src/commands/Fuck/images/dumpit3.gif",
+        "./src/commands/Fuck/images/dumpit4.gif",
   		"./src/commands/Fuck/images/dumpit5.gif",
   		"./src/commands/Fuck/images/dumpit6.gif",
   		"./src/commands/Fuck/images/dumpit7.gif",
