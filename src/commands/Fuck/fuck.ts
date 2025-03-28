@@ -141,23 +141,27 @@ export const SepistCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
+			//await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
+            await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
 			break;
 		case 1:
-			await message.reply("$/bz d");
-			await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
+			//await message.reply("$/bz d");
+			//await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
+            await message.reply("https://www.youtube.com/watch?v=7Ln7R_wnfQM&ab_channel=U2-Topic")
 			break;
 		case 2:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
+			//await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
+            await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
 			break;
 		case 3:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
 			break;
 		case 4:
-			await message.reply({ files : ["./src/commands/Fuck/images/Sep6.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
 			break;
 		case 5:
-			await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
+			//await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
+            await message.reply("https://www.youtube.com/watch?v=7Ln7R_wnfQM&ab_channel=U2-Topic")
 			break;
 		default:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.gif"] });
