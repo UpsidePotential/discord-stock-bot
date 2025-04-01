@@ -141,17 +141,16 @@ export const SepistCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			//await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
-            await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
+            //await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
 			break;
 		case 1:
-			//await message.reply("$/bz d");
-			//await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
-            await message.reply("https://www.youtube.com/watch?v=7Ln7R_wnfQM&ab_channel=U2-Topic")
+			await message.reply("$/bz d");
+			await message.reply({ files : ["./src/commands/Fuck/images/ziti.gif"] });
 			break;
 		case 2:
-			//await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
-            await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/Sep3.png"] });
+            //await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
 			break;
 		case 3:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep2.png"] });
@@ -161,7 +160,7 @@ export const SepistCommand: ICommand = {
 			break;
 		case 5:
 			//await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
-            await message.reply("https://www.youtube.com/watch?v=7Ln7R_wnfQM&ab_channel=U2-Topic")
+            await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
 			break;
 		default:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.gif"] });
@@ -615,9 +614,9 @@ export const NetbusCommand: ICommand = {
 		await message.reply("!rrg 1")
 	} else if (i_rand >= 10 && i_rand < 20 ) {
 		await message.reply("!rrg 2")
-	} else if (i_rand < 20 && i_rand < 30) {
-		await message.reply("!rrg 3")
-	} else if (i_rand < 30 && i_rand < 70) {
+	} else if (i_rand > 20 && i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/netbus.gif"] });
+	} else if (i_rand > 30 && i_rand < 70) {
 	    await message.reply("\:regional_indicator_g: \:regional_indicator_f: \:regional_indicator_y: \:regional_indicator_s:")
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
