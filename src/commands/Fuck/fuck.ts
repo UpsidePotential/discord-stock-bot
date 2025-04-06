@@ -453,24 +453,21 @@ export const HurfCommand: ICommand = {
   command: async (message: Message) => {
     const args = message.content.toLowerCase().split(' ');
     const hasArg = args.length > 1 && args[1].trim() !== '';
-    console.log(args)
-    console.log(hasArg)
     // Custom !hurf search if argument is passed
     if (hasArg) {
       const fs1 = require('fs');
       const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
       const lines1 = fileContent1.split('\n')
-      console.log(lines1)
+
       const arg = args[1].toLowerCase();
       const match = lines1.filter((line: string) => line.toLowerCase().includes(arg));
-      console.log(arg)
+
       let line1;
       if (match.length > 0) {
         line1 = match[Math.floor(Math.random() * match.length)];
       } else {
         line1 = lines1[Math.floor(Math.random() * lines1.length)];
       }
-      console.log(line1)
       await message.reply(line1);
     } else {
         let i_rand =  Math.floor(Math.random() * 100);
