@@ -448,28 +448,48 @@ export const HurfCommand: ICommand = {
   name: 'hurf',
   helpDescription: 'hurf',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!hurf'),
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith('!hurf')),
   command: async (message: Message) => {
-    let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 5) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
-	} else if (i_rand >= 5 && i_rand < 10) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
-	} else if (i_rand >= 10 && i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-	} else if (i_rand >= 15 && i_rand < 15) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-	} else if (i_rand >= 20 && i_rand < 25) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-	} else if (i_rand >= 25 && i_rand < 30) {
-		await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
-	} else {
-	    const fs1 = require('fs')
-		const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
-		const lines1 = fileContent1.split('\n');
-		const line1 = lines1[Math.floor(Math.random() * lines1.length)]
-		await message.reply(line1)
-	}
+    const args = message.content.toLowerCase().split(' ');
+    const hasArg = args.length > 1 && args[1].trim() !== '';
+    // Custom !hurf search if argument is passed
+    if (hasArg) {
+      const fs1 = require('fs');
+      const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
+      const lines1 = fileContent1.split('\n')
+
+      const arg = args[1].toLowerCase();
+      const match = lines1.filter((line: string) => line.toLowerCase().includes(arg));
+
+      let line1;
+      if (match.length > 0) {
+        line1 = match[Math.floor(Math.random() * match.length)];
+      } else {
+        line1 = lines1[Math.floor(Math.random() * lines1.length)];
+      }
+      await message.reply(line1);
+    } else {
+        let i_rand =  Math.floor(Math.random() * 100);
+        if (i_rand < 5) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
+        } else if (i_rand >= 5 && i_rand < 10) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
+        } else if (i_rand >= 10 && i_rand < 15) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
+        } else if (i_rand >= 15 && i_rand < 15) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
+        } else if (i_rand >= 20 && i_rand < 25) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
+        } else if (i_rand >= 25 && i_rand < 30) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+        } else {
+            const fs1 = require('fs')
+            const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
+            const lines1 = fileContent1.split('\n');
+            const line1 = lines1[Math.floor(Math.random() * lines1.length)]
+            await message.reply(line1)
+        }       
+    }
     return Promise.resolve();
   },
 };
