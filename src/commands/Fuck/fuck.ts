@@ -459,28 +459,34 @@ export const HurfCommand: ICommand = {
       const lines1 = fileContent1.split('\n')
 
       const arg = args[1].toLowerCase();
-      const match = lines1.filter((line: string) => line.toLowerCase().includes(arg));
-
       let line1;
+      
+      const entireWord = new RegExp(`\\b${arg}\\b`, 'i');
+      const match = lines1.filter((line: string) => entireWord.test(line.toLowerCase()));
       if (match.length > 0) {
         line1 = match[Math.floor(Math.random() * match.length)];
       } else {
-        line1 = lines1[Math.floor(Math.random() * lines1.length)];
+        const match = lines1.filter((line: string) => line.toLowerCase().includes(arg));
+        if (match.length > 0) {
+            line1 = match[Math.floor(Math.random() * match.length)];
+        } else {
+            line1 = lines1[Math.floor(Math.random() * lines1.length)];
+        }
       }
       await message.reply(line1);
     } else {
         let i_rand =  Math.floor(Math.random() * 100);
-        if (i_rand < 5) {
+        if (i_rand < 10) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
-        } else if (i_rand >= 5 && i_rand < 10) {
+        } else if (i_rand >= 10 && i_rand < 20) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
-        } else if (i_rand >= 10 && i_rand < 15) {
+        } else if (i_rand >= 20 && i_rand < 30) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-        } else if (i_rand >= 15 && i_rand < 15) {
+        } else if (i_rand >= 30 && i_rand < 40) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-        } else if (i_rand >= 20 && i_rand < 25) {
+        } else if (i_rand >= 40 && i_rand < 50) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-        } else if (i_rand >= 25 && i_rand < 30) {
+        } else if (i_rand >= 50 && i_rand < 60) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
         } else {
             const fs1 = require('fs')
