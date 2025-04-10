@@ -476,18 +476,20 @@ export const HurfCommand: ICommand = {
       await message.reply(line1);
     } else {
         let i_rand =  Math.floor(Math.random() * 100);
-        if (i_rand < 10) {
+        if (i_rand < 8) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
-        } else if (i_rand >= 10 && i_rand < 20) {
+        } else if (i_rand >= 8 && i_rand < 16) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
-        } else if (i_rand >= 20 && i_rand < 30) {
+        } else if (i_rand >= 16 && i_rand < 24) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-        } else if (i_rand >= 30 && i_rand < 40) {
+        } else if (i_rand >= 24 && i_rand < 32) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-        } else if (i_rand >= 40 && i_rand < 50) {
+        } else if (i_rand >= 32 && i_rand < 40) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-        } else if (i_rand >= 50 && i_rand < 60) {
+        } else if (i_rand >= 40 && i_rand < 48) {
             await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
+        } else if (i_rand >= 48 && i_rand < 56) {
+            await message.reply({ files : ["./src/commands/Fuck/images/hurf5.png"]})	
         } else {
             const fs1 = require('fs')
             const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
