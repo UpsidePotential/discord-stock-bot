@@ -644,7 +644,9 @@ export const NetbusCommand: ICommand = {
 		await message.reply("!rrg 2")
 	} else if (i_rand > 20 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/netbus.gif"] });
-	} else if (i_rand > 30 && i_rand < 70) {
+	} else if (i_rand > 30 && i_rand < 40) {
+		await message.reply({ files : ["./src/commands/Fuck/images/netbus2.gif"] });
+	} else if (i_rand > 40 && i_rand < 70) {
 	    await message.reply("\:regional_indicator_g: \:regional_indicator_f: \:regional_indicator_y: \:regional_indicator_s:")
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
