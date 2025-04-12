@@ -829,9 +829,11 @@ export const PopCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!popping'),
   command: async (message: Message) => {
     let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 33) {
+    if (i_rand < 25) {
 		await message.reply("**PoppingFresh** is the truest ***COWARD***. Look how long it took him to make a command for himself...")
-	} else if (i_rand >= 33 && i_rand < 66 ) {
+	} else if (i_rand >= 25 && i_rand < 50 ) {
+		await message.reply("more like POOPINGFresh*!!*")
+	} else if (i_rand >= 50 && i_rand < 75 ) {	
 		await message.reply({ files : ["./src/commands/Fuck/images/Pop1.png"] })
 	} else {
 		await message.reply({ files : ["./src/commands/Fuck/images/Pop2.png"] })
