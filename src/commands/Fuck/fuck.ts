@@ -12,7 +12,7 @@ const MilkCases = [-1, -1, -1];
 const JoshCases = [-1, -1, -1];
 const TootCases = [-1, -1];
 const RootCases = [-1, -1, -1, -1];
-const linkRegex = '/(https?:\/\/[^\s]+)/i';
+const linkRegex = new RegExp(/(https?:\/\/[^\s]+)/i);
 let lolclockcheck = 0;
 let pumpclockcheck = 0;
 let dumpclockcheck = 0;
@@ -917,10 +917,10 @@ export const LateCommand: ICommand = {
 	name: 'Late',
 	helpDescription: 'If message contains a link add to a list and check for duplication, react josh if link is in list',
 	showInHelp: false,
-	trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === linkRegex),
+	trigger: (msg: Message) => (msg.content.toLocaleLowerCase().test(linkRegex)),
 	command: async (message: Message) => {
 	if (checkAndUpdateLinks(message)) {
-			await message.react(':nerd~2:');
+			await message.react('<:nerd:1000540529295106188>');
 	}	
 	return Promise.resolve();
   },
