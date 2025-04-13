@@ -32,6 +32,7 @@ function weightedRandomCase(probabilities: number[]): number {
 }
 
 function checkAndUpdateLinks(message: Message) {
+	const messageContent = message.content;
 	const fs = require('fs');
 	const path = require('path');
 	const LINK_FILE = './src/commands/Fuck/images/links.json';
@@ -48,10 +49,10 @@ function checkAndUpdateLinks(message: Message) {
 	}
 	
 	// checks if the message contains a link that has been seen in the last 100 links posted
-	const isDuplicate = [...linkSet].some(link => message.includes(link));
+	const isDuplicate = [...linkSet].some(link => messageContent.includes(link));
 	
 	// Extract all new links from the message unless they come from a GIF site
-	const newLinks = [...message.matchAll(linkRegex)].map(m => m[0]).filter(link => !link.includes('tenor.com'));
+	const newLinks = [...messageContent.matchAll(linkRegex)].map(m => m[0]).filter(link => !link.includes('tenor.com'));
 	
 	// Add new links to the set 
 	for (const link of newLinks) {
