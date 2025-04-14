@@ -644,7 +644,9 @@ export const NetbusCommand: ICommand = {
 		await message.reply("!rrg 2")
 	} else if (i_rand > 20 && i_rand < 30) {
 		await message.reply({ files : ["./src/commands/Fuck/images/netbus.gif"] });
-	} else if (i_rand > 30 && i_rand < 70) {
+	} else if (i_rand > 30 && i_rand < 40) {
+		await message.reply({ files : ["./src/commands/Fuck/images/netbus2.gif"] });
+	} else if (i_rand > 40 && i_rand < 70) {
 	    await message.reply("\:regional_indicator_g: \:regional_indicator_f: \:regional_indicator_y: \:regional_indicator_s:")
 	} else {
 		await message.reply("\:regional_indicator_c: \:regional_indicator_u: \:regional_indicator_m:")
@@ -827,9 +829,11 @@ export const PopCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!popping'),
   command: async (message: Message) => {
     let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 33) {
+    if (i_rand < 25) {
 		await message.reply("**PoppingFresh** is the truest ***COWARD***. Look how long it took him to make a command for himself...")
-	} else if (i_rand >= 33 && i_rand < 66 ) {
+	} else if (i_rand >= 25 && i_rand < 50 ) {
+		await message.reply("more like POOPINGFresh*!!*")
+	} else if (i_rand >= 50 && i_rand < 75 ) {	
 		await message.reply({ files : ["./src/commands/Fuck/images/Pop1.png"] })
 	} else {
 		await message.reply({ files : ["./src/commands/Fuck/images/Pop2.png"] })
