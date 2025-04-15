@@ -32,12 +32,13 @@ function weightedRandomCase(probabilities: number[]): number {
 }
 
 function checkAndUpdateLinks(message: Message): boolean {
+    linkRegex.lastIndex = 0;
 	const fs = require('fs');
 	const path = require('path');
 	const LINK_FILE = './src/commands/Fuck/images/links.json';
 	let orderedLinks = [];
 	let linkSet: Set<string> = new Set();
-
+    
 	if (fs.existsSync(LINK_FILE)) {
 		try {
 		orderedLinks = JSON.parse(fs.readFileSync(LINK_FILE, 'utf8'));
@@ -64,7 +65,7 @@ function checkAndUpdateLinks(message: Message): boolean {
 				linkSet.delete(oldest);
 			}
 		}
-	}	
+	}
 	// save new list
 	fs.writeFileSync(LINK_FILE, JSON.stringify(orderedLinks, null, 2), 'utf8');
 
