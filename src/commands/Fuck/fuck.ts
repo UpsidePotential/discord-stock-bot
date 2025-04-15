@@ -12,6 +12,7 @@ const MilkCases = [-1, -1, -1];
 const JoshCases = [-1, -1, -1];
 const TootCases = [-1, -1];
 const RootCases = [-1, -1, -1, -1];
+const linkRegex = new RegExp(/(https?:\/\/[^\s]+)/ig);
 let lolclockcheck = 0;
 let pumpclockcheck = 0;
 let dumpclockcheck = 0;
@@ -28,6 +29,46 @@ function weightedRandomCase(probabilities: number[]): number {
     random -= probabilities[i];
   }
   return probabilities.length - 1;
+}
+
+function checkAndUpdateLinks(message: Message): boolean {
+	const fs = require('fs');
+	const path = require('path');
+	const LINK_FILE = './src/commands/Fuck/images/links.json';
+	let orderedLinks = [];
+	let linkSet: Set<string> = new Set();
+
+	if (fs.existsSync(LINK_FILE)) {
+		try {
+		orderedLinks = JSON.parse(fs.readFileSync(LINK_FILE, 'utf8'));
+		linkSet = new Set<string>(orderedLinks);
+		} catch (err) {
+		console.error('Error loading links.json:', err);
+		}
+	}
+	
+	// checks if the message contains a link that has been seen in the last 100 links posted
+	const isDuplicate = [...linkSet].some(link => message.content.includes(link));
+	
+	// Extract all new links from the message unless they come from a GIF site
+	const newLinks = [...message.content.matchAll(linkRegex)].map(m => m[0]).filter(link => !link.includes('tenor.com'));
+	
+	// Add new links to the set 
+	for (const link of newLinks) {
+		if (!linkSet.has(link)) {
+			linkSet.add(link);
+			orderedLinks.push(link);
+			// if list is longer than 100 remove oldest
+			if (orderedLinks.length > 100) {
+				const oldest = orderedLinks.shift();
+				linkSet.delete(oldest);
+			}
+		}
+	}	
+	// save new list
+	fs.writeFileSync(LINK_FILE, JSON.stringify(orderedLinks, null, 2), 'utf8');
+
+  return isDuplicate;
 }
 
 const DeleteMessage = (message: Message, messageId: string): void => {
@@ -871,6 +912,19 @@ export const LolCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const LateCommand: ICommand = {
+	name: 'Late',
+	helpDescription: 'If message contains a link add to a list and check for duplication, react josh if link is in list',
+	showInHelp: false,
+	trigger: (msg: Message) => (linkRegex.test(msg.content.toLocaleLowerCase())),
+	command: async (message: Message) => {
+	if (checkAndUpdateLinks(message)) {
+			await message.react('<:nerd:1000540529295106188>');
+	}	
+	return Promise.resolve();
+  },
+};	
 
 export const RootootCommand: ICommand = {
   name: 'Rootoot',
