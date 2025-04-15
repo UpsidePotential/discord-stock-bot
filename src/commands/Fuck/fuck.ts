@@ -516,29 +516,18 @@ export const HurfCommand: ICommand = {
       }
       await message.reply(line1);
     } else {
-        let i_rand =  Math.floor(Math.random() * 100);
-        if (i_rand < 8) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf.png"] })
-        } else if (i_rand >= 8 && i_rand < 16) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf.jpg"]})
-        } else if (i_rand >= 16 && i_rand < 24) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf2.png"]})
-        } else if (i_rand >= 24 && i_rand < 32) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf.mp4"]})
-        } else if (i_rand >= 32 && i_rand < 40) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf4.png"]})
-        } else if (i_rand >= 40 && i_rand < 48) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf3.png"]})
-        } else if (i_rand >= 48 && i_rand < 56) {
-            await message.reply({ files : ["./src/commands/Fuck/images/hurf5.png"]})	
-        } else {
-            const fs1 = require('fs')
-            const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
-            const lines1 = fileContent1.split('\n');
-            const line1 = lines1[Math.floor(Math.random() * lines1.length)]
-            await message.reply(line1)
-        }       
-    }
+        let images = [
+  		"./src/commands/Fuck/images/hurf.jpg",
+  		"./src/commands/Fuck/images/hurf.png",
+  		"./src/commands/Fuck/images/hurf1.png",
+        "./src/commands/Fuck/images/hurf2.png",
+  		"./src/commands/Fuck/images/hurf3.png",
+  		"./src/commands/Fuck/images/hurf4.png",
+  		"./src/commands/Fuck/images/hurf5.png",
+  		"./src/commands/Fuck/images/hurf6.png",
+  		];
+	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+	}      
     return Promise.resolve();
   },
 };
@@ -576,8 +565,10 @@ export const WetGoodsCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!wet_goods' || msg.content.toLocaleLowerCase() === '!wetgoods'),
   command: async (message: Message) => {
     let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 60) {
+    if (i_rand < 33) {
 		await message.reply("**Dry BADS**")
+    } else if (i_rand >= 33 && i_rand < 66) {
+        await message.reply({ files : ["./src/commands/Fuck/images/wetgoods.jpg"] })
 	} else {
 		await message.reply("As one of two confirmed Latinos in chat, wet_goods is auto-goated.")
 	}
