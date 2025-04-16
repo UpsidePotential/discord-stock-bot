@@ -51,8 +51,10 @@ function checkAndUpdateLinks(message: Message): boolean {
 	// checks if the message contains a link that has been seen in the last 100 links posted
 	const isDuplicate = [...linkSet].some(link => message.content.includes(link));
 	
-	// Extract all new links from the message unless they come from a GIF site
-	const newLinks = [...message.content.matchAll(linkRegex)].map(m => m[0]).filter(link => !link.includes('tenor.com'));
+	// Extract all new links from the message unless they come from a GIF site or have image extension
+    const exclusions = ['.gif', '.jpg', '.png', '.wmv', '.jpeg', '.mp4', '.webp', 'tenor.com', 'discord.com'];
+	const newLinks = [...message.content.matchAll(linkRegex)].map(m => m[0])
+                .filter(link => !exclusions.some(x => link.toLowerCase().includes(x)));
 	
 	// Add new links to the set 
 	for (const link of newLinks) {
