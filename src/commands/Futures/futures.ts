@@ -11,6 +11,11 @@ const tickerAlias = new Map([
   ['/rty', '/er2'],
   ['/cum', '/cl'],
   ['/bz', '/zm'],
+  ['/jpy', '/6j'],
+  ['/eur', '/6e'],
+  ['/cad', '/6c'],
+  ['/dxy', '/dx'],
+  ['/usd', '/dx'],
 ]);
 
 const getTicker = (name: string): string => {
