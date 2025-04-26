@@ -18,6 +18,7 @@ const tickerAlias = new Map([
 
 const goonTickers = ['ndra', 'aht'];
 const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
+const dxyTickers = ['.dx', '.dxy', '.usd', '/usd', '/dxy', 'dxy']
 
 const getTicker = (name: string): string => {
   const normalizedName = name.toLowerCase();
@@ -26,6 +27,9 @@ const getTicker = (name: string): string => {
   }
   if (brkbTickers.includes(normalizedName)) {
     return 'brk-b'
+  }
+  if (dxyTickers.includes(normalizedName)) {
+    return '@dx'
   }
   const ticker = tickerAlias.get(normalizedName);
   if (ticker) {
