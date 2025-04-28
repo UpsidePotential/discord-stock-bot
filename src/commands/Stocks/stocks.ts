@@ -19,6 +19,7 @@ const tickerAlias = new Map([
 const goonTickers = ['ndra', 'aht'];
 const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
 const dxyTickers = ['.dx', '.dxy', '.usd', '/usd', '/dxy', 'dxy']
+const stopTickers = ['intc']
 
 const getTicker = (name: string): string => {
   const normalizedName = name.toLowerCase();
@@ -58,6 +59,12 @@ export const StocksCommand: ICommand = {
     //if (indicators.length !== 0) timePeriod = 'd';
 
     ticker = getTicker(ticker);
+    let i_rand =  Math.floor(Math.random() * 100);
+    
+    if (stopTickers.includes(ticker) && i_rand < 20) {
+        await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
+        return Promise.resolve();
+    }
 
     const imgFile = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${
       ticker
