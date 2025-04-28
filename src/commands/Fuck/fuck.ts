@@ -204,7 +204,7 @@ export const SepistCommand: ICommand = {
 			break;
 		case 5:
 			//await message.reply({ files : ["./src/commands/Fuck/images/SepFeet_v4.gif"] });
-            await message.reply({ files : ["./src/commands/Fuck/images/Sep1.png"] });
+            await message.reply({ files : ["./src/commands/Fuck/images/Sep4.png"] });
 			break;
 		default:
 			await message.reply({ files : ["./src/commands/Fuck/images/Sep7.gif"] });
@@ -520,7 +520,6 @@ export const HurfCommand: ICommand = {
       await message.reply(line1);
     } else {
         let images = [
-  		"./src/commands/Fuck/images/hurf.jpg",
   		"./src/commands/Fuck/images/hurf.png",
   		"./src/commands/Fuck/images/hurf1.png",
         "./src/commands/Fuck/images/hurf2.png",
@@ -528,6 +527,7 @@ export const HurfCommand: ICommand = {
   		"./src/commands/Fuck/images/hurf4.png",
   		"./src/commands/Fuck/images/hurf5.png",
   		"./src/commands/Fuck/images/hurf6.png",
+        "./src/commands/Fuck/images/hurf7.png",
   		];
 	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
 	}      
@@ -826,14 +826,13 @@ export const AbeCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!abe'),
   command: async (message: Message) => {
-    let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 33) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Abe1.jpg"] })
-	} else if (i_rand >= 33 && i_rand < 66 ) {
-		await message.reply({ files : ["./src/commands/Fuck/images/Abe2.jpg"] })
-	} else {
-		await message.reply({ files : ["./src/commands/Fuck/images/Abe3.png"] })
-	}
+    let images = [
+  		"./src/commands/Fuck/images/Abe1.jpg",
+  		"./src/commands/Fuck/images/Abe2.jpg",
+  		"./src/commands/Fuck/images/Abe3.png",
+        "./src/commands/Fuck/images/abe.jpg",
+  		];
+	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
     return Promise.resolve();
   },
 };
