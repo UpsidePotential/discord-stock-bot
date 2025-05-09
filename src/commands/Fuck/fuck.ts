@@ -185,8 +185,8 @@ export const SepistCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
-            //await message.reply({ files : ["./src/commands/Fuck/images/Sep40.png"] });
+			//await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
+            await message.reply({ files : ["./src/commands/Fuck/images/Sep.mp4"] });
 			break;
 		case 1:
 			await message.reply("$/bz d");
@@ -528,6 +528,7 @@ export const HurfCommand: ICommand = {
   		"./src/commands/Fuck/images/hurf5.png",
   		"./src/commands/Fuck/images/hurf6.png",
         "./src/commands/Fuck/images/hurf7.png",
+        "./src/commands/Fuck/images/hurfPope.png",
   		];
 	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
 	}      
@@ -634,7 +635,7 @@ export const DanglingCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!dangling'),
   command: async (message: Message) => {
-	const probabilities = [20, 30, 40, 5, 5];
+	const probabilities = [20, 30, 20, 25, 5];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -657,8 +658,8 @@ export const DanglingCommand: ICommand = {
 			await message.reply(line)
 			break;
 		case 3:
-			await message.reply("$dkng d")
-			break;
+			await message.reply({ files : ["./src/commands/Fuck/images/Dang2.png"] });
+            break;
 		default:
 			await message.reply("$penn d")
 	}
