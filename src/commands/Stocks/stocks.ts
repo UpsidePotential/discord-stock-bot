@@ -65,7 +65,36 @@ export const StocksCommand: ICommand = {
         await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
         return Promise.resolve();
     }
-
+    if (ticker === 'fuck') {
+        let images = [
+  	    "./src/commands/Fuck/images/fuck1.jpg",
+        "./src/commands/Fuck/images/fuck2.jpg",
+        "./src/commands/Fuck/images/fuck3.jpg",
+        "./src/commands/Fuck/images/fuck4.jpg",
+  		];
+        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+        return Promise.resolve();
+    }
+    if (ticker === 'shit') {
+        let images = [
+  	    "./src/commands/Fuck/images/shit1.jpg",
+        "./src/commands/Fuck/images/shit2.jpg",
+  		];
+        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+        return Promise.resolve();
+    }
+    if (ticker === 'piss') {
+        let images = [
+  	    "./src/commands/Fuck/images/piss1.jpg",
+        "./src/commands/Fuck/images/piss2.jpg",
+  		];
+        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+        return Promise.resolve();
+    }
+    if (ticker === 'pope') {
+        await message.channel.send({ files : ["./src/commands/Fuck/images/hurfPope.png"] });
+        return Promise.resolve();
+    }
     const imgFile = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${
       ticker
     }&ct=${
