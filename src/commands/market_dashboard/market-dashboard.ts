@@ -507,11 +507,11 @@ export const MomoDashCommand: ICommand = {
         },
       );
 	  
-	const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/stockbee_tab.png?raw=true`);
-	await message.channel.send({files: [image.rawBody]});
+	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/stockbee_tab.png?raw=true`);
+	await message.channel.send({files: [image2.rawBody]});
     
-  const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/market_tab3.png?raw=true`);
-	await message.channel.send({files: [image.rawBody]});
+  const image3 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/market_tab3.png?raw=true`);
+	await message.channel.send({files: [image3.rawBody]});
   
   } catch(e)
       {
