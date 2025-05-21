@@ -507,28 +507,12 @@ export const MomoDashCommand: ICommand = {
         },
       );
 	  
-	ftype = '2';
-	const image2 = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
-
-    await message.channel
-      .send(
-        {
-          files: [
-            image2.rawBody,
-          ],
-        },
-      );
-    ftype = '3';
-	const image3 = await got(`${process.env.MARKET_DASHBOARD_URI}/momo_dash/${ftype}`);
-
-    await message.channel
-      .send(
-        {
-          files: [
-            image3.rawBody,
-          ],
-        },
-      );
+	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/stockbee_tab.png?raw=true`);
+	await message.channel.send({files: [image2.rawBody]});
+    
+  const image3 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/market_tab3.png?raw=true`);
+	await message.channel.send({files: [image3.rawBody]});
+  
   } catch(e)
       {
         console.error(e);
