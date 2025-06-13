@@ -927,7 +927,7 @@ export const RootootCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!rootoot'),
   command: async (message: Message) => {
-    const probabilities = [35, 35, 30];
+    const probabilities = [25, 25, 20, 30];
     let newCase;
     do {
       newCase = weightedRandomCase(probabilities);
@@ -942,8 +942,14 @@ export const RootootCommand: ICommand = {
 		case 1:
 			await message.reply({ files : ["./src/commands/Fuck/images/root2.gif"] });
 			break;
+        case 2:
+            await message.reply({ files : ["./src/commands/Fuck/images/root3.png"] });
+			break;
+        case 3:
+            await message.reply({ files : ["./src/commands/Fuck/images/root4.png"] });
+			break;
 		default:
-			await message.reply({ files : ["./src/commands/Fuck/images/root3.png"] });
+			await message.reply({ files : ["./src/commands/Fuck/images/root5.png"] });
 			break;
 	}
     return Promise.resolve();
