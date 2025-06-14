@@ -927,31 +927,15 @@ export const RootootCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!rootoot'),
   command: async (message: Message) => {
-    const probabilities = [25, 25, 20, 30];
-    let newCase;
-    do {
-      newCase = weightedRandomCase(probabilities);
-    } while (RootCases.includes(newCase));
-	RootCases.shift();
-	RootCases.push(newCase);
-	
-    switch (newCase) {
-		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/root1.png"] });
-			break;
-		case 1:
-			await message.reply({ files : ["./src/commands/Fuck/images/root2.gif"] });
-			break;
-        case 2:
-            await message.reply({ files : ["./src/commands/Fuck/images/root3.png"] });
-			break;
-        case 3:
-            await message.reply({ files : ["./src/commands/Fuck/images/root4.png"] });
-			break;
-		default:
-			await message.reply({ files : ["./src/commands/Fuck/images/root5.png"] });
-			break;
-	}
+    let images = [
+  		"./src/commands/Fuck/images/root1.png",
+  		"./src/commands/Fuck/images/root2.gif",
+  		"./src/commands/Fuck/images/root3.png",
+  		"./src/commands/Fuck/images/root4.png",
+  		"./src/commands/Fuck/images/root5.png",
+  		];
+
+	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
     return Promise.resolve();
   },
 };
