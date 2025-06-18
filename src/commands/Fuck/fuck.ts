@@ -915,7 +915,7 @@ export const LateCommand: ICommand = {
 	trigger: (msg: Message) => (linkRegex.test(msg.content.toLocaleLowerCase())),
 	command: async (message: Message) => {
 	if (checkAndUpdateLinks(message)) {
-			await message.react('<:nerd:1000540529295106188>');
+			// await message.react('<:nerd:1000540529295106188>');
 	}	
 	return Promise.resolve();
   },
