@@ -72,36 +72,47 @@ export const WinnersCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('!winners'),
   command: async (message: Message) => {
     const cap = message.content.split(' ')[1]
-	let url;
-	if (cap == 'large') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_large';
-    } else if (cap == 'mid') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_mid';
-	} else {
-	    url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
+    let i_rand =  Math.floor(Math.random() * 100);
+    if (i_rand < 0) {
+        let url;
+        if (cap == 'large') {
+            url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_large';
+        } else if (cap == 'mid') {
+            url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_mid';
+        } else {
+            url = 'https://finviz.com/screener.ashx?v=110&s=ta_topgainers';
+        }
+        const table = await getFinvizScreenWholeTable(url);
+        const arrayLength = Math.min(table.length, 10);
+        const fields = table.slice(0, arrayLength).map((value) => ({
+          name: value.ticker,
+          value: `Price: ${value.price} Change: ${value.change}`,
+        }));
+
+        message.channel.send({
+          embeds: [{
+            author: {
+              name: message.client.user.username,
+              icon_url: message.client.user.displayAvatarURL(),
+            },
+            color: 3447003,
+            title: 'Winners \n Use !winners (all | mid | large) to filter by market cap',
+            url,
+            fields,
+          },
+          ],
+        });
+
+        return Promise.resolve();
+    } else {
+      const emojis = [
+        '<:sam:940321701160448130>',
+        '<:laser:989233498101538816>',
+        '<:yellen:1290754652731736136>',
+      ];
+      await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
+      return Promise.resolve();
     }
-    const table = await getFinvizScreenWholeTable(url);
-    const arrayLength = Math.min(table.length, 10);
-    const fields = table.slice(0, arrayLength).map((value) => ({
-      name: value.ticker,
-      value: `Price: ${value.price} Change: ${value.change}`,
-    }));
-
-    message.channel.send({
-      embeds: [{
-        author: {
-          name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL(),
-        },
-        color: 3447003,
-        title: 'Winners \n Use !winners (all | mid | large) to filter by market cap',
-        url,
-        fields,
-      },
-      ],
-    });
-
-    return Promise.resolve();
   },
 };
 
@@ -112,37 +123,49 @@ export const LosersCommand: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('!losers'),
   command: async (message: Message) => {
     const cap = message.content.split(' ')[1]
+    let i_rand =  Math.floor(Math.random() * 100);
+    if (i_rand < 90) {
+        let url;
+        if (cap == 'large') {
+            url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_largeover';
+        } else if (cap == 'mid') {
+            url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_midover';
+        } else {
+            url = 'https://finviz.com/screener.ashx?v=110&s=ta_toplosers';
+        }
 
-	let url;
-	if (cap == 'large') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_largeover';
-    } else if (cap == 'mid') {
-	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_midover';
-	} else {
-	    url = 'https://finviz.com/screener.ashx?v=110&s=ta_toplosers';
+        const table = await getFinvizScreenWholeTable(url);
+        const arrayLength = Math.min(table.length, 10);
+        const fields = table.slice(0, arrayLength).map((value) => ({
+          name: value.ticker,
+          value: `Price: ${value.price} Change: ${value.change}`,
+        }));
+
+        message.channel.send({
+          embeds: [{
+            author: {
+              name: message.client.user.username,
+              icon_url: message.client.user.displayAvatarURL(),
+            },
+            color: 3447003,
+            title: 'Losers \n Use !losers (all | mid | large) to filter by market cap',
+            url,
+            fields,
+          },
+          ],
+        });
+
+        return Promise.resolve();
+    } else {
+      const emojis = [
+        '<:josh:1000540529295106111>',
+        '<:manatee:1247321787801407538>',
+        '<:sep:996587165909782538>',
+        '<:hurf:1014659739969400873>',
+        '<:zeph:1365101988295082004>',
+      ];
+      await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
+      return Promise.resolve();
     }
-
-    const table = await getFinvizScreenWholeTable(url);
-    const arrayLength = Math.min(table.length, 10);
-    const fields = table.slice(0, arrayLength).map((value) => ({
-      name: value.ticker,
-      value: `Price: ${value.price} Change: ${value.change}`,
-    }));
-
-    message.channel.send({
-      embeds: [{
-        author: {
-          name: message.client.user.username,
-          icon_url: message.client.user.displayAvatarURL(),
-        },
-        color: 3447003,
-        title: 'Losers \n Use !losers (all | mid | large) to filter by market cap',
-        url,
-        fields,
-      },
-      ],
-    });
-
-    return Promise.resolve();
   },
 };
