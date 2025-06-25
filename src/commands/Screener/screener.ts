@@ -73,7 +73,7 @@ export const WinnersCommand: ICommand = {
   command: async (message: Message) => {
     const cap = message.content.split(' ')[1]
     let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 0) {
+    if (i_rand < 90) {
         let url;
         if (cap == 'large') {
             url = 'https://finviz.com/screener.ashx?v=111&s=ta_topgainers&f=cap_large';
@@ -111,7 +111,6 @@ export const WinnersCommand: ICommand = {
         '<:yellen:1290754652731736136>',
       ];
       await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
-      return Promise.resolve();
     }
   },
 };
@@ -165,7 +164,6 @@ export const LosersCommand: ICommand = {
         '<:zeph:1365101988295082004>',
       ];
       await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
-      return Promise.resolve();
     }
   },
 };
