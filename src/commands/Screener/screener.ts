@@ -71,6 +71,7 @@ export const WinnersCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!winners'),
   command: async (message: Message) => {
+    if (message.author.bot) return;
     const cap = message.content.split(' ')[1]
     let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 90) {
@@ -102,8 +103,6 @@ export const WinnersCommand: ICommand = {
           },
           ],
         });
-
-        return Promise.resolve();
     } else {
       const emojis = [
         '<:sam:940321701160448130>',
@@ -121,6 +120,7 @@ export const LosersCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!losers'),
   command: async (message: Message) => {
+    if (message.author.bot) return;
     const cap = message.content.split(' ')[1]
     let i_rand =  Math.floor(Math.random() * 100);
     if (i_rand < 90) {
@@ -153,8 +153,6 @@ export const LosersCommand: ICommand = {
           },
           ],
         });
-
-        return Promise.resolve();
     } else {
       const emojis = [
         '<:josh:1000540529295106111>',
