@@ -71,6 +71,7 @@ export const WinnersCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!winners'),
   command: async (message: Message) => {
+    if (message.author.bot) return;
     const cap = message.content.split(' ')[1]
 	let url;
 	if (cap == 'large') {
@@ -111,8 +112,8 @@ export const LosersCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!losers'),
   command: async (message: Message) => {
+    if (message.author.bot) return;
     const cap = message.content.split(' ')[1]
-
 	let url;
 	if (cap == 'large') {
 	    url = 'https://finviz.com/screener.ashx?v=111&s=ta_toplosers&f=cap_largeover';
