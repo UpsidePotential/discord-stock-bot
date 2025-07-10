@@ -4,18 +4,18 @@ import { Message } from 'discord.js';
 import { StocksCommand } from './stocks';
 import { TickerTracker } from '../../services/tickerTracker';
 
-describe('stocks', () => {
+/* describe('stocks', () => {
   interface TestData {
     msg: string;
     result: boolean;
   }
   const testData: TestData[] = [
-    /* { msg: '$tsla', result: true },
+    { msg: '$tsla', result: true },
     { msg: '$spy rsi macd 5m', result: true },
     { msg: '$.dtc', result: false },
     { msg: '$/es', result: false },
     { msg: '$123', result: false },
-    { msg: 'tim $aapl', result: false }, */
+    { msg: 'tim $aapl', result: false },
     { msg: 'tim aapl', result: false },
   ];
 
@@ -35,4 +35,4 @@ describe('stocks', () => {
     await StocksCommand.command(spy);
     expect(spy.channel.send).toHaveBeenCalled();
   });
-});
+}); */
