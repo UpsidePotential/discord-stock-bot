@@ -48,83 +48,86 @@ export const StocksCommand: ICommand = {
     return regex.test(msg.content);
   },
   command: async (message: Message) => {
-    let ticker = message.content.toLowerCase().split(' ')[0].substring(1);
-    const rawOptions = message.content.toLowerCase().split(' ').slice(1);
-	rawOptions.unshift(' ')
-    const options = [];
-    for (let i = 1; i < rawOptions.length; i++) options.push(rawOptions[i]);
-    let timePeriod = extractFromOptions('time_period', options);
-    const chartType = extractFromOptions('chart_type', options);
-    const indicators = extractFromOptions('indicators', options);
-    //if (indicators.length !== 0) timePeriod = 'd';
+    const allowedChannelIds = ['725372823429972048', '773959920138584094'];
+    if (allowedChannelIds.includes(message.channel.id)) {
+        let ticker = message.content.toLowerCase().split(' ')[0].substring(1);
+        const rawOptions = message.content.toLowerCase().split(' ').slice(1);
+        rawOptions.unshift(' ')
+        const options = [];
+        for (let i = 1; i < rawOptions.length; i++) options.push(rawOptions[i]);
+        let timePeriod = extractFromOptions('time_period', options);
+        const chartType = extractFromOptions('chart_type', options);
+        const indicators = extractFromOptions('indicators', options);
+        //if (indicators.length !== 0) timePeriod = 'd';
 
-    ticker = getTicker(ticker);
-    let i_rand =  Math.floor(Math.random() * 100);
-    
-    if (stopTickers.includes(ticker) && i_rand < 20) {
-        await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
-        return Promise.resolve();
-    }
-    if (ticker === 'fuck') {
-        let images = [
-  	    "./src/commands/Fuck/images/fuck1.jpg",
-        "./src/commands/Fuck/images/fuck2.jpg",
-        "./src/commands/Fuck/images/fuck3.jpg",
-        "./src/commands/Fuck/images/fuck4.jpg",
-  		];
-        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
-        return Promise.resolve();
-    }
-    if (ticker === 'shit') {
-        let images = [
-  	    "./src/commands/Fuck/images/shit1.jpg",
-        "./src/commands/Fuck/images/shit2.jpg",
-  		];
-        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
-        return Promise.resolve();
-    }
-    if (ticker === 'piss') {
-        let images = [
-  	    "./src/commands/Fuck/images/piss1.jpg",
-        "./src/commands/Fuck/images/piss2.jpg",
-  		];
-        await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
-        return Promise.resolve();
-    }
-    if (ticker === 'pope') {
-        await message.channel.send({ files : ["./src/commands/Fuck/images/hurfPope.png"] });
-        return Promise.resolve();
-    }
-    const imgFile = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${
-      ticker
-    }&ct=${
-      chartType
-    }&tf=${
-      timePeriod
-    }${
-      indicators
-    }&s=linear`;
-    TickerTracker.postTicker(ticker, message.author.id, 'stock');
+        ticker = getTicker(ticker);
+        let i_rand =  Math.floor(Math.random() * 100);
+        
+        if (stopTickers.includes(ticker) && i_rand < 20) {
+            await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
+            return Promise.resolve();
+        }
+        if (ticker === 'fuck') {
+            let images = [
+            "./src/commands/Fuck/images/fuck1.jpg",
+            "./src/commands/Fuck/images/fuck2.jpg",
+            "./src/commands/Fuck/images/fuck3.jpg",
+            "./src/commands/Fuck/images/fuck4.jpg",
+            ];
+            await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+            return Promise.resolve();
+        }
+        if (ticker === 'shit') {
+            let images = [
+            "./src/commands/Fuck/images/shit1.jpg",
+            "./src/commands/Fuck/images/shit2.jpg",
+            ];
+            await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+            return Promise.resolve();
+        }
+        if (ticker === 'piss') {
+            let images = [
+            "./src/commands/Fuck/images/piss1.jpg",
+            "./src/commands/Fuck/images/piss2.jpg",
+            ];
+            await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
+            return Promise.resolve();
+        }
+        if (ticker === 'pope') {
+            await message.channel.send({ files : ["./src/commands/Fuck/images/hurfPope.png"] });
+            return Promise.resolve();
+        }
+        const imgFile = `https://charts-node.finviz.com/chart.ashx?cs=l&t=${
+          ticker
+        }&ct=${
+          chartType
+        }&tf=${
+          timePeriod
+        }${
+          indicators
+        }&s=linear`;
+        TickerTracker.postTicker(ticker, message.author.id, 'stock');
 
-    if (rawOptions.find((v) => v === 'moon')) {
-      await drawMoon(imgFile, message);
-    } else {
-      const file = await got(imgFile);
-	    const fSize = Buffer.byteLength(file.body);
-	    if (fSize > 12000 && ticker.length < 6) {
-	      const sentMessage = await message.channel.send(
-			  {
-				  files: [file.rawBody],
-			  },
-			);
-		  TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
-		  } else {
-		    const fs = require('fs')
-		    const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
-		    const lines = fileContent.split('\n');
-		    const line = lines[Math.floor(Math.random() * lines.length)]
-		    await message.reply(line)
-		  }
+        if (rawOptions.find((v) => v === 'moon')) {
+          await drawMoon(imgFile, message);
+        } else {
+          const file = await got(imgFile);
+            const fSize = Buffer.byteLength(file.body);
+            if (fSize > 12000 && ticker.length < 6) {
+              const sentMessage = await message.channel.send(
+                  {
+                      files: [file.rawBody],
+                  },
+                );
+              TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+              } else {
+                const fs = require('fs')
+                const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
+                const lines = fileContent.split('\n');
+                const line = lines[Math.floor(Math.random() * lines.length)]
+                await message.reply(line)
+              }
+        }
     }
   },
 };
