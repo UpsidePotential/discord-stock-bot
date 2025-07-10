@@ -129,7 +129,7 @@ export const StocksCommand: ICommand = {
               }
         }
     } else {
-      await message.reply('No')
+      await message.reply('No' + message.author.toString())
     }
   },
 };
