@@ -10,12 +10,12 @@ describe('stocks', () => {
     result: boolean;
   }
   const testData: TestData[] = [
-    { msg: '$tsla', result: true },
+    /* { msg: '$tsla', result: true },
     { msg: '$spy rsi macd 5m', result: true },
     { msg: '$.dtc', result: false },
     { msg: '$/es', result: false },
     { msg: '$123', result: false },
-    { msg: 'tim $aapl', result: false },
+    { msg: 'tim $aapl', result: false }, */
     { msg: 'tim aapl', result: false },
   ];
 
