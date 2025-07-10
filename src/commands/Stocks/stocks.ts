@@ -128,6 +128,8 @@ export const StocksCommand: ICommand = {
                 await message.reply(line)
               }
         }
+    } else {
+      await message.reply('No')
     }
   },
 };
