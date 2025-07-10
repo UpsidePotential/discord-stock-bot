@@ -49,7 +49,8 @@ export const StocksCommand: ICommand = {
   },
   command: async (message: Message) => {
     const allowedChannelIds = ['725372823429972048', '773959920138584094'];
-    if (allowedChannelIds.includes(message.channel.id)) {
+    //if (allowedChannelIds.includes(message.channel.id)) {
+    if (true) {
         let ticker = message.content.toLowerCase().split(' ')[0].substring(1);
         const rawOptions = message.content.toLowerCase().split(' ').slice(1);
         rawOptions.unshift(' ')
