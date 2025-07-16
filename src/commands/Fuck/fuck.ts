@@ -662,7 +662,8 @@ export const DanglingCommand: ICommand = {
 			await message.reply({ files : ["./src/commands/Fuck/images/Dang2.png"] });
             break;
 		default:
-			await message.reply("$penn d")
+			await message.reply({ files : ["./src/commands/Fuck/images/Dang3.png"] });
+            break;
 	}
     return Promise.resolve();
   },
@@ -931,7 +932,7 @@ export const RootootCommand: ICommand = {
   		"./src/commands/Fuck/images/root1.png",
   		"./src/commands/Fuck/images/root2.gif",
   		"./src/commands/Fuck/images/root3.png",
-  		"./src/commands/Fuck/images/root4.png",
+  		//"./src/commands/Fuck/images/root4.png",
   		"./src/commands/Fuck/images/root5.png",
   		];
 
