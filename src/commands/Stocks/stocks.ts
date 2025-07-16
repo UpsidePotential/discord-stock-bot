@@ -16,7 +16,7 @@ const tickerAlias = new Map([
   ['nazi', 'tsla']
 ]);
 
-const goonTickers = ['ndra', 'aht'];
+const goonTickers = ['ndra', 'aht', 'airs', 'intc'];
 const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
 const dxyTickers = ['.dx', '.dxy', '.usd', '/usd', '/dxy', 'dxy']
 const stopTickers = ['intc']
@@ -64,8 +64,18 @@ export const StocksCommand: ICommand = {
         ticker = getTicker(ticker);
         let i_rand =  Math.floor(Math.random() * 100);
         
-        if (stopTickers.includes(ticker) && i_rand < 20) {
+        if (stopTickers.includes(ticker) && i_rand < 10) {
             await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
+            return Promise.resolve();
+        }
+        if (ticker === 'cum') {
+            let images = [
+            "./src/commands/Fuck/images/cum1.png",
+            "./src/commands/Fuck/images/cum2.png",
+            "./src/commands/Fuck/images/cum3.png",
+            "./src/commands/Fuck/images/cum4.png",
+            ];
+            await message.channel.send({ files : [images[Math.floor(Math.random() * images.length)]] });
             return Promise.resolve();
         }
         if (ticker === 'fuck') {
