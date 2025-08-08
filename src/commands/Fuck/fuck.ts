@@ -522,13 +522,24 @@ export const HurfCommand: ICommand = {
     } else {
         let images = [
   		"./src/commands/Fuck/images/hurf.png",
-  		"./src/commands/Fuck/images/hurf1.png",
-        "./src/commands/Fuck/images/hurf2.png",
-  		"./src/commands/Fuck/images/hurf3.png",
-  		"./src/commands/Fuck/images/hurf4.png",
-  		"./src/commands/Fuck/images/hurf5.png",
-  		"./src/commands/Fuck/images/hurf6.png",
-        "./src/commands/Fuck/images/hurf7.png",
+  		"./src/commands/Fuck/images/hurf01.png",
+        "./src/commands/Fuck/images/hurf02.png",
+  		"./src/commands/Fuck/images/hurf03.png",
+  		"./src/commands/Fuck/images/hurf04.png",
+  		"./src/commands/Fuck/images/hurf05.png",
+  		"./src/commands/Fuck/images/hurf05.png",
+        "./src/commands/Fuck/images/hurf07.png",
+        "./src/commands/Fuck/images/hurf08.png",
+  		"./src/commands/Fuck/images/hurf09.png",
+        "./src/commands/Fuck/images/hurf10.png",
+  		"./src/commands/Fuck/images/hurf11.png",
+  		"./src/commands/Fuck/images/hurf12.png",
+  		"./src/commands/Fuck/images/hurf13.png",
+  		"./src/commands/Fuck/images/hurf14.png",
+        "./src/commands/Fuck/images/hurf15.png",
+        "./src/commands/Fuck/images/hurf16.png",
+        "./src/commands/Fuck/images/hurf17.png",
+        "./src/commands/Fuck/images/hurf18.png",
         "./src/commands/Fuck/images/hurfPope.png",
   		];
 	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
@@ -879,7 +890,7 @@ export const PopCommand: ICommand = {
   },
 };
 
-export const LolCommand: ICommand = {
+  export const LolCommand: ICommand = {
   name: 'Lol',
   helpDescription: 'Lol',
   showInHelp: false,
