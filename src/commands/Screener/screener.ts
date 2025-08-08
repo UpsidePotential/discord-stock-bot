@@ -158,7 +158,7 @@ export const LosersCommand: ICommand = {
         '<:josh:1000540529295106111>',
         '<:manatee:1247321787801407538>',
         '<:sep:996587165909782538>',
-        '<:hurf:1014659739969400873>',
+        //'<:hurf:1014659739969400873>',
         '<:zeph:1365101988295082004>',
       ];
       await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
