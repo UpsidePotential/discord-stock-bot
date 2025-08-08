@@ -890,7 +890,7 @@ export const PopCommand: ICommand = {
   },
 };
 
-/* export const LolCommand: ICommand = {
+  export const LolCommand: ICommand = {
   name: 'Lol',
   helpDescription: 'Lol',
   showInHelp: false,
@@ -918,7 +918,7 @@ export const PopCommand: ICommand = {
 		}
     return Promise.resolve();
   },
-}; */
+};
 
 export const LateCommand: ICommand = {
 	name: 'Late',
