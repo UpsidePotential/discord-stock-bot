@@ -4,6 +4,7 @@ import * as cheerio from 'cheerio';
 export interface fa_num {
   pe: string;
   epsttm: string;
+  mcap: string;
   fpe: string;
   epsnextq: string;
   ps: string;
@@ -22,7 +23,7 @@ export const getCompanyFA = async (ticker: string): Promise<fa_num> => {
   const fa_num = {
     pe: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(4) > b').text(),
     epsttm: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(6) > b').text(),
-
+    mcap: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(2)').text(),
     fpe: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(4)').text(),
 
     epsnextq: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(6) > b').text(),
