@@ -186,7 +186,7 @@ export const SepistCommand: ICommand = {
 	switch (newCase) {
 		case 0:
 			//await message.reply({ files : ["./src/commands/Fuck/images/SepistBye2.gif"] });
-      await message.reply({ files : ["./src/commands/Fuck/images/Sep.mp4"] });
+      await message.reply({ files : ["./src/commands/Fuck/images/Sep8.png"] });
 			break;
 		case 1:
 			await message.reply("$/bz d");
@@ -433,12 +433,7 @@ export const JoshCommand: ICommand = {
     
 	switch (newCase) {
 		case 0:
-			await message.reply("To take a photo while *subtly* including your shorts or pants in the frame, \
-consider positioning the camera at a slight angle to capture both yourself and the lower half of your body.\n\
-Use a timer or a remote shutter to allow yourself some distance from the camera, ensuring a natural and composed pose. \
-Pay attention to the lighting to ***enhance*** the 'details' of your bulge.\n\
-Experiment with different angles and poses to find the most flattering composition for your *outline*. \
-Remember to maintain a confident and relaxed expression for a genuine and appealing photograph.")
+			await message.reply({ files : ["./src/commands/Fuck/images/Josh6.png"] })
 			break;
 		case 1:
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh2.png"] })
@@ -450,7 +445,7 @@ Remember to maintain a confident and relaxed expression for a genuine and appeal
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.jpg"] })
 			break;
 		case 4:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh4.png"] })
+			await message.reply({ files : ["./src/commands/Fuck/images/Josh5.png"] })
 			break;
 		default:
 			await message.reply({ files : ["./src/commands/Fuck/images/Josh11.png"] })
@@ -541,6 +536,8 @@ export const HurfCommand: ICommand = {
         "./src/commands/Fuck/images/hurf17.png",
         "./src/commands/Fuck/images/hurf18.png",
         "./src/commands/Fuck/images/hurfPope.png",
+        "./src/commands/Fuck/images/hurf19.png",
+        "./src/commands/Fuck/images/hurf101.mp4"
   		];
 	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
 	}      
