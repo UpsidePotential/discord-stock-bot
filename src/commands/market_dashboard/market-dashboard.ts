@@ -1,4 +1,4 @@
-import { Message } from 'discord.js';
+import { AttachmentBuilder, Message } from 'discord.js';
 import { ICommand } from '../../icommand';
 import got from 'got';
 
@@ -467,18 +467,16 @@ export const VixCurveCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => (msg.content.startsWith('!vix')),
   command: async (message: Message, services: any) => {
-  try{
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`);
-
-    await message.channel
-      .send(
-        {
-          files: [
-            image.rawBody,
-          ],
-        },
-      );
-  
+    try {
+      const res = await got(`${process.env.MARKET_DASHBOARD_URI}/vixCurveMain`, {
+        responseType: 'buffer'
+      });
+    
+      const attachment = new AttachmentBuilder(res.body, {
+        name: `vixCurveMain_${Date.now()}.png`, // cache-busting filename
+      });
+    
+      await message.channel.send({ files: [attachment] });
   } catch(e)
   {
     console.error(e);
