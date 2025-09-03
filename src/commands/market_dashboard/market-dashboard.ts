@@ -436,22 +436,13 @@ export const VolSheetCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!vixmodels'),
   command: async (message: Message, services: any) => {
-  let i_rand =  Math.floor(Math.random() * 100);
+  /* let i_rand =  Math.floor(Math.random() * 100);
   if (i_rand < 20) {
 	await message.reply({ files : ["./src/commands/Fuck/images/vixmemories.png"] })
-	}
+	} */
   try{
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/volSheetMain`);
-    
-    await message.channel
-      .send(
-        {
-          files: [
-            image.rawBody,
-          ],
-        },
-      );
-  
+    const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/lov.png?raw=true`);
+	await message.channel.send({files: [image2.rawBody]});
   } catch(e)
   {
     console.error(e);
