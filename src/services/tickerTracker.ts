@@ -1,4 +1,3 @@
-
 export class TickerTracker {
   private static LastMessage = new Map();
 
@@ -21,5 +20,4 @@ export class TickerTracker {
     }
     return undefined;
   }
-
 }
