@@ -387,7 +387,7 @@ export const VixReturnsCommand: ICommand = {
   try
   {
 
-    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixnext`);
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vix_next_day`);
 
     await message.channel
         .send(
