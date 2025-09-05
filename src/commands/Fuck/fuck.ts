@@ -942,6 +942,7 @@ export const RootootCommand: ICommand = {
   		"./src/commands/Fuck/images/root3.png",
   		//"./src/commands/Fuck/images/root4.png",
   		"./src/commands/Fuck/images/root5.png",
+		"./src/commands/Fuck/images/root6.png",
   		];
 
 	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });

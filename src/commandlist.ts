@@ -23,7 +23,7 @@ import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, Netbus
 import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, KaygeeCommand } from './commands/Fuck';
 import { DumpItCommand, PumpItCommand, LateCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
-import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
+import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, VixReturnsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
 import { VixCurveCommand, MomoDashCommand, MaxLossCommand, VRPCommand } from './commands/market_dashboard';
 import { ExtendHoursCommand } from './commands/ExtendHours';
 
@@ -56,7 +56,7 @@ export const commandList: ICommand[] = [
   CorrelationCommand, RealizedVolCommand,
   ExtendHoursCommand, RelRotGraphCommand,
   DressingCommand, VolConeCommand,
-  PairsCommand, CoTCommand, VixBinsCommand,
+  PairsCommand, CoTCommand, VixBinsCommand, VixReturnsCommand,
   VolSheetCommand, MomoDashCommand, MaxLossCommand,
   RelChartCommand, VixCurveCommand, VRPCommand,
   HeatMap, DumpItCommand, PumpItCommand, LateCommand

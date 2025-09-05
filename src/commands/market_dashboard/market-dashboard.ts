@@ -376,6 +376,39 @@ export const VixBinsCommand: ICommand = {
   },
 };
 
+export const VixReturnsCommand: ICommand = {
+  name: 'Vix Next Day Returns Graphs',
+  helpDescription: '!vixnext',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!vixnext'),
+  command: async (message: Message, services: any) => {
+  const rrg_set = message.content.split(' ')[1];
+
+  try
+  {
+
+    const image = await got(`${process.env.MARKET_DASHBOARD_URI}/vixnext`);
+
+    await message.channel
+        .send(
+          {
+            files: [
+              image.rawBody,
+            ],
+          },
+        );
+  }
+  catch(e)
+  {
+    console.error(e);
+
+  }
+ 
+    return Promise.resolve();
+  },
+};
+
+
 export const RelChartCommand: ICommand = {
   name: 'Relative Percent Chart',
   helpDescription: '!rel [ticker1] [ticker2] [start_date (YYYY-MM-DD)] [end_date (YYYY-MM-DD)]',
