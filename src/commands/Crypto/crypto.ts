@@ -15,7 +15,6 @@ export const CryptoCommand: ICommand = {
     const rawOptions = message.content.toLowerCase().split(ticker)[1].substring(1).split(' ');
     const options = [];
     for (let i = 0; i < rawOptions.length; i++) options.push(rawOptions[i]);
-    TickerTracker.postTicker(ticker, message.author.id, 'crypto');
 
     const timePeriod = extractFromOptions('time_period', options);
     const indicators = extractFromOptions('indicators', options);

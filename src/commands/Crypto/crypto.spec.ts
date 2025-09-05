@@ -26,7 +26,6 @@ describe('crypto', () => {
   }));
 
   it('should send message', async () => {
-    spyOn(TickerTracker, 'postTicker');
     const spy = jasmine.createSpyObj<Message>('message', ['content', 'channel', 'author']);
     spy.content = '$.btc';
     const msgSpy = jasmine.createSpy();

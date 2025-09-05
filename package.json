@@ -22,7 +22,6 @@
     "eslint-import-resolver-typescript": "^2.4.0",
     "express": "^4.17.3",
     "got": "^11.8.2",
-    "mongoose": "5.13.3",
     "node-cache": "^5.1.2",
     "node-fetch": "^2.6.0",
     "request": "^2.88.0",

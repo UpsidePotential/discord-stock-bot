@@ -117,7 +117,6 @@ export const StocksCommand: ICommand = {
         }${
           indicators
         }&s=linear`;
-        TickerTracker.postTicker(ticker, message.author.id, 'stock');
 
         if (rawOptions.find((v) => v === 'moon')) {
           await drawMoon(imgFile, message);
@@ -154,7 +153,6 @@ export const StockCharts: ICommand = {
     let ticker = message.content.toLowerCase().split(' ')[1];
     ticker = getTicker(ticker);
 
-    TickerTracker.postTicker(ticker, message.author.id, 'stock');
     const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`);
 	const fSize = Buffer.byteLength(image.body);
 	if (fSize > 12000) {
