@@ -1,5 +1,4 @@
-# Use Node.js 18 LTS
-FROM node:18-slim
+FROM node:22-slim
 
 # Set working directory
 WORKDIR /app
