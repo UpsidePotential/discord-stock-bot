@@ -40,8 +40,16 @@ export const getCompanyFA = async (ticker: string): Promise<fa_num> => {
     epsqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(11) > td:nth-child(6) > b').text(),
     erdate: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(13) > td:nth-child(6) > a > b').text(),
 
-    week52_low: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(10) > b').text(),
-    week52_high: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(6) > td:nth-child(10) > b').text(),
+    week52_low: (() => {
+      const rawText = $('td').filter((i, el) => $(el).text().includes('52W Low')).next().find('b').text();
+      const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
+      return match ? match[0] : '-';
+    })(),
+    week52_high: (() => {
+      const rawText = $('td').filter((i, el) => $(el).text().includes('52W High')).next().find('b').text();
+      const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
+      return match ? match[0] : '-';
+    })(),
   };
   return fa_num;
 };
