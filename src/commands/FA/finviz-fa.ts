@@ -22,34 +22,47 @@ export const getCompanyFA = async (ticker: string): Promise<fa_num> => {
   const result = await got(`https://finviz.com/quote.ashx?t=${encodeURIComponent(ticker)}`);
   const $ = cheerio.load(result.body);
 
+  // Build data map in a single pass
+  const data: { [key: string]: string } = {};
+  $('td').each((i, el) => {
+    const label = $(el).text().trim();
+    const nextCell = $(el).next();
+    if (nextCell.length > 0) {
+      const rawText = nextCell.find('b').length ? nextCell.find('b').text() : nextCell.text();
+      data[label] = rawText.trim();
+    }
+  });
+
+  // Extract field values from data map
+  const getField = (label: string): string => {
+    const rawText = data[label];
+    if (!rawText) return '-';
+    
+    // For pure numeric fields, extract just the number part
+    if (['P/E', 'EPS (ttm)', 'Market Cap', 'Forward P/E', 'EPS next Q', 'P/S', 'P/FCF', '52W Low', '52W High'].includes(label)) {
+      const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
+      return match ? match[0] : '-';
+    }
+    
+    return rawText || '-';
+  };
+
   const fa_num = {
-    pe: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(4) > b').text(),
-    epsttm: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(6) > b').text(),
-    mcap: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(2)').text(),
-    fpe: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(4)').text(),
+    pe: getField('P/E'),
+    epsttm: getField('EPS (ttm)'),
+    mcap: getField('Market Cap'),
+    fpe: getField('Forward P/E'),
+    epsnextq: getField('EPS next Q'),
+    ps: getField('P/S'),
+    divi: getField('Dividend Ex-Date'),
+    pfcf: getField('P/FCF'),
+    diviperc: getField('Dividend TTM'),
+    salesqoq: getField('Sales Q/Q'),
+    epsqoq: getField('EPS Q/Q'),
+    erdate: getField('Earnings'),
 
-    epsnextq: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(6) > b').text(),
-
-    ps: $('body > div.content > div.ticker-wrapper.gradient-fade >  div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(4) > b').text(),
-
-    divi: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(10) > td:nth-child(2) > a > b').text(),
-    pfcf: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(7) > td:nth-child(4) > b').text(),
-
-    diviperc: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(9) > td:nth-child(2) > a > b').text(),
-    salesqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(12) > td:nth-child(6) > b').text(),
-    epsqoq: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(11) > td:nth-child(6) > b').text(),
-    erdate: $('body > div.content > div.ticker-wrapper.gradient-fade > div:nth-child(5) > table > tbody > tr > td > div > table:nth-child(1) > tbody > tr > td > div.screener_snapshot-table-wrapper > table > tbody > tr:nth-child(13) > td:nth-child(6) > a > b').text(),
-
-    week52_low: (() => {
-      const rawText = $('td').filter((i, el) => $(el).text().includes('52W Low')).next().find('b').text();
-      const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
-      return match ? match[0] : '-';
-    })(),
-    week52_high: (() => {
-      const rawText = $('td').filter((i, el) => $(el).text().includes('52W High')).next().find('b').text();
-      const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
-      return match ? match[0] : '-';
-    })(),
+    week52_low: getField('52W Low'),
+    week52_high: getField('52W High'),
   };
   return fa_num;
 };
