@@ -1,55 +1,67 @@
 import got from 'got';
 import * as cheerio from 'cheerio';
 
-interface FinVizTable {
-    avgvolume: string;
-    change: string;
-    perfhalf: string;
-    perfmonth: string;
-    perfquart: string;
-    perfweek: string;
-    perfyear: string;
-    perfytd: string;
-    price: string;
-    recom: string;
-    relvolume: string;
-    ticker: string;
-    volatilitym: string;
-    volatilityw: string;
-    volume: string;
+// Common normalized field names that appear across different screener types
+interface FinvizScreenerData {
+  no?: string;
+  ticker?: string;
+  company?: string;
+  sector?: string;
+  industry?: string;
+  country?: string;
+  marketcap?: string;
+  pe?: string;
+  price?: string;
+  change?: string;
+  volume?: string;
+  avgvolume?: string;
+  relvolume?: string;
+  perfweek?: string;
+  perfmonth?: string;
+  perfquart?: string;
+  perfhalf?: string;
+  perfytd?: string;
+  perfyear?: string;
+  volatilityw?: string;
+  volatilitym?: string;
 }
 
 export const getFinvizScreenWholeTable = async (
   finvizScreenerUrl: string,
-): Promise<FinVizTable[]> => {
+): Promise<{ [key: string]: string }[]> => {
   if (!finvizScreenerUrl.startsWith('https://finviz.com/screener.ashx?v=')) {
     throw Error('Screener must be a finviz screener. https://finviz.com/screener.ashx?v=');
   }
-  const result = await got(finvizScreenerUrl);
+  
+  const result = await got(finvizScreenerUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; discord-stock-bot/1.0)',
+    }
+  });
   const $ = cheerio.load(result.body);
-  const scrapedData: FinVizTable[] = [];
-  const tableHeaders: string[] = ['No.','ticker','Company','Sector','Industry','Country','Market Cap','P/E','price','change','Volume'];
-  $('#screener-table > td > table > tbody > tr > td > table > tbody > tr').each((index, element) => {
-    /* if (index === 0) {
-      const ths = $(element).find('td');
-      $(ths).each((_i, tdElement) => {
-        tableHeaders.push(
-          $(tdElement)
-            .text()
-            .toLowerCase()
-            .replace(/\s/g, ''),
-        );
-      });
-      return true;
-    } */
+  const scrapedData: { [key: string]: string }[] = [];
+  const tableHeaders: string[] = [];
 
-    const tds = $(element).find('td');
-    const tableRow: any = {};
+  // Extract headers dynamically and normalize them
+  $('table.screener_table thead th').each((_i, thElement) => {
+    const header = $(thElement).text().trim().toLowerCase().replace(/\s+/g, '');
+    tableHeaders.push(header);
+  });
+
+  // Extract data rows
+  $('table.screener_table tbody tr').each((_index, trElement) => {
+    const tds = $(trElement).find('td');
+    const tableRow: { [key: string]: string } = {};
     $(tds).each((i, tdElement) => {
-      tableRow[tableHeaders[i]] = $(tdElement).text();
+      const key = tableHeaders[i];
+      const value = $(tdElement).text().trim();
+      if (key) {
+        tableRow[key] = value;
+      }
     });
-    scrapedData.push(tableRow);
-    return true;
+    if (Object.keys(tableRow).length > 0) {
+      scrapedData.push(tableRow);
+    }
   });
 
   return scrapedData;
