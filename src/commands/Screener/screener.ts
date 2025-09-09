@@ -15,7 +15,7 @@ export const ScreenerCommand: ICommand = {
     const arrayLength = Math.min(table.length, 5);
     const fields = table.slice(0, arrayLength).map((value) => ({
       name: value['ticker'] || 'N/A',
-      value: `Price: ${value['price'] || 'N/A'} Avg Volume: ${value['avgvolume'] || 'N/A'}`,
+      value: `Price: ${value['price'] || 'N/A'} \u200b \u200b \u200b \u200b \u200b \u200b Avg Volume: ${value['avgvolume'] || 'N/A'}`,
     }));
 
     message.channel.send({
@@ -44,7 +44,7 @@ export const BreakoutCommand: ICommand = {
     const arrayLength = Math.min(table.length, 5);
     const fields = table.slice(0, arrayLength).map((value) => ({
       name: value['ticker'] || 'N/A',
-      value: `Price: ${value['price'] || 'N/A'} Avg Volume: ${value['avgvolume'] || 'N/A'} Perf Week: ${value['perfweek'] || 'N/A'}`,
+      value: `Price: ${value['price'] || 'N/A'} \u200b \u200b \u200b \u200b Avg Volume: ${value['avgvolume'] || 'N/A'} \u200b \u200b \u200b \u200b Perf Week: ${value['perfweek'] || 'N/A'}`,
     }));
 
     message.channel.send({
@@ -87,7 +87,7 @@ export const WinnersCommand: ICommand = {
         const arrayLength = Math.min(table.length, 10);
         const fields = table.slice(0, arrayLength).map((value) => ({
           name: value['ticker'] || 'N/A',
-          value: `Price: ${value['price'] || 'N/A'} Change: ${value['change'] || 'N/A'}`,
+          value: `Price: ${value['price'] || 'N/A'} \u200b \u200b \u200b \u200b Change: ${value['change'] || 'N/A'}`,
         }));
 
         message.channel.send({
@@ -137,7 +137,7 @@ export const LosersCommand: ICommand = {
         const arrayLength = Math.min(table.length, 10);
         const fields = table.slice(0, arrayLength).map((value) => ({
           name: value['ticker'] || 'N/A',
-          value: `Price: ${value['price'] || 'N/A'} Change: ${value['change'] || 'N/A'}`,
+          value: `Price: ${value['price'] || 'N/A'} \u200b \u200b \u200b \u200b Change: ${value['change'] || 'N/A'}`,
         }));
 
         message.channel.send({
