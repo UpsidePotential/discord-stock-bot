@@ -14,8 +14,8 @@ export const ScreenerCommand: ICommand = {
     const table = await getFinvizScreenWholeTable(url);
     const arrayLength = Math.min(table.length, 5);
     const fields = table.slice(0, arrayLength).map((value) => ({
-      name: value.ticker,
-      value: `Price: ${value.price} Avg Volume: ${value.avgvolume}`,
+      name: value['ticker'] || 'N/A',
+      value: `Price: ${value['price'] || 'N/A'} Avg Volume: ${value['avgvolume'] || 'N/A'}`,
     }));
 
     message.channel.send({
@@ -43,8 +43,8 @@ export const BreakoutCommand: ICommand = {
     const table = await getFinvizScreenWholeTable(breakingOut);
     const arrayLength = Math.min(table.length, 5);
     const fields = table.slice(0, arrayLength).map((value) => ({
-      name: value.ticker,
-      value: `Price: ${value.price} Avg Volume: ${value.avgvolume} Perf Week: ${value.perfweek}`,
+      name: value['ticker'] || 'N/A',
+      value: `Price: ${value['price'] || 'N/A'} Avg Volume: ${value['avgvolume'] || 'N/A'} Perf Week: ${value['perfweek'] || 'N/A'}`,
     }));
 
     message.channel.send({
@@ -86,8 +86,8 @@ export const WinnersCommand: ICommand = {
         const table = await getFinvizScreenWholeTable(url);
         const arrayLength = Math.min(table.length, 10);
         const fields = table.slice(0, arrayLength).map((value) => ({
-          name: value.ticker,
-          value: `Price: ${value.price} Change: ${value.change}`,
+          name: value['ticker'] || 'N/A',
+          value: `Price: ${value['price'] || 'N/A'} Change: ${value['change'] || 'N/A'}`,
         }));
 
         message.channel.send({
@@ -136,8 +136,8 @@ export const LosersCommand: ICommand = {
         const table = await getFinvizScreenWholeTable(url);
         const arrayLength = Math.min(table.length, 10);
         const fields = table.slice(0, arrayLength).map((value) => ({
-          name: value.ticker,
-          value: `Price: ${value.price} Change: ${value.change}`,
+          name: value['ticker'] || 'N/A',
+          value: `Price: ${value['price'] || 'N/A'} Change: ${value['change'] || 'N/A'}`,
         }));
 
         message.channel.send({
