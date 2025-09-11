@@ -209,20 +209,15 @@ const getTradingViewData = async (
 
 export const getPreMarketData = async (marketCap: 'large' | 'mid' | 'all' = 'all'): Promise<TradingViewData> => {
   try {
-    const [gainers, losersData, mostActive, gappers] = await Promise.all([
+    const [gainers, gappers] = await Promise.all([
       getTradingViewData('premarket_change', 'premarket', 'desc', false, marketCap),
-      getTradingViewData('premarket_change', 'premarket', 'asc', false, marketCap), // Get losers in ascending order
-      getTradingViewData('premarket_volume', 'premarket', 'desc', false, marketCap), // Sort by premarket volume for most active
       getTradingViewData('gap', 'premarket', 'desc', true, marketCap) // Sort by gap for gappers
     ]);
 
-    // Get the actual losers (negative changes) from the ascending sort
-    const losers = losersData.filter(stock => (stock.premarketChange || 0) < 0).slice(0, 10);
-
     return {
       gainers: gainers || [],
-      losers: losers || [],
-      mostActive: mostActive || [],
+      losers: [],
+      mostActive: [],
       gappers: gappers || [],
       lastUpdated: new Date().toLocaleDateString()
     };
@@ -234,10 +229,9 @@ export const getPreMarketData = async (marketCap: 'large' | 'mid' | 'all' = 'all
 
 export const getAfterHoursData = async (marketCap: 'large' | 'mid' | 'all' = 'all'): Promise<TradingViewData> => {
   try {
-    const [gainers, losersData, mostActive] = await Promise.all([
+    const [gainers, losersData] = await Promise.all([
       getTradingViewData('postmarket_change', 'postmarket', 'desc', false, marketCap),
-      getTradingViewData('postmarket_change', 'postmarket', 'asc', false, marketCap), // Get losers in ascending order
-      getTradingViewData('postmarket_volume', 'postmarket', 'desc', false, marketCap) // Sort by postmarket volume for most active
+      getTradingViewData('postmarket_change', 'postmarket', 'asc', false, marketCap) // Get losers in ascending order
     ]);
 
     // Get the actual losers (negative changes) from the ascending sort
@@ -246,7 +240,7 @@ export const getAfterHoursData = async (marketCap: 'large' | 'mid' | 'all' = 'al
     return {
       gainers: gainers || [],
       losers: losers || [],
-      mostActive: mostActive || [],
+      mostActive: [],
       lastUpdated: new Date().toLocaleDateString()
     };
   } catch (error) {

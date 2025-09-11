@@ -182,14 +182,12 @@ const formatTradingViewFields = (stocks: TradingViewStock[], session: 'premarket
       return {
         name: stock.symbol,
         value: `Price: ${price} \u200b \u200b \u200b \u200b Gap: ${gap} \u200b \u200b \u200b \u200b Volume: ${volume}`,
-        inline: false,
       };
     }
     
     return {
       name: stock.symbol,
       value: `Price: ${price} \u200b \u200b \u200b \u200b Change: ${change} \u200b \u200b \u200b \u200b Volume: ${volume}`,
-      inline: false,
     };
   });
 };
@@ -212,25 +210,11 @@ export const PreMarketCommand: ICommand = {
         {
           name: '\u200b',
           value: '📈 **Top Gainers**',
-          inline: false,
         },
         ...formatTradingViewFields(data.gainers, 'premarket', 5),
         {
           name: '\u200b',
-          value: '📉 **Top Losers**',
-          inline: false,
-        },
-        ...formatTradingViewFields(data.losers, 'premarket', 5),
-        {
-          name: '\u200b',
-          value: '🔥 **Most Active**',
-          inline: false,
-        },
-        ...formatTradingViewFields(data.mostActive, 'premarket', 5),
-        {
-          name: '\u200b',
           value: '🤜🔴🤛 **Gappers**',
-          inline: false,
         },
         ...formatTradingViewFields(data.gappers || [], 'premarket', 5, true),
       ];
@@ -273,21 +257,13 @@ export const AfterHoursCommand: ICommand = {
         {
           name: '\u200b',
           value: '📈 **Top Gainers**',
-          inline: false,
         },
         ...formatTradingViewFields(data.gainers, 'postmarket', 5),
         {
           name: '\u200b',
           value: '📉 **Top Losers**',
-          inline: false,
         },
         ...formatTradingViewFields(data.losers, 'postmarket', 5),
-        {
-          name: '\u200b',
-          value: '🔥 **Most Active**',
-          inline: false,
-        },
-        ...formatTradingViewFields(data.mostActive, 'postmarket', 5),
       ];
 
       message.channel.send({
