@@ -1,6 +1,7 @@
 import { Message } from 'discord.js';
 import { ICommand } from '../../icommand';
 import { getFinvizScreenWholeTable } from './finviz-screener';
+import { getPreMarketData, getAfterHoursData, TradingViewStock } from './tradingview-scanner';
 
 const breakingOut = 'https://finviz.com/screener.ashx?v=141&f=fa_debteq_u1,fa_roe_o20,sh_avgvol_o100,ta_highlow50d_nh,ta_sma20_pa,ta_sma200_pa,ta_sma50_pa&ft=4&o=-perf1w';
 
@@ -162,6 +163,125 @@ export const LosersCommand: ICommand = {
         '<:zeph:1365101988295082004>',
       ];
       await message.reply(emojis[Math.floor(Math.random() * emojis.length)])
+    }
+  },
+};
+
+const formatTradingViewFields = (stocks: TradingViewStock[], session: 'premarket' | 'postmarket', limit: number = 5, showGap: boolean = false) => {
+  return stocks.slice(0, limit).map(stock => {
+    const sessionPrice = session === 'premarket' ? stock.premarketClose : stock.postmarketClose;
+    const sessionChange = session === 'premarket' ? stock.premarketChange : stock.postmarketChange;
+    const sessionVolume = session === 'premarket' ? stock.premarketVolume : stock.postmarketVolume;
+    
+    const price = sessionPrice ? `$${sessionPrice.toFixed(2)}` : `$${stock.price.toFixed(2)}`;
+    const change = sessionChange ? `${sessionChange > 0 ? '+' : ''}${sessionChange.toFixed(2)}%` : `${stock.change > 0 ? '+' : ''}${stock.change.toFixed(2)}%`;
+    const volume = sessionVolume ? sessionVolume.toLocaleString() : stock.volume.toLocaleString();
+    
+    if (showGap && stock.gap !== undefined) {
+      const gap = `${stock.gap > 0 ? '+' : ''}${stock.gap.toFixed(2)}%`;
+      return {
+        name: stock.symbol,
+        value: `Price: ${price} \u200b \u200b \u200b \u200b Gap: ${gap} \u200b \u200b \u200b \u200b Volume: ${volume}`,
+      };
+    }
+    
+    return {
+      name: stock.symbol,
+      value: `Price: ${price} \u200b \u200b \u200b \u200b Change: ${change} \u200b \u200b \u200b \u200b Volume: ${volume}`,
+    };
+  });
+};
+
+export const PreMarketCommand: ICommand = {
+  name: 'PreMarket',
+  helpDescription: '!premarket (all | mid | large) shows premarket gainers, losers, and most active stocks',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!premarket'),
+  command: async (message: Message) => {
+    if (message.author.bot) return;
+    
+    const cap = message.content.split(' ')[1] as 'large' | 'mid' | 'all';
+    const marketCap = ['large', 'mid'].includes(cap) ? cap : 'all';
+    
+    try {
+      const data = await getPreMarketData(marketCap);
+      
+      const fields = [
+        {
+          name: '\u200b',
+          value: '📈 **Top Gainers**',
+        },
+        ...formatTradingViewFields(data.gainers, 'premarket', 5),
+        {
+          name: '\u200b',
+          value: '🤜🔴🤛 **Gappers**',
+        },
+        ...formatTradingViewFields(data.gappers || [], 'premarket', 5, true),
+      ];
+
+      message.channel.send({
+        embeds: [{
+          author: {
+            name: message.client.user.username,
+            icon_url: message.client.user.displayAvatarURL(),
+          },
+          color: 3447003,
+          title: `🌅 Premarket Movers${marketCap !== 'all' ? ` (${marketCap} cap)` : ''}`,
+          description: `Use !premarket (all | mid | large) to filter by market cap\nData updated: ${data.lastUpdated}`,
+          url: 'https://www.tradingview.com/markets/stocks-usa/market-movers-pre-market-gainers/',
+          fields,
+        }],
+      });
+    } catch (error) {
+      console.error('PreMarket command error:', error);
+      message.channel.send("Looks like !premarket is broken. It is probably your fault.");
+    }
+  },
+};
+
+export const AfterHoursCommand: ICommand = {
+  name: 'AfterHours',
+  helpDescription: '!afterhours (all | mid | large) shows after-hours gainers, losers, and most active stocks',
+  showInHelp: true,
+  trigger: (msg: Message) => msg.content.startsWith('!afterhours'),
+  command: async (message: Message) => {
+    if (message.author.bot) return;
+    
+    const cap = message.content.split(' ')[1] as 'large' | 'mid' | 'all';
+    const marketCap = ['large', 'mid'].includes(cap) ? cap : 'all';
+    
+    try {
+      const data = await getAfterHoursData(marketCap);
+      
+      const fields = [
+        {
+          name: '\u200b',
+          value: '📈 **Top Gainers**',
+        },
+        ...formatTradingViewFields(data.gainers, 'postmarket', 5),
+        {
+          name: '\u200b',
+          value: '📉 **Top Losers**',
+        },
+        ...formatTradingViewFields(data.losers, 'postmarket', 5),
+      ];
+
+      message.channel.send({
+        embeds: [{
+          author: {
+            name: message.client.user.username,
+            icon_url: message.client.user.displayAvatarURL(),
+          },
+          color: 3447003,
+          title: `🌙 After Hours Movers${marketCap !== 'all' ? ` (${marketCap} cap)` : ''}`,
+          description: `Use !afterhours (all | mid | large) to filter by market cap\nData updated: ${data.lastUpdated}`,
+          url: 'https://www.tradingview.com/markets/stocks-usa/market-movers-after-hours-gainers/',
+          fields,
+        }],
+      });
+    } catch (error) {
+      console.error('AfterHours command error:', error);
+      message.channel.send("Looks like !afterhours is broken. It is probably your fault.");
     }
   },
 };

@@ -1,3 +1,3 @@
 export {
-  ScreenerCommand, BreakoutCommand, LosersCommand, WinnersCommand,
+  ScreenerCommand, BreakoutCommand, LosersCommand, WinnersCommand, PreMarketCommand, AfterHoursCommand,
 } from './screener';

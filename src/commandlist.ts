@@ -6,7 +6,7 @@ import {
   StocksCommand, StockCharts, HeatMap,
 } from './commands/Stocks';
 import {
-  ScreenerCommand, BreakoutCommand, WinnersCommand, LosersCommand,
+  ScreenerCommand, BreakoutCommand, WinnersCommand, LosersCommand, PreMarketCommand, AfterHoursCommand,
 } from './commands/Screener';
 import { HelpCommand } from './commands/Help';
 import { EventsCommand } from './commands/Events';
@@ -38,6 +38,8 @@ export const commandList: ICommand[] = [
   EventsCommand,
   LosersCommand,
   WinnersCommand,
+  PreMarketCommand,
+  AfterHoursCommand,
   InfoCommand,
   StockCharts,
   SQBestCommand,
