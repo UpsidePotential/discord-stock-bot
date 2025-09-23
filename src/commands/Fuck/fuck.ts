@@ -1055,7 +1055,18 @@ export const PumpItCommand: ICommand = {
 	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
 	  	pumpclockcheck = Date.now();
 		}
-	  
+
 	  return Promise.resolve();
 	},
+};
+
+export const MalakaCommand: ICommand = {
+  name: 'Malaka',
+  helpDescription: 'Malaka',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!malaka'),
+  command: async (message: Message) => {
+    await message.reply({ files : ["./src/commands/Fuck/images/Malaka.jpg"] });
+    return Promise.resolve();
+  },
 };
