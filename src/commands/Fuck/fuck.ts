@@ -423,34 +423,19 @@ export const JoshCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!josh'),
   command: async (message: Message) => {
-	const probabilities = [15, 10, 15, 25, 25, 10];
-    let newCase;
-    do {
-      newCase = weightedRandomCase(probabilities);
-    } while (JoshCases.includes(newCase));
-	JoshCases.shift();
-	JoshCases.push(newCase);
-    
-	switch (newCase) {
-		case 0:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh6.png"] })
-			break;
-		case 1:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh2.png"] })
-			break;
-		case 2:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh.png"] })
-			break;
-		case 3:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh7.png"] })
-			break;
-		case 4:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh5.png"] })
-			break;
-		default:
-			await message.reply({ files : ["./src/commands/Fuck/images/Josh11.png"] })
-			break;
-	}
+    let images = [
+  		"./src/commands/Fuck/images/Josh.png",
+  		"./src/commands/Fuck/images/Josh2.png",
+  		"./src/commands/Fuck/images/Josh3.png",
+  		"./src/commands/Fuck/images/Josh4.jpg",
+		"./src/commands/Fuck/images/Josh5.png",
+        "./src/commands/Fuck/images/Josh6.png",
+  		"./src/commands/Fuck/images/Josh7.png",
+		"./src/commands/Fuck/images/Josh8.png",
+        "./src/commands/Fuck/images/Josh9.png",
+  		];
+
+	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
     return Promise.resolve();
   },
 };
@@ -971,11 +956,14 @@ export const KaygeeCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!kaygee'),
   command: async (message: Message) => {
-	const fs = require('fs')
-	const fileContent = fs.readFileSync('./src/commands/Fuck/images/kg.txt', 'utf-8');
-	const lines = fileContent.split('\n');
-	const line = lines[Math.floor(Math.random() * lines.length)]
-	await message.reply(line)
+	let i_rand =  Math.floor(Math.random() * 100);
+    if (i_rand < 33) {
+		await message.reply({ files : ["./src/commands/Fuck/images/kg.png"] })
+	} else if (i_rand >= 33 && i_rand < 67) {
+		await message.reply({ files : ["./src/commands/Fuck/images/kg1.png"] })
+	} else {
+	    await message.reply("$qqq d borc ema vwap")
+	}
     return Promise.resolve();
   },
 };
@@ -1067,6 +1055,22 @@ export const MalakaCommand: ICommand = {
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!malaka'),
   command: async (message: Message) => {
     await message.reply({ files : ["./src/commands/Fuck/images/Malaka.jpg"] });
+    return Promise.resolve();
+  },
+};
+
+export const JowsCommand: ICommand = {
+  name: 'Jows',
+  helpDescription: 'Jows',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!jows'),
+  command: async (message: Message) => {
+    let images = [
+  		"./src/commands/Fuck/images/jows1.png",
+  		"./src/commands/Fuck/images/jows2.png",
+  		];
+
+	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
     return Promise.resolve();
   },
 };
