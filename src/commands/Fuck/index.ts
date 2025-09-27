@@ -4,4 +4,4 @@ export { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, Dun
 export { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand } from './fuck';
 export { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand } from './fuck';
 export { PmchemCommand, PopCommand, LolCommand, RootootCommand, BootmanjCommand, KaygeeCommand } from './fuck';
-export { DumpItCommand, PumpItCommand, LateCommand, MalakaCommand } from './fuck';
+export { DumpItCommand, PumpItCommand, LateCommand, MalakaCommand, JowsCommand } from './fuck';
