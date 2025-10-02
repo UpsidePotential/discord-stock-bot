@@ -21,7 +21,7 @@ import { PixaalCommand, NewHighCommand, NewLowCommand, ShitlordCommand, ZephComm
 import { MilkCommand, JoshCommand, ModsCommand, HurfCommand, AdrenalCommand, PmchemCommand, LolCommand } from './commands/Fuck';
 import { WetGoodsCommand, TootersCommand, FlowinCommand, DanglingCommand, NetbusCommand,PopCommand,DunkmanCommand } from './commands/Fuck';
 import { PotyCommand, PotyPassive, ToalyCommand, FreelanceCommand, AbeCommand, HitManCommand, KaygeeCommand } from './commands/Fuck';
-import { DumpItCommand, PumpItCommand, LateCommand, MalakaCommand, JowsCommand } from './commands/Fuck';
+import { DumpItCommand, PumpItCommand, LateCommand, MalakaCommand, JowsCommand, PoorCommand } from './commands/Fuck';
 import { CorrelationCommand, RealizedVolCommand, RelRotGraphCommand, DressingCommand } from './commands/market_dashboard';
 import { VolConeCommand, PairsCommand, CoTCommand, VixBinsCommand, VixReturnsCommand, RelChartCommand, VolSheetCommand } from './commands/market_dashboard';
 import { VixCurveCommand, MomoDashCommand, MaxLossCommand, VRPCommand } from './commands/market_dashboard';
@@ -62,5 +62,5 @@ export const commandList: ICommand[] = [
   VolSheetCommand, MomoDashCommand, MaxLossCommand,
   RelChartCommand, VixCurveCommand, VRPCommand,
   HeatMap, DumpItCommand, PumpItCommand, LateCommand, MalakaCommand,
-  JowsCommand,
+  JowsCommand, PoorCommand
 ];
