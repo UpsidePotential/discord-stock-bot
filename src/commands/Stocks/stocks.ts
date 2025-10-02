@@ -19,7 +19,8 @@ const tickerAlias = new Map([
 const goonTickers = ['ndra', 'aht', 'airs', 'intc'];
 const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
 const dxyTickers = ['.dx', '.dxy', '.usd', '/usd', '/dxy', 'dxy']
-const stopTickers = ['intc']
+const stopTickers = ['xxxxxx']
+const richTickers = ['intc']
 
 const getTicker = (name: string): string => {
   const normalizedName = name.toLowerCase();
@@ -66,6 +67,10 @@ export const StocksCommand: ICommand = {
         
         if (stopTickers.includes(ticker) && i_rand < 10) {
             await message.reply({ files : ["./src/commands/Fuck/images/stop.gif"] })
+            return Promise.resolve();
+        }
+        if (richTickers.includes(ticker) && i_rand < 10) {
+            await message.reply({ files : ["./src/commands/Fuck/images/rich_v1.gif"] })
             return Promise.resolve();
         }
         if (ticker === 'cum') {
