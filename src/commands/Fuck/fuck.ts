@@ -1074,3 +1074,18 @@ export const JowsCommand: ICommand = {
     return Promise.resolve();
   },
 };
+
+export const PoorCommand: ICommand = {
+  name: 'Poor',
+  helpDescription: '',
+  showInHelp: false,
+  trigger: (msg: Message) => (msg.content.toLocaleLowerCase().startsWith("!poor")),
+  command: async (message: Message) => {
+    let images = [
+  		"./src/commands/Fuck/images/poors.jpg",
+  		];
+
+	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
+    return Promise.resolve();
+  },
+};
