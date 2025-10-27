@@ -16,11 +16,11 @@ const tickerAlias = new Map([
   ['nazi', 'tsla']
 ]);
 
-const goonTickers = ['ndra', 'aht', 'airs', 'intc'];
+const goonTickers = ['ndra', 'aht', 'hvii'];
 const brkbTickers = ['brkb', 'brk.b', 'brk/b', 'brk\b', 'brk_b']
 const dxyTickers = ['.dx', '.dxy', '.usd', '/usd', '/dxy', 'dxy']
 const stopTickers = ['xxxxxx']
-const richTickers = ['intc']
+const richTickers = ['xxxxxx']
 
 const getTicker = (name: string): string => {
   const normalizedName = name.toLowerCase();
