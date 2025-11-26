@@ -39,7 +39,7 @@ export const getCompanyFA = async (ticker: string): Promise<fa_num> => {
     if (!rawText) return '-';
     
     // For pure numeric fields, extract just the number part
-    if (['P/E', 'EPS (ttm)', 'Market Cap', 'Forward P/E', 'EPS next Q', 'P/S', 'P/FCF', '52W Low', '52W High'].includes(label)) {
+    if (['P/E', 'EPS (ttm)', 'Forward P/E', 'EPS next Q', 'P/S', 'P/FCF', '52W Low', '52W High'].includes(label)) {
       const match = rawText.replace(/,/g, '').match(/-?\d+(\.\d+)?/);
       return match ? match[0] : '-';
     }
