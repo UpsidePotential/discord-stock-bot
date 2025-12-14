@@ -126,15 +126,18 @@ export const StocksCommand: ICommand = {
         if (rawOptions.find((v) => v === 'moon')) {
           await drawMoon(imgFile, message);
         } else {
-          const file = await got(imgFile);
+          const file = await got(imgFile, { retry: { limit: 2 } });
             const fSize = Buffer.byteLength(file.body);
             if (fSize > 12000 && ticker.length < 6) {
               const sentMessage = await message.channel.send(
                   {
-                      files: [file.rawBody],
+                      files: [{
+                        attachment: file.rawBody,
+                        name: `${ticker}-chart.png`
+                      }],
                   },
                 );
-              TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
+              //TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
               } else {
                 const fs = require('fs')
                 const fileContent = fs.readFileSync('./src/commands/Stocks/invalidMsg.txt', 'utf-8');
@@ -158,15 +161,16 @@ export const StockCharts: ICommand = {
     let ticker = message.content.toLowerCase().split(' ')[1];
     ticker = getTicker(ticker);
 
-    const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`);
+    const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`, { retry: { limit: 2 } });
 	const fSize = Buffer.byteLength(image.body);
 	if (fSize > 12000) {
       const sentMessage = await message.channel
         .send(
           {
-            files: [
-              image.rawBody,
-            ],
+            files: [{
+              attachment: image.rawBody,
+              name: `${ticker}-chart.png`
+            }],
           },
         );
 		TickerTracker.lastTicker(message.author.id, message.id, (sentMessage as Message).id);
@@ -188,7 +192,7 @@ export const HeatMap: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!hm'),
   command: async (message: Message) => {
-    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`);
-    await message.channel.send({files: [image.rawBody]});
+    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`, { retry: { limit: 2 } });
+    await message.channel.send({files: [{attachment: image.rawBody, name: 'heatmap.png'}]});
   },
 };
