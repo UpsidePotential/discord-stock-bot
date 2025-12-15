@@ -126,7 +126,7 @@ export const StocksCommand: ICommand = {
         if (rawOptions.find((v) => v === 'moon')) {
           await drawMoon(imgFile, message);
         } else {
-          const file = await got(imgFile, { retry: { limit: 2 } });
+          const file = await got(imgFile, { retry: { limit: 2, delay: 500 } });
             const fSize = Buffer.byteLength(file.body);
             if (fSize > 12000 && ticker.length < 6) {
               const sentMessage = await message.channel.send(
@@ -192,7 +192,7 @@ export const HeatMap: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!hm'),
   command: async (message: Message) => {
-    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`, { retry: { limit: 2 } });
+    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`, { retry: { limit: 2, delay: 500 } });
     await message.channel.send({files: [{attachment: image.rawBody, name: 'heatmap.png'}]});
   },
 };
