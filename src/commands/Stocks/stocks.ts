@@ -127,6 +127,7 @@ export const StocksCommand: ICommand = {
           await drawMoon(imgFile, message);
         } else {
           const file = await got(imgFile, { retry: { limit: 2 } });
+          await new Promise(resolve => setTimeout(resolve, 250));
             const fSize = Buffer.byteLength(file.body);
             if (fSize > 12000 && ticker.length < 6) {
               const sentMessage = await message.channel.send(
@@ -162,6 +163,7 @@ export const StockCharts: ICommand = {
     ticker = getTicker(ticker);
 
     const image = await got(`https://stockcharts.com/c-sc/sc?s=${encodeURI(ticker)}&p=D&b=5&g=0&i=t7180212229c&r=1630253926270.png`, { retry: { limit: 2 } });
+	await new Promise(resolve => setTimeout(resolve, 250));
 	const fSize = Buffer.byteLength(image.body);
 	if (fSize > 12000) {
       const sentMessage = await message.channel
@@ -193,6 +195,7 @@ export const HeatMap: ICommand = {
   trigger: (msg: Message) => msg.content.startsWith('!hm'),
   command: async (message: Message) => {
     const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`, { retry: { limit: 2 } });
+    await new Promise(resolve => setTimeout(resolve, 250));
     await message.channel.send({files: [{attachment: image.rawBody, name: 'heatmap.png'}]});
   },
 };
