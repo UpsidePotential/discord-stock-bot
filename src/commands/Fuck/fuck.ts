@@ -498,6 +498,7 @@ export const HurfCommand: ICommand = {
             line1 = lines1[Math.floor(Math.random() * lines1.length)];
         }
       }
+      await new Promise(resolve => setTimeout(resolve, 250));
       await message.reply(line1);
     } else {
         let images = [

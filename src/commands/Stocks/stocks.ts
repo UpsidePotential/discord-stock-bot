@@ -126,8 +126,13 @@ export const StocksCommand: ICommand = {
         if (rawOptions.find((v) => v === 'moon')) {
           await drawMoon(imgFile, message);
         } else {
-          const file = await got(imgFile, { retry: { limit: 2 } });
-          await new Promise(resolve => setTimeout(resolve, 250));
+          let file = await got(imgFile);
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+          if (!file.body || file.body.length === 0) {
+            file = await got(imgFile);
+          }
+          
             const fSize = Buffer.byteLength(file.body);
             if (fSize > 12000 && ticker.length < 6) {
               const sentMessage = await message.channel.send(
