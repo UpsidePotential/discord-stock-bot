@@ -881,7 +881,7 @@ export const PopCommand: ICommand = {
   // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
   trigger: (msg: Message) => (msg.author.id === '176191178285383680'),
   command: async (message: Message) => {
-  	let i_rand =  Math.floor(Math.random() * 100);
+  	let i_rand =  Math.floor(Math.random() * 250);
 		if (message.content.includes('LOL')) {
 			if (i_rand < 80) {
 				await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
