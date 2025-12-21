@@ -877,7 +877,9 @@ export const PopCommand: ICommand = {
   name: 'Lol',
   helpDescription: 'Lol',
   showInHelp: false,
-  trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
+  // RIP to the OG, time to pass the torch of tooter lolz
+  // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
+  trigger: (msg: Message) => (msg.author.id === '176191178285383680'),
   command: async (message: Message) => {
   	let i_rand =  Math.floor(Math.random() * 100);
 		if (message.content.includes('LOL')) {
@@ -928,7 +930,8 @@ export const RootootCommand: ICommand = {
   		"./src/commands/Fuck/images/root3.png",
   		//"./src/commands/Fuck/images/root4.png",
   		"./src/commands/Fuck/images/root5.png",
-		"./src/commands/Fuck/images/root6.gif",
+		  "./src/commands/Fuck/images/root6.gif",
+		  "./src/commands/Fuck/images/root7.jpg",
   		];
 
 	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
