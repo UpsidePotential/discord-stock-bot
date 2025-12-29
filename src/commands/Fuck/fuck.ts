@@ -881,13 +881,13 @@ export const PopCommand: ICommand = {
   // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
   trigger: (msg: Message) => (msg.author.id === '176191178285383680'),
   command: async (message: Message) => {
-  	let i_rand =  Math.floor(Math.random() * 250);
+  	let i_rand =  Math.floor(Math.random() * 500);
 		if (message.content.includes('LOL')) {
-			if (i_rand < 80) {
+			if (i_rand < 50) {
 				await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
 			}
 		} else {
-			const cooldown = 6 * 60 * 60 * 1000; //6 hours
+			const cooldown = 18 * 60 * 60 * 1000; //6 hours
 			if ((Date.now() - lolclockcheck) < cooldown) {
 				return Promise.resolve();
 			}
