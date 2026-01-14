@@ -31,7 +31,7 @@ export const getFinvizEventsTable = async (
 	  });
 	  return true;
   }); */
-  $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(1) > table > tbody > tr').each((index, element) => {
+  $('#js-homepage_bottom > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td.align-top > table > tbody > tr').each((index, element) => {
     const tds = $(element).find('td');
     const tableRow: any = {};
     $(tds).each((i, tdElement) => {
