@@ -28,7 +28,7 @@ export const InfoCommand: ICommand = {
 		   // Error 50035 corresponds to empty field being sent to channel
 		   if (error.code == 50035) {
 			    message.channel.send("Someone finally got off their ass and put in an error catch.\n\
-		      !info broke. Blank field returned. It'll get fixed soon.");
+		      !info command broke. Blank field returned. It'll get fixed soon.");
 		   }
 	  });
     return Promise.resolve();
