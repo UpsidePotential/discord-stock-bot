@@ -291,12 +291,11 @@ export const ShitlordCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!shitlord'),
   command: async (message: Message) => {
-    let i_rand =  Math.floor(Math.random() * 100);
-    if (i_rand < 50) {
-		await message.reply({ files : ["./src/commands/Fuck/images/shit1.png"] })
-	} else {
-	    await message.reply("$jepi")
-	}
+    let images = [
+  		"./src/commands/Fuck/images/shitlord1.png",
+  		"./src/commands/Fuck/images/shitlord2.png",
+  		];
+	  	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
     return Promise.resolve();
   },
 };
@@ -879,7 +878,7 @@ export const PopCommand: ICommand = {
   showInHelp: false,
   // RIP to the OG, time to pass the torch of tooter lolz
   // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
-  trigger: (msg: Message) => (msg.author.id === '176191178285383680'),
+  trigger: (msg: Message) => (msg.author.id === '76191178285383680'),
   command: async (message: Message) => {
   	let i_rand =  Math.floor(Math.random() * 500);
 		if (message.content.includes('LOL')) {
@@ -1072,6 +1071,7 @@ export const JowsCommand: ICommand = {
     let images = [
   		"./src/commands/Fuck/images/jows1.png",
   		"./src/commands/Fuck/images/jows2.png",
+        "./src/commands/Fuck/images/jows3.png",
   		];
 
 	await message.reply({ files : [images[Math.floor(Math.random() * images.length)]] });
