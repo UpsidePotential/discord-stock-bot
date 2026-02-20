@@ -878,7 +878,7 @@ export const PopCommand: ICommand = {
   showInHelp: false,
   // RIP to the OG, time to pass the torch of tooter lolz
   // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
-  trigger: (msg: Message) => (msg.author.id === '76191178285383680'),
+  trigger: (msg: Message) => (msg.author.id === '176191178285383680'),
   command: async (message: Message) => {
   	let i_rand =  Math.floor(Math.random() * 500);
 		if (message.content.includes('LOL')) {
