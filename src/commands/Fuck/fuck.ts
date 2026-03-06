@@ -478,27 +478,49 @@ export const HurfCommand: ICommand = {
     const hasArg = args.length > 1 && args[1].trim() !== '';
     // Custom !hurf search if argument is passed
     if (hasArg) {
-      const fs1 = require('fs');
-      const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
-      const lines1 = fileContent1.split('\n')
-
       const arg = args[1].toLowerCase();
-      let line1;
-      
-      const entireWord = new RegExp(`\\b${arg}\\b`, 'i');
-      const match = lines1.filter((line: string) => entireWord.test(line.toLowerCase()));
-      if (match.length > 0) {
-        line1 = match[Math.floor(Math.random() * match.length)];
-      } else {
-        const match = lines1.filter((line: string) => line.toLowerCase().includes(arg));
+      let line1: string | undefined;
+
+      // 50% chance to try Claude-powered HurfBot API
+      if (Math.random() < 0.5) try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+        const response = await fetch('http://137.184.18.74:3422/hurf', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ keyword: arg }),
+          signal: controller.signal,
+        });
+        clearTimeout(timeout);
+        if (response.ok) {
+          const data = await response.json() as { phrase: string };
+          line1 = data.phrase;
+        }
+      } catch (err) {
+        console.error('HurfBot API unavailable, falling back to static file:', err);
+      }
+
+      // Fall back to static file if API failed
+      if (!line1) {
+        const fs1 = require('fs');
+        const fileContent1 = fs1.readFileSync('./src/commands/Fuck/images/hurfGPT_lite.txt', 'utf-8');
+        const lines1 = fileContent1.split('\n');
+        const entireWord = new RegExp(`\\b${arg}\\b`, 'i');
+        const match = lines1.filter((line: string) => entireWord.test(line.toLowerCase()));
         if (match.length > 0) {
-            line1 = match[Math.floor(Math.random() * match.length)];
+          line1 = match[Math.floor(Math.random() * match.length)];
         } else {
+          const match2 = lines1.filter((line: string) => line.toLowerCase().includes(arg));
+          if (match2.length > 0) {
+            line1 = match2[Math.floor(Math.random() * match2.length)];
+          } else {
             line1 = lines1[Math.floor(Math.random() * lines1.length)];
+          }
         }
       }
+
       await new Promise(resolve => setTimeout(resolve, 250));
-      await message.reply(line1);
+      await message.reply(line1!);
     } else {
         let images = [
   		"./src/commands/Fuck/images/hurf.png",
