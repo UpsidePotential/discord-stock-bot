@@ -531,10 +531,10 @@ export const MomoDashCommand: ICommand = {
         },
       );
 	  
-	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/stockbee_tab.png?raw=true`);
+	const image2 = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/stockbee_tab.png`);
 	await message.channel.send({files: [image2.rawBody]});
     
-  const image3 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/market_tab3.png?raw=true`);
+  const image3 = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/market_tab3.png`);
 	await message.channel.send({files: [image3.rawBody]});
   
   } catch(e)
@@ -587,9 +587,9 @@ export const VRPCommand: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!vrp'),
   command: async (message: Message, services: any) => {
-	const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/3_1_IV_contango.png?raw=true`);
+	const image = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/Figs/3_1_IV_contango.png`);
 	await message.channel.send({files: [image.rawBody]});
-	const image2 = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/VRPremia.png?raw=true`);
+	const image2 = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/Figs/VRPremia.png`);
 	await message.channel.send({files: [image2.rawBody]});
 	return Promise.resolve();
   },
