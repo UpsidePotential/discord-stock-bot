@@ -199,7 +199,7 @@ export const HeatMap: ICommand = {
   showInHelp: true,
   trigger: (msg: Message) => msg.content.startsWith('!hm'),
   command: async (message: Message) => {
-    const image = await got(`https://github.com/Poppingfresh/CoT_Repo/blob/main/Figs/hm.png?raw=true`, { retry: { limit: 2 } });
+    const image = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/Figs/hm.png`, { retry: { limit: 2 } });
     await new Promise(resolve => setTimeout(resolve, 250));
     await message.channel.send({files: [{attachment: image.rawBody, name: 'heatmap.png'}]});
   },
