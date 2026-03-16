@@ -476,8 +476,6 @@ export const VolSheetCommand: ICommand = {
   try{
     const image2 = await got(`${process.env.MARKET_DASHBOARD_URI}/volSheetMain`);
 	  await message.channel.send({files: [image2.rawBody]});
-    //const image = await got(`https://raw.githubusercontent.com/Poppingfresh/CoT_Repo/refs/heads/main/lov.png`);
-	  //await message.channel.send({files: [image.rawBody]});
   } catch(e)
   {
     console.error(e);
