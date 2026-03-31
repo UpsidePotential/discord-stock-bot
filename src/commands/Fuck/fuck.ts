@@ -900,16 +900,17 @@ export const PopCommand: ICommand = {
   // RIP to the OG, time to pass the torch of tooter lolz
   // trigger: (msg: Message) => (msg.author.id === '138980525225279488'),
   // Anyone can trigger, but the primary target gets weighted higher odds
-  trigger: (msg: Message) => (!msg.author.bot),
+  trigger: (msg: Message) => true,
   command: async (message: Message) => {
+  	if (message.author.bot) return;
   	const PRIMARY_TARGET = '176191178285383680';
   	const isPrimaryTarget = message.author.id === PRIMARY_TARGET;
-  	// Primary target keeps original 1-in-500 odds, everyone else gets 1-in-5000
-  	const pool = isPrimaryTarget ? 500 : 5000;
+  	// Primary target keeps original 1-in-500 odds, everyone else gets 1-in-2000
+  	const pool = isPrimaryTarget ? 500 : 2000;
   	let i_rand = Math.floor(Math.random() * pool);
 		if (message.content.includes('LOL')) {
-			// Primary target: 10% chance (50/500), everyone else: 1% chance (5/5000)
-			const threshold = isPrimaryTarget ? 50 : 5;
+			// Primary target: 10% chance (50/500), everyone else: 2.5% chance (50/2000)
+			const threshold = 50;
 			if (i_rand < threshold) {
 				await message.reply({ files : ["./src/commands/Fuck/images/yawn.gif"] })
 			}
@@ -918,7 +919,7 @@ export const PopCommand: ICommand = {
 			if ((Date.now() - lolclockcheck) < cooldown) {
 				return Promise.resolve();
 			}
-			// Odds scale with the pool: 1/500 for primary, 1/5000 for everyone else
+			// Odds scale with the pool: 1/500 for primary, 1/2000 for everyone else
 			if (i_rand == 22) {
 				await message.reply("LOL");
 				lolclockcheck = Date.now();
