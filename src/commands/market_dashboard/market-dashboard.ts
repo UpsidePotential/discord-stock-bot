@@ -110,7 +110,7 @@ export const DressingCommand: ICommand = {
   command: async (message: Message, services: any) => {
   let ticker = "SPY";
   let start_date = "2010-01-01"
-  let end_date = "2023-01-01"
+  let end_date = "2026-01-01"
   const args = message.content.toLowerCase().split(' ');
   if(args.length == 2)
   {
