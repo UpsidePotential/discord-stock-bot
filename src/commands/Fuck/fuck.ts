@@ -973,11 +973,16 @@ export const BootmanjCommand: ICommand = {
   showInHelp: false,
   trigger: (msg: Message) => (msg.content.toLocaleLowerCase() === '!bootmanj'),
   command: async (message: Message) => {
-	const fs = require('fs')
-	const fileContent = fs.readFileSync('./src/commands/Fuck/images/bootmanj.txt', 'utf-8');
-	const lines = fileContent.split('\n');
-	const line = lines[Math.floor(Math.random() * lines.length)]
-	await message.reply(line)
+	let i_rand = Math.floor(Math.random() * 100);
+	if (i_rand < 30) {
+		await message.reply({ files : ["./src/commands/Fuck/images/bootmanj1.png"] })
+	} else {
+		const fs = require('fs')
+		const fileContent = fs.readFileSync('./src/commands/Fuck/images/bootmanj.txt', 'utf-8');
+		const lines = fileContent.split('\n');
+		const line = lines[Math.floor(Math.random() * lines.length)]
+		await message.reply(line)
+	}
     return Promise.resolve();
   },
 };
